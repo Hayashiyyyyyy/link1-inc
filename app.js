@@ -39,3 +39,39 @@
   /* 保険：何らかの理由で監視が働かなくても、必ず表示する */
   window.setTimeout(showAll, 2000);
 }());
+
+/* スマホのメニュー開閉（三本線ボタン） */
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('gnav');
+  if (!toggle || !nav) { return; }
+
+  var setOpen = function (open) {
+    nav.classList.toggle('is-open', open);
+    toggle.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  };
+
+  toggle.addEventListener('click', function () {
+    setOpen(!nav.classList.contains('is-open'));
+  });
+
+  /* リンクを選んだら閉じる */
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { setOpen(false); }
+  });
+
+  /* Escキーで閉じる */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+
+  /* 画面幅が広がったら開閉状態をリセット */
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 600) { setOpen(false); }
+  }, { passive: true });
+}());

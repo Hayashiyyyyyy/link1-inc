@@ -28,11 +28,12 @@
       <span class="brand__mark" aria-hidden="true"></span>
       <span class="brand__name"><b>LINK ONE</b><small>リンクワン株式会社</small></span>
     </a>
-    <nav class="site-nav" aria-label="メインメニュー">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><i aria-hidden="true"></i><span>MENU</span></button>
+    <nav class="site-nav" id="gnav" aria-label="メインメニュー">
       <a href="index.html">ホーム</a>
       <a href="service.html" aria-current="page">事業内容</a>
-      <a href="works.html">実績・取り組み</a>
       <a href="company.html">会社概要</a>
+      <a class="nav-contact" href="contact.html">お問い合わせ</a>
     </nav>
     <div class="head-cta">
       <a class="btn-sm solid" href="contact.html">お問い合わせ</a>
@@ -281,17 +282,7 @@
         <h2>費用の考え方</h2>
         <p class="sub">講義・イベント案件は、内容・規模・会場条件によって変動するため、ヒアリング後にお見積りをご提示します。</p>
       </div>
-      <div class="tbl-wrap">
-        <table class="info tbd">
-          <tbody>
-            <tr><th scope="row">単発講義</th><td>◯◯,000円〜<small>90分／交通費別途</small></td></tr>
-            <tr><th scope="row">通年カリキュラム設計</th><td>要相談<small>コマ数・設計範囲により変動</small></td></tr>
-            <tr><th scope="row">イベント企画のみ</th><td>◯◯◯,000円〜<small>企画書・要項・台本の作成まで</small></td></tr>
-            <tr><th scope="row">イベント企画＋当日運営</th><td>◯◯◯,000円〜<small>規模・スタッフ人数により変動</small></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="note-tbd"><span class="badge-tbd">要差し替え</span>　上記の金額はレイアウト確認用のダミーです。実際の価格帯、または「すべて要相談」とするかをご指定ください。価格を出さない方針であれば、このセクションは削除して「お見積りは無料です」の一文に置き換えます。</p>
+      <p class="lede">お見積りは無料です。ご相談の内容をうかがったうえで、規模・日数・体制に応じた金額を個別にご提示します。交通費や機材費などの実費が発生する場合は、見積書に明記します。</p>
     </div>
   </section>
 
@@ -333,7 +324,6 @@
         <h3>Company</h3>
         <a href="company.html">会社概要</a>
         <a href="company.html#message">代表メッセージ</a>
-        <a href="works.html">実績・取り組み</a>
       </nav>
       <nav class="foot-col" aria-label="お問い合わせ">
         <h3>Contact</h3>

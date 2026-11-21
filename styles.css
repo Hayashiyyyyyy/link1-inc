@@ -623,3 +623,57 @@ html{scroll-behavior:smooth}
   table.info td{border-bottom:0;padding:0 16px 16px;font-size:14.5px}
   table.info td small{margin-top:6px}
 }
+
+/* ============================================================
+   スマホ：メニューボタン（三本線）で開閉
+   ============================================================ */
+.nav-toggle{display:none}
+
+@media(max-width:600px){
+  .nav-toggle{
+    display:inline-flex;align-items:center;gap:8px;order:2;
+    background:var(--white);border:1px solid var(--line-2);color:var(--navy);
+    padding:10px 13px;cursor:pointer;
+    font-family:var(--f-lat);font-size:10.5px;font-weight:700;letter-spacing:.14em;
+    transition:background-color .25s ease,border-color .25s ease;
+  }
+  .nav-toggle:hover{background:var(--blue-lite);border-color:var(--blue)}
+  .nav-toggle i{
+    display:block;width:17px;height:1.6px;background:var(--navy);position:relative;
+    transition:background-color .2s ease;
+  }
+  .nav-toggle i::before,.nav-toggle i::after{
+    content:"";position:absolute;left:0;width:17px;height:1.6px;background:var(--navy);
+    transition:transform .28s cubic-bezier(.22,.61,.36,1);
+  }
+  .nav-toggle i::before{top:-5.5px}
+  .nav-toggle i::after{top:5.5px}
+  .nav-toggle.is-open i{background:transparent}
+  .nav-toggle.is-open i::before{transform:translateY(5.5px) rotate(45deg)}
+  .nav-toggle.is-open i::after{transform:translateY(-5.5px) rotate(-45deg)}
+  .nav-toggle span{line-height:1}
+
+  .head-cta{order:3;margin-left:8px}
+
+  /* JSが動く環境ではメニューを畳む。動かない環境では常時表示のまま */
+  .js .site-nav{display:none}
+  .js .site-nav.is-open{display:grid;animation:navOpen .28s cubic-bezier(.22,.61,.36,1)}
+  @keyframes navOpen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .site-nav.is-open{animation:none}
+  .nav-toggle i,.nav-toggle i::before,.nav-toggle i::after{transition:none}
+}
+
+/* メニュー内のお問い合わせ（スマホのみ表示） */
+.nav-contact{display:none}
+@media(max-width:600px){
+  .head-cta{display:none}
+  .nav-contact{
+    display:block;background:var(--navy);color:var(--white) !important;font-weight:700;
+    grid-column:1 / -1;border-right:0 !important;
+  }
+  .nav-contact:hover{background:var(--blue);color:var(--white) !important}
+  .nav-contact[aria-current="page"]{box-shadow:none}
+  .nav-toggle{margin-left:auto}
+}

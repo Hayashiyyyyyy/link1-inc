@@ -15,8 +15,8 @@
   --on-navy-dim:#9FB2C5;
   --alert:#C0392B;
   --maxw:1180px;
-  --f-lat:"Archivo","Murecho","Hiragino Kaku Gothic ProN",sans-serif;
-  --f-jp:"Murecho","Hiragino Kaku Gothic ProN","BIZ UDPGothic",sans-serif;
+  --f-lat:"Outfit","M PLUS Rounded 1c","Hiragino Kaku Gothic ProN",sans-serif;
+  --f-jp:"M PLUS Rounded 1c","Hiragino Kaku Gothic ProN","BIZ UDPGothic",sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -994,3 +994,24 @@ section{padding-block:clamp(74px,9vw,112px)}
   .bi-name{font-size:16px}
   .bi-desc{font-size:13px}
 }
+
+/* ==== 2026-11-22 トップ構成変更：事業を主役に ==== */
+.sec-biz .biz-card h3{font-size:19px}
+.flow-title{margin:clamp(56px,7vw,80px) 0 20px;font-size:18px;font-weight:700;color:var(--navy);letter-spacing:.04em}
+.flow-compact li{padding:20px 18px}
+.flow-compact h3{margin:0}
+.flow-note{margin:16px 0 0;font-size:13.5px;color:var(--fg-dim)}
+.flow-note a{color:var(--blue)}
+
+.cta-band{background:var(--navy-2);color:var(--on-navy);padding-block:clamp(64px,8vw,96px)}
+.cta-band .wrap{display:grid;gap:32px;align-items:center}
+@media(min-width:900px){.cta-band .wrap{grid-template-columns:1fr auto;gap:56px}}
+.cta-band__en{margin:0 0 12px;font-family:var(--f-lat);font-size:12px;font-weight:600;letter-spacing:.24em;color:#8FCBF5}
+.cta-band h2{margin:0;font-size:clamp(22px,3vw,30px);line-height:1.6;font-weight:800;color:var(--white);letter-spacing:.04em}
+.cta-band p{margin:14px 0 0;font-size:14.5px;color:var(--on-navy-dim)}
+.cta-band .cta-row{margin:0}
+.cta-band .btn-main{background:var(--white);color:var(--navy);border-color:var(--white)}
+.cta-band .btn-main:hover{background:var(--blue);color:#FFFFFF;border-color:var(--blue)}
+.cta-band .btn-ghost{background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.55)}
+.cta-band .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#FFFFFF}
+.cta-band :focus-visible{outline-color:#FFFFFF}

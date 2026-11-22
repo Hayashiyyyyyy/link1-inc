@@ -39,6 +39,8 @@ body::after{
 .sec-tint,.h-sec--tint{background:var(--paper-veil)}
 .site-head{background:rgba(251,250,246,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 @media(max-width:900px){.site-head{background:rgba(251,250,246,.94)}}
+/* スマホ：すりガラス効果があると全画面メニュー（position:fixed）がヘッダー内に閉じ込められるため外す */
+@media(max-width:600px){.site-head{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--paper)}}
 
 /* カード類：半透明の白で、うっすら紙が透ける */
 .h-points > div,.h-flow li,.svc article,.rec li,.rec li:last-child,.biz-index a,.dl>div,.tbl-wrap{background:var(--paper-card)}

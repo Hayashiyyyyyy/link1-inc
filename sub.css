@@ -288,3 +288,37 @@ table.info th{background:var(--tint);color:var(--navy)}
 .form-msg{margin:14px 0 0;font-size:13px;color:var(--fg-dim)}
 .sec-intro{padding-block:clamp(54px,6vw,82px)}
 .sec-intro .lede{max-width:50em}
+
+.co-ceo{margin-bottom:48px}
+.co-ceo__name{margin:0;font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:.06em;color:var(--navy)}
+.co-ceo__name span{margin-left:14px;font-size:15px;font-weight:700;letter-spacing:.1em;color:var(--blue)}
+.co-ceo__role{margin:10px 0 0;font-size:14.5px;color:var(--fg-dim)}
+.co-ceo__stats{display:grid;grid-template-columns:repeat(3,1fr);margin:32px 0 0;border-top:2px solid var(--navy);border-bottom:1px solid rgba(6,25,79,.16)}
+.co-ceo__stats > div{padding:18px 20px 20px 0}
+.co-ceo__stats > div + div{padding-left:20px;border-left:1px solid rgba(6,25,79,.16)}
+.co-ceo__stats dt{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--fg-dim)}
+.co-ceo__stats dd{margin:6px 0 0;font-family:var(--f-lat);font-weight:700;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--navy)}
+.co-ceo__stats small{margin-left:4px;font-family:var(--f-jp);font-size:13px;font-weight:700}
+.co-ceo__list{margin:24px 0 0;padding:0;list-style:none}
+.co-ceo__list li{position:relative;padding:6px 0 6px 18px;font-size:15px;line-height:1.8;color:var(--fg)}
+.co-ceo__list li::before{content:"";position:absolute;left:0;top:1.05em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+.skill-map{margin:0;border-top:2px solid var(--navy)}
+.skill-map > div{display:grid;grid-template-columns:1fr 24px 1fr;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(6,25,79,.14)}
+.skill-map > div::after{content:"";grid-column:2;grid-row:1;width:9px;height:9px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);transform:rotate(45deg)}
+.skill-map dt{grid-column:1;font-size:15px;color:var(--fg)}
+.skill-map dd{grid-column:3;margin:0;font-size:15px;font-weight:800;color:var(--navy)}
+.skill-note{margin-top:20px;font-size:14.5px}
+
+@media(max-width:600px){
+  .co-ceo__name{font-size:24px}
+  .co-ceo__role{font-size:13px}
+  .co-ceo__stats > div{padding:14px 8px 14px 0}
+  .co-ceo__stats > div + div{padding-left:10px}
+  .co-ceo__stats dt{font-size:10.5px}
+  .co-ceo__stats dd{font-size:24px}
+  .co-ceo__stats small{font-size:11px;margin-left:2px}
+  .co-ceo__list li{font-size:14px}
+  .skill-map > div{gap:10px;padding:12px 0}
+  .skill-map dt,.skill-map dd{font-size:13.5px}
+}

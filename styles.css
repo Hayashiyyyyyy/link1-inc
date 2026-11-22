@@ -786,3 +786,34 @@ html{scroll-behavior:smooth}
   .js .site-nav,.site-nav a,.nav-foot{transition:none !important}
   .site-nav a{opacity:1;transform:none}
 }
+
+/* ============================================================
+   スマホ：フッターはロゴと連絡先のみ。文字まわりを整える
+   ============================================================ */
+@media(max-width:600px){
+  /* リンク列（Business / Company / Contact）は非表示 */
+  .foot-col{display:none}
+  .foot-grid{grid-template-columns:1fr;gap:0}
+  .site-foot{padding-block:48px 30px}
+  .site-foot .brand__name b{font-size:17px;letter-spacing:.1em}
+  .site-foot .brand__name small{font-size:10px;letter-spacing:.16em}
+  .foot-addr{
+    margin-top:22px;font-size:13.5px;line-height:2.2;letter-spacing:.04em;
+    color:rgba(255,255,255,.72);
+  }
+  .foot-addr a{font-size:13.5px}
+  .copy{margin-top:34px;font-size:9.5px;letter-spacing:.18em;color:#7E9ABF}
+
+  /* 文字組みを少しだけ開いて読みやすく */
+  body{letter-spacing:.02em}
+  .hero-full h1{letter-spacing:.05em;line-height:1.55}
+  .hero-full .lede{line-height:2.05;letter-spacing:.03em}
+  .sec-head h2{letter-spacing:.045em;line-height:1.6}
+  .sec-head .sub{line-height:2;letter-spacing:.03em}
+  .statement h2{letter-spacing:.045em;line-height:1.8}
+  .statement p,.points p,.biz-body p,.svc p,.flow p{line-height:2;letter-spacing:.03em}
+  .points h3,.biz-body h3,.svc h3{letter-spacing:.04em;line-height:1.65}
+  .svc li{line-height:1.9;letter-spacing:.02em}
+  table.info td{line-height:1.9;letter-spacing:.03em}
+  .post-body{line-height:2.15;letter-spacing:.03em}
+}

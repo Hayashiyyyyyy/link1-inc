@@ -322,3 +322,16 @@ table.info th{background:var(--tint);color:var(--navy)}
   .skill-map > div{gap:10px;padding:12px 0}
   .skill-map dt,.skill-map dd{font-size:13.5px}
 }
+
+@media(min-width:961px){
+  .theme-company main > section > .wrap{display:grid;grid-template-columns:240px minmax(0,1fr);gap:0 72px;align-items:start}
+  .theme-company .sec-head{position:sticky;top:110px;margin-bottom:0}
+  .theme-company .co-message{grid-template-columns:1fr}
+  .theme-company .co-message__lead{position:static}
+}
+.theme-service main > section:last-child .lede{background:transparent;border-radius:0;padding:24px 0 0;border-top:2px solid var(--navy)}
+@media(min-width:961px){
+  .theme-company main > section > .wrap > :not(.sec-head){grid-column:2}
+  .theme-company .sec-head h2{font-size:26px;white-space:nowrap}
+  .theme-company .co-history{margin-top:40px}
+}

@@ -186,3 +186,11 @@
   .t-ticker__track{animation:none}
   .t-biz a::before{transition:none}
 }
+
+.t-split{display:grid;gap:72px}
+@media(min-width:961px){
+  .t-split{grid-template-columns:1fr 1fr;gap:80px}
+  .t-split .t-works li{grid-template-columns:1fr;gap:6px}
+  .t-split .h-news a{flex-wrap:wrap}
+  .t-split .h-news p{flex-basis:100%}
+}

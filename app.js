@@ -34,7 +34,14 @@
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
   items.forEach(function (el) { io.observe(el); });
-  setTimeout(showAll, 2000);
+
+  // 監視が動かなかった場合の保険：画面内に見えているのに表示されていない要素だけ出す
+  setTimeout(function () {
+    items.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-in');
+    });
+  }, 2000);
 })();
 
 (function () {
@@ -62,9 +69,10 @@
       toggle.focus();
     }
   });
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 600) setOpen(false);
-  }, { passive: true });
+  var wide = window.matchMedia('(min-width: 601px)');
+  function onWide() { if (wide.matches) setOpen(false); }
+  if (wide.addEventListener) wide.addEventListener('change', onWide);
+  else if (wide.addListener) wide.addListener(onWide);
 })();
 
 (function () {

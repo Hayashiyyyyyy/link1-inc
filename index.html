@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" class="p-top p-washi">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2CDEPbBl6sxKOqhaT6Jx4oRXQnRDEptaxOREtysfcRs='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
@@ -12,11 +12,7 @@
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/favicon-180.png">
-<link rel="stylesheet" href="styles.css?v=202611231000">
-<link rel="stylesheet" href="home.css?v=202611231000">
-<link rel="stylesheet" href="washi.css?v=202611232200">
-<link rel="stylesheet" href="top.css?v=202611232210">
-<link rel="stylesheet" href="ui3.css?v=202611240200">
+<link rel="stylesheet" href="site.css?v=202611240400">
 <script>document.documentElement.className += " js"; try { if (sessionStorage.getItem("lo-splash")) { document.documentElement.className += " no-splash"; } else { sessionStorage.setItem("lo-splash", "1"); } } catch (e) {}</script>
 </head>
 <body>
@@ -67,11 +63,28 @@
     </div>
   </div>
 
+  <div class="t-newsbar">
+    <div class="wrap">
+      <p class="t-newsbar__label">News</p>
+      <a class="t-newsbar__item" href="https://obceevents.com/levelupday/" target="_blank" rel="noopener">
+        <time datetime="2026-11-22">2026.11.22</time>
+        <span class="t-newsbar__cat">イベント</span>
+        <span class="t-newsbar__title">「OKAYAMA HIGH SCHOOL ESPORTS CUP 2026 LEVEL UP DAY」に共同開催として参加します</span>
+      </a>
+    </div>
+  </div>
+
   <section class="t-sec">
     <div class="wrap">
-      <div class="t-head">
-        <p class="t-head__en">Business</p>
-        <h2>事業</h2>
+      <div class="t-head t-head--split">
+        <div class="t-head__main">
+          <p class="t-head__en">Business</p>
+          <h2>事業</h2>
+        </div>
+        <div class="t-head__aside">
+          <p>「人をつなぐ」を軸に、教育・イベント・アプリ・配信の4つの事業を行っています。</p>
+          <a class="t-link" href="service.html">事業内容を見る</a>
+        </div>
       </div>
       <ol class="t-biz">
         <li class="reveal">
@@ -110,15 +123,22 @@
           </a>
         </li>
       </ol>
+      <a class="t-link t-more" href="service.html">事業内容を見る</a>
     </div>
   </section>
 
 
   <section class="t-sec">
     <div class="wrap">
-      <div class="t-head">
-        <p class="t-head__en">Strength</p>
-        <h2>リンクワンの特徴</h2>
+      <div class="t-head t-head--split">
+        <div class="t-head__main">
+          <p class="t-head__en">Strength</p>
+          <h2>リンクワンの特徴</h2>
+        </div>
+        <div class="t-head__aside">
+          <p>学校と現場の両方を知る立場から、企画から当日の運営までをひとつの窓口で引き受けます。</p>
+          <a class="t-link" href="company.html">会社概要を見る</a>
+        </div>
       </div>
       <ol class="t-points">
         <li class="reveal"><span class="t-points__no">01</span><h3>教育と現場、両方の言葉がわかる</h3><p>学校が気にする安全や学習効果も、選手が気にする競技性や公平性も、両方わかったうえで組み立てます。</p></li>
@@ -139,42 +159,28 @@
     </div>
   </section>
 
-  <section class="t-sec t-sec--line">
-    <div class="wrap t-split">
-      <div class="t-split__col">
+  <section class="t-sec">
+    <div class="wrap t-side">
       <div class="t-head">
         <p class="t-head__en">Works</p>
         <h2>実績</h2>
       </div>
-      <ol class="t-works">
-        <li class="reveal">
-          <span class="t-works__when"><time datetime="2026-12-13">2026.12.13</time><em>共同開催（予定）</em></span>
-          <p>OKAYAMA HIGH SCHOOL ESPORTS CUP 2026 LEVEL UP DAY</p>
-        </li>
-        <li class="reveal">
-          <span class="t-works__when"><time datetime="2026-09-24">2026.09.24</time><em>授業</em></span>
-          <p>専門学校でのeスポーツキャリア授業</p>
-        </li>
-        <li class="reveal">
-          <span class="t-works__when"><em>講演</em></span>
-          <p>TSUNABeeeeee！esports高等学院 オープンスクール</p>
-        </li>
-      </ol>
-      </div>
-      <div class="t-split__col">
-      <div class="t-head">
-        <p class="t-head__en">News</p>
-        <h2>お知らせ</h2>
-      </div>
-      <ul class="h-news">
-        <li>
-          <a href="https://obceevents.com/levelupday/" target="_blank" rel="noopener">
-            <time datetime="2026-11-22">2026.11.22</time>
-            <span class="h-news__cat">イベント</span>
-            <p>12月13日（日）開催「OKAYAMA HIGH SCHOOL ESPORTS CUP 2026 LEVEL UP DAY」に共同開催として参加します</p>
-          </a>
-        </li>
-      </ul>
+      <div class="t-side__body">
+        <ol class="t-works">  
+          <li class="reveal">
+            <span class="t-works__when"><time datetime="2026-12-13">2026.12.13</time><em>共同開催（予定）</em></span>
+            <p>OKAYAMA HIGH SCHOOL ESPORTS CUP 2026 LEVEL UP DAY</p>
+          </li>
+          <li class="reveal">
+            <span class="t-works__when"><time datetime="2026-09-24">2026.09.24</time><em>授業</em></span>
+            <p>専門学校でのeスポーツキャリア授業</p>
+          </li>
+          <li class="reveal">
+            <span class="t-works__when"><em>講演</em></span>
+            <p>TSUNABeeeeee！esports高等学院 オープンスクール</p>
+          </li>
+        </ol>
+        <a class="t-link" href="service.html#lecture">登壇実績・開催予定を見る</a>
       </div>
     </div>
   </section>

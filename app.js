@@ -104,3 +104,16 @@
     }
   });
 })();
+
+(function () {
+  var blocks = document.querySelectorAll('details.biz-more');
+  if (!blocks.length) return;
+  var wide = window.matchMedia('(min-width: 601px)');
+
+  function sync() {
+    if (!wide.matches) return;
+    blocks.forEach(function (d) { d.open = true; });
+  }
+  sync();
+  wide.addEventListener('change', sync);
+})();

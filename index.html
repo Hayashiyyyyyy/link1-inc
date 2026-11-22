@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2CDEPbBl6sxKOqhaT6Jx4oRXQnRDEptaxOREtysfcRs='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +14,16 @@
 <link rel="apple-touch-icon" href="img/favicon-180.png">
 <link rel="stylesheet" href="styles.css?v=202611231000">
 <link rel="stylesheet" href="home.css?v=202611231000">
-<link rel="stylesheet" href="washi.css?v=202611231430">
-<script>document.documentElement.className += " js";</script>
+<link rel="stylesheet" href="washi.css?v=202611231620">
+<script>document.documentElement.className += " js"; try { if (sessionStorage.getItem("lo-splash")) { document.documentElement.className += " no-splash"; } else { sessionStorage.setItem("lo-splash", "1"); } } catch (e) {}</script>
 </head>
 <body>
+<div class="splash" aria-hidden="true">
+  <div class="splash__logo">
+    <img src="img/logo-mark.png" alt="" width="1012" height="604">
+    <span>LINK ONE</span>
+  </div>
+</div>
 <a class="skip" href="#main">本文へスキップ</a>
 <header class="site-head">
   <div class="wrap">
@@ -271,6 +277,6 @@
 </footer>
 
 <a class="pagetop" href="#top" aria-label="ページ上部へ戻る"></a>
-<script src="app.js?v=202611231000" defer></script>
+<script src="app.js?v=202611231600" defer></script>
 </body>
 </html>

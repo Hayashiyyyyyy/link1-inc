@@ -471,7 +471,7 @@ html{scroll-behavior:smooth}
   content:"";width:11px;height:11px;border-left:2px solid #FFFFFF;border-top:2px solid #FFFFFF;
   transform:rotate(45deg) translate(2px,2px);
 }
-@media(min-width:1180px){.pagetop{right:62px}.kv-tag{right:62px}}
+@media(min-width:1180px){.pagetop{right:24px}}
 
 /* ============================================================
    仕上げ：読み込み演出・リンク記号・特徴リスト・アクセシビリティ
@@ -737,3 +737,6 @@ html{scroll-behavior:smooth}
   .site-foot{padding-block:44px 28px}
   .copy{margin-top:30px}
 }
+
+/* 右端の固定CTAは廃止 */
+.side-cta{display:none !important}

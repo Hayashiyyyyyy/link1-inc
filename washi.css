@@ -47,3 +47,90 @@ body::after{
 table.info{background:transparent}
 table.info th{background:rgba(242,245,248,.7)}
 .h-news a:hover{background:rgba(232,242,253,.6)}
+
+/* ============================================================
+   文字組み（全ページ）：日本語を文節で改行し、行末の1文字残りを防ぐ
+   ============================================================ */
+body{line-break:strict;overflow-wrap:anywhere}
+h1,h2,h3,h4,p,li,dd,dt,label,.bi-name,.bi-desc,.h-tile__jp,.jt-show__catch{word-break:auto-phrase}
+p,li,dd{text-wrap:pretty}
+h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
+.h-news p,.rec h4{overflow-wrap:anywhere}
+
+/* ============================================================
+   スマホ（〜600px）の見やすさ調整
+   ============================================================ */
+@media(max-width:600px){
+  /* 余白を少し詰めて、1画面の情報量を確保 */
+  .home section,section{padding-block:64px}
+  .home .h-msg{padding-block:84px}
+  .home .h-kv{padding-block:16px 0}
+  .home .h-sec--tiles{padding-bottom:0}
+  .h-head{margin-bottom:32px}
+  .h-head__en{font-size:44px}
+  .sec-en{font-size:42px}
+  .h-head__sub,.sec-head .sub{font-size:15px;line-height:1.95}
+
+  /* KV */
+  .h-kv__panel{padding:44px 24px 52px;border-radius:24px}
+  .h-kv h1{font-size:38px;line-height:1.35}
+  .h-kv__en{font-size:11px;letter-spacing:.18em;margin-bottom:14px}
+  .h-kv__lede{font-size:14.5px;line-height:1.95;margin-top:20px}
+  .h-btns{margin-top:26px;gap:10px}
+  .h-kv__big{font-size:17vw;margin-top:-.3em;white-space:nowrap}
+  .h-dot--cyan{width:84px;right:-18px;top:-18px}
+  .h-dot--gold{right:20%;top:12%}
+
+  /* 事業（トップ） */
+  .h-biz{gap:56px}
+  .h-biz__row{gap:20px}
+  .h-biz__no{font-size:36px}
+  .h-biz__en{font-size:28px}
+  .h-biz__txt h3{font-size:19px;margin-top:8px}
+  .h-biz__txt p:not(.h-biz__en){margin:14px 0 22px;font-size:14.5px;line-height:1.95}
+
+  /* メッセージ */
+  .h-msg__lead{font-size:22px;line-height:1.65}
+  .h-msg__txt > p:not(.h-msg__lead){font-size:14.5px;line-height:2}
+  .h-msg__shape{clip-path:polygon(0 4%,100% 0,100% 96%,0 100%)}
+
+  /* 特徴・流れ */
+  .h-points > div{padding:24px 22px;border-radius:18px}
+  .h-points__no{font-size:28px}
+  .h-points h3{font-size:17px;margin:12px 0 10px}
+  .h-points p{font-size:14.5px}
+  .h-flow{flex-direction:column;align-items:stretch}
+  .h-flow li{padding:10px 18px 10px 10px}
+
+  /* タイル */
+  .h-tiles{gap:12px}
+  .h-tile{aspect-ratio:16/7;border-radius:18px}
+  .h-tile__en{font-size:26px;right:16px;top:16px}
+  .h-tile__jp{left:20px;bottom:18px;font-size:15px}
+
+  /* お知らせ */
+  .h-news a{padding:20px 4px;gap:8px 12px}
+  .h-news p{flex-basis:100%;font-size:14.5px}
+
+  /* 下層のページ見出し */
+  .page-head .wrap > *{padding-inline:24px}
+  .page-head .wrap > :first-child{padding-top:40px}
+  .page-head .wrap > :last-child{padding-bottom:44px}
+  .page-head .eyebrow{font-size:42px}
+  .page-head h1{font-size:17px;letter-spacing:.1em}
+  .page-head .wrap::after{width:72px;top:-14px}
+
+  /* カード類 */
+  .svc article,.rec li,.rec li:last-child{padding:24px 20px;border-radius:18px}
+  .notice{padding:18px 20px;font-size:14px}
+  .jt-show{padding:32px 22px 36px;border-radius:24px;gap:28px}
+  .jt-show__catch{font-size:26px}
+
+  /* 事業内容：イベント詳細の項目を読みやすく */
+  .rec dl{grid-template-columns:1fr;gap:2px}
+  .rec dd{margin-bottom:10px}
+
+  /* フォーム */
+  .contact-grid--center form{padding:24px 18px;border-radius:22px}
+  .field input,.field textarea,.field select{font-size:16px}  /* iPhoneで入力時に拡大されないように */
+}

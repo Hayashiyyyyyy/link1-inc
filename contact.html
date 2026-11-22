@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +12,10 @@
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/favicon-180.png">
-<link rel="stylesheet" href="styles.css?v=202611222200">
-<link rel="stylesheet" href="home.css?v=202611230700">
-<link rel="stylesheet" href="sub.css?v=202611230700">
-<link rel="stylesheet" href="washi.css?v=202611230700">
+<link rel="stylesheet" href="styles.css?v=202611231000">
+<link rel="stylesheet" href="home.css?v=202611231000">
+<link rel="stylesheet" href="sub.css?v=202611231000">
+<link rel="stylesheet" href="washi.css?v=202611231000">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body class="theme-contact">
@@ -41,7 +41,7 @@
   <div class="wrap">
     <p class="eyebrow">Contact</p>
     <h1>お問い合わせ</h1>
-    <p class="lede">講義のご依頼、イベント・大会のご相談、事業に関するお問い合わせを承っています。内容が固まっていない段階でも構いません。通常2営業日以内にご返信します。</p>
+    <p class="lede">講義・イベントのご依頼や、事業についてのご相談はこちらから。内容が固まっていなくても大丈夫です。通常2営業日以内にご返信します。</p>
   </div>
 </div>
 <nav class="crumb" aria-label="パンくずリスト">
@@ -52,9 +52,9 @@
     <div class="wrap">
       <div class="contact-grid contact-grid--center">
         <div>
-          <div class="sec-head" style="margin-bottom:26px">
+          <div class="sec-head">
             <p class="sec-en">Form</p>
-        <h2>フォームからのお問い合わせ</h2>
+            <h2>フォームからのお問い合わせ</h2>
           </div>
           <form id="contact-form" action="mailto:r.maeda@link1-inc.com" method="post" enctype="text/plain">
             <div class="field">
@@ -92,9 +92,9 @@
               <label for="f-body">ご相談内容<span class="req">必須</span></label>
               <textarea id="f-body" name="body" required placeholder="対象者、想定人数、会場、ご予算など、わかる範囲でお知らせください。"></textarea>
             </div>
-            <button class="btn btn-main" type="submit" style="width:100%;justify-content:center">メールで送信する</button>
-            <p id="form-msg" aria-live="polite" style="margin:14px 0 0;font-size:13px;color:var(--fg-dim)">
-              ボタンを押すと、入力内容が入った状態でメールアプリが開きます。内容をご確認のうえ送信してください。送信いただいた内容は、お問い合わせへの回答のみに利用します。
+            <button class="btn btn-main form-submit" type="submit">メールで送信する</button>
+            <p id="form-msg" class="form-msg" aria-live="polite">
+              ボタンを押すと、入力内容が入ったメールが開きます。確認してそのまま送信してください。いただいた内容は、お問い合わせへの回答にのみ使います。
             </p>
           </form>
         </div>
@@ -141,6 +141,6 @@
 
 <a class="pagetop" href="#top" aria-label="ページ上部へ戻る"></a>
 
-<script src="app.js?v=202611230700" defer></script>
+<script src="app.js?v=202611231000" defer></script>
 </body>
 </html>

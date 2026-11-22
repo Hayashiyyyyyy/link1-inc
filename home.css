@@ -1,7 +1,3 @@
-/* ============================================================
-   トップページ専用（2026-11-22 リニューアル）
-   ロゴのグラデーション（ネイビー→ブルー→シアン）＋ゴールドの差し色
-   ============================================================ */
 :root{
   --gold:#C9A24B;
   --gold-bright:#E3BC5C;
@@ -11,7 +7,6 @@
 .home .sp{display:none}
 @media(max-width:600px){.home .sp{display:inline}.home .pc{display:none}}
 
-/* ---- pill button ---- */
 .h-pill{
   display:inline-flex;align-items:center;justify-content:center;gap:12px;
   min-height:48px;padding:12px 30px;border-radius:999px;
@@ -28,7 +23,6 @@
 .h-pill--line:hover{background:rgba(255,255,255,.14);color:var(--white);border-color:var(--white)}
 .h-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 
-/* ---- section head：大きな英字＋日本語 ---- */
 .home section{padding-block:clamp(80px,10vw,128px)}
 .h-sec--tint{background:var(--tint)}
 .h-head{margin-bottom:clamp(40px,5vw,64px)}
@@ -47,7 +41,6 @@
 .h-head--light .h-head__jp{color:var(--white)}
 .h-head--light .h-head__jp::before{background:var(--gold-bright)}
 
-/* ---- KV ---- */
 .home .h-kv{padding-block:clamp(20px,3vw,36px) 0;background:var(--white);overflow:hidden}
 .h-kv__panel{
   position:relative;overflow:hidden;border-radius:clamp(20px,3vw,36px);
@@ -71,7 +64,6 @@
   position:relative;z-index:3;
 }
 
-/* ---- Business：大きく交互に ---- */
 .h-biz{display:flex;flex-direction:column;gap:clamp(56px,8vw,112px)}
 .h-biz__row{display:grid;gap:28px;align-items:center}
 @media(min-width:860px){
@@ -100,7 +92,6 @@
 .h-biz__txt p:not(.h-biz__en){margin:18px 0 28px;font-size:15px;line-height:2.05;color:var(--fg-dim);max-width:34em}
 .h-badge{display:inline-block;margin-top:12px;padding:4px 14px;border-radius:999px;font-size:11.5px;font-weight:700;letter-spacing:.1em;color:#6B5212;background:#F6EBCB}
 
-/* ---- Message：斜めの色面 ---- */
 .home .h-msg{position:relative;overflow:hidden;background:var(--white);padding-block:clamp(96px,12vw,160px)}
 .h-msg__shape{
   position:absolute;inset:0;background:var(--grad);
@@ -115,7 +106,6 @@
 .h-msg__lead{margin:0 0 24px;font-size:clamp(24px,3.4vw,38px);font-weight:800;line-height:1.6;color:var(--white);letter-spacing:.03em}
 .h-msg__txt > p:not(.h-msg__lead){margin:0 0 36px;font-size:15.5px;line-height:2.1}
 
-/* ---- Strength ---- */
 .h-points{display:grid;gap:20px}
 @media(min-width:760px){.h-points{grid-template-columns:1fr 1fr;gap:24px}}
 .h-points > div{background:var(--white);border-radius:22px;padding:clamp(28px,3vw,40px)}
@@ -132,7 +122,6 @@
 .h-flow li:last-child span{background:var(--gold);color:var(--navy)}
 .h-flow__note{margin:16px 0 0;font-size:13.5px;color:var(--fg-dim)}
 
-/* ---- Tiles（縦書き英字） ---- */
 .home .h-sec--tiles{padding-block:clamp(80px,10vw,128px) 0}
 .h-tiles{display:grid;gap:18px}
 @media(min-width:720px){.h-tiles{grid-template-columns:repeat(3,1fr);gap:24px}}
@@ -161,7 +150,6 @@
 .h-tile:hover .h-tile__jp::after{transform:translateX(4px)}
 @media(max-width:719px){.h-tile{aspect-ratio:16/8}}
 
-/* ---- News ---- */
 .h-news{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .h-news a{
   display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;padding:26px 8px;
@@ -172,7 +160,6 @@
 .h-news__cat{padding:3px 14px;border-radius:999px;font-size:11.5px;font-weight:700;color:var(--white);background:var(--blue)}
 .h-news p{margin:0;flex:1 1 300px;font-size:15px;line-height:1.8}
 
-/* ---- focus（濃い面の上） ---- */
 .h-kv :focus-visible,.h-msg :focus-visible,.h-tile:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
 
 @media(max-width:600px){
@@ -182,7 +169,6 @@
   .h-biz__txt .h-pill{width:100%}
 }
 
-/* ---- じもとーく：開発中のアプリ画面を見せる ---- */
 .h-biz__phones{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;width:100%;padding-top:4%}
 .h-biz__phones img{width:30%;height:auto;border-radius:16px;border:5px solid #0C1224;box-shadow:0 18px 36px rgba(3,10,40,.4)}
 .h-biz__phones img:first-child{transform:translate(12%,8%) rotate(-8deg) scale(.9)}

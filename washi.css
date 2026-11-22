@@ -1,18 +1,11 @@
-/* ============================================================
-   和紙風の背景（全ページ共通）
-   ・紙の地色：ほんのり温かい白
-   ・にじみ：ブランドの水色・ブルー・ゴールド・ミント・桜色を薄く
-   ・質感：細かな紙の粒と、長い繊維
-   ============================================================ */
 :root{
   --paper:#FBFAF6;
-  --paper-veil:rgba(255,255,255,.55);   /* 面を少しだけ明るくする薄い膜 */
-  --paper-card:rgba(255,255,255,.78);   /* カード */
+  --paper-veil:rgba(255,255,255,.55);
+  --paper-card:rgba(255,255,255,.78);
 }
 html{background:var(--paper)}
 body{background:transparent;position:relative;isolation:isolate}
 
-/* にじみ（染め和紙のようなまだらな色。画面に固定） */
 body::before{
   content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
   background:
@@ -25,7 +18,7 @@ body::before{
     radial-gradient(20vmax 16vmax at 66% 62%,rgba(120,200,240,.10),transparent 70%),
     var(--paper);
 }
-/* 紙の繊維（細くまばらな線）と、ごく細かい粒 */
+
 body::after{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background-image:
@@ -34,15 +27,13 @@ body::after{
   background-size:640px 640px,200px 200px;
 }
 
-/* ---- 面を透かして紙を見せる ---- */
 .sec-white,.home .h-kv,.home .h-msg,.page-head,.crumb{background:transparent}
 .sec-tint,.h-sec--tint{background:linear-gradient(transparent,var(--paper-veil) 120px,var(--paper-veil) calc(100% - 120px),transparent)}
 .site-head{background:rgba(251,250,246,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 @media(max-width:900px){.site-head{background:rgba(251,250,246,.94)}}
-/* スマホ：すりガラス効果があると全画面メニュー（position:fixed）がヘッダー内に閉じ込められるため外す */
+
 @media(max-width:600px){.site-head{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--paper)}}
 
-/* カード類：半透明の白で、うっすら紙が透ける */
 .h-points > div,.h-flow li,.svc article,.rec li,.rec li:last-child,.biz-index a,.dl>div,.tbl-wrap{background:var(--paper-card)}
 .sec-white .svc article,.sec-white .rec li{background:var(--paper-card)}
 .biz-index a:hover{background:rgba(232,242,253,.9)}
@@ -50,20 +41,14 @@ table.info{background:transparent}
 table.info th{background:rgba(242,245,248,.7)}
 .h-news a:hover{background:rgba(232,242,253,.6)}
 
-/* ============================================================
-   文字組み（全ページ）：日本語を文節で改行し、行末の1文字残りを防ぐ
-   ============================================================ */
 body{line-break:strict;overflow-wrap:anywhere}
 h1,h2,h3,h4,p,li,dd,dt,label,.notice,.bi-name,.bi-desc,.h-tile__jp,.jt-show__catch{word-break:auto-phrase}
 p,li,dd{text-wrap:pretty}
 h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
 .h-news p,.rec h4{overflow-wrap:anywhere}
 
-/* ============================================================
-   スマホ（〜600px）の見やすさ調整
-   ============================================================ */
 @media(max-width:600px){
-  /* 余白を少し詰めて、1画面の情報量を確保 */
+
   .home section,section{padding-block:64px}
   .home .h-msg{padding-block:84px}
   .home .h-kv{padding-block:16px 0}
@@ -73,7 +58,6 @@ h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
   .sec-en{font-size:42px}
   .h-head__sub,.sec-head .sub{font-size:15px;line-height:1.95}
 
-  /* KV */
   .h-kv__panel{padding:44px 24px 52px;border-radius:24px}
   .h-kv h1{font-size:38px;line-height:1.35}
   .h-kv__en{font-size:11px;letter-spacing:.18em;margin-bottom:14px}
@@ -83,7 +67,6 @@ h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
   .h-dot--cyan{width:84px;right:-18px;top:-18px}
   .h-dot--gold{right:20%;top:12%}
 
-  /* 事業（トップ） */
   .h-biz{gap:56px}
   .h-biz__row{gap:20px}
   .h-biz__no{font-size:36px}
@@ -91,12 +74,10 @@ h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
   .h-biz__txt h3{font-size:19px;margin-top:8px}
   .h-biz__txt p:not(.h-biz__en){margin:14px 0 22px;font-size:14.5px;line-height:1.95}
 
-  /* メッセージ */
   .h-msg__lead{font-size:22px;line-height:1.65}
   .h-msg__txt > p:not(.h-msg__lead){font-size:14.5px;line-height:2}
   .h-msg__shape{clip-path:polygon(0 4%,100% 0,100% 96%,0 100%)}
 
-  /* 特徴・流れ */
   .h-points > div{padding:24px 22px;border-radius:18px}
   .h-points__no{font-size:28px}
   .h-points h3{font-size:17px;margin:12px 0 10px}
@@ -104,17 +85,14 @@ h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
   .h-flow{flex-direction:column;align-items:stretch}
   .h-flow li{padding:10px 18px 10px 10px}
 
-  /* タイル */
   .h-tiles{gap:12px}
   .h-tile{aspect-ratio:16/7;border-radius:18px}
   .h-tile__en{font-size:26px;right:16px;top:16px}
   .h-tile__jp{left:20px;bottom:18px;font-size:15px}
 
-  /* お知らせ */
   .h-news a{padding:20px 4px;gap:8px 12px}
   .h-news p{flex-basis:100%;font-size:14.5px}
 
-  /* 下層のページ見出し */
   .page-head .wrap > *{padding-inline:24px}
   .page-head .wrap > :first-child{padding-top:40px}
   .page-head .wrap > :last-child{padding-bottom:44px}
@@ -122,92 +100,82 @@ h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
   .page-head h1{font-size:17px;letter-spacing:.1em}
   .page-head .wrap::after{width:72px;top:-14px}
 
-  /* カード類 */
   .svc article,.rec li,.rec li:last-child{padding:24px 20px;border-radius:18px}
   .notice{padding:18px 20px;font-size:14px}
   .jt-show{padding:32px 22px 36px;border-radius:24px;gap:28px}
   .jt-show__catch{font-size:26px}
 
-  /* 事業内容：イベント詳細の項目を読みやすく */
   .rec dl{grid-template-columns:1fr;gap:2px}
   .rec dd{margin-bottom:10px}
 
-  /* フォーム */
   .contact-grid--center form{padding:24px 18px;border-radius:22px}
-  .field input,.field textarea,.field select{font-size:16px}  /* iPhoneで入力時に拡大されないように */
+  .field input,.field textarea,.field select{font-size:16px}
 }
 
-/* ============================================================
-   2026-11-23 点検で見つかった不具合の修正（スマホ・共通）
-   ============================================================ */
-/* 英字見出し：グラデーション文字の g・p などの下が切れないように */
 .h-head__en,.sec-en{padding-bottom:.12em;margin-bottom:-.12em}
 
-/* 会社情報の表：単語の途中で折れないように */
 table.info td,table.info th{word-break:auto-phrase;overflow-wrap:normal}
 .nowrap{display:inline-block}
 
-/* 押しやすさ：小さいリンクの押せる範囲を広げる（見た目は変えない） */
 .crumb a,table.info td a,.foot-addr a,a.more{display:inline-block;padding-block:8px;margin-block:-8px}
 
-/* ページトップボタン：角丸のデザインに合わせて円形に */
 .pagetop{border-radius:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px))}
 
-/* 横向きスマホ：ヘッダーを薄く、図版を横長に */
 @media (orientation:landscape) and (max-height:500px){
   .site-head .wrap{padding-block:8px}
   .h-biz__vis{aspect-ratio:16/9}
 }
 
 @media(max-width:600px){
-  /* 縦書き英字のタイル：英字が2列に折れないように */
+
   .h-tile__en{white-space:nowrap}
-  /* 事業一覧カード（事業内容ページ）：左右の余白を詰めて文字幅を確保 */
+
   .theme-service .biz-index a{padding:18px 48px 18px 54px}
   .theme-service .biz-index a::before{left:16px;font-size:22px}
   .biz-index a::after{right:12px;width:28px;height:28px}
-  /* お問い合わせ見出し：2行になっても飾り線が左に取り残されないように */
+
   .contact-grid--center .sec-head h2{flex-direction:column;gap:10px}
-  /* メッセージ欄の金色の円を小さく */
+
   .h-msg__shape::after{width:160px;right:-20%;top:4%}
 }
 @media(max-width:374px){
   .h-tile{aspect-ratio:16/9}
 }
 
-/* ============================================================
-   2026-11-23 点検で見つかった不具合の修正（PC・タブレット）
-   ============================================================ */
-/* 601〜760px：ナビがロゴの下に回り込まないように詰める */
 @media(min-width:601px) and (max-width:760px){
   .site-nav a{padding:10px 10px;font-size:13.5px}
   .site-head .wrap{gap:12px 16px}
 }
-/* 601〜859px：フッターを1列の縦積みにせず3列に／事業の図版を横長に */
+
 @media(min-width:601px) and (max-width:859px){
   .foot-grid{grid-template-columns:repeat(3,1fr)}
   .foot-grid>div:first-child{grid-column:1/-1}
   .h-biz__vis{aspect-ratio:16/9}
 }
-/* 720〜959px：タイルの縦書き英字と矢印が重ならないように */
+
 @media(min-width:720px) and (max-width:959px){
   .h-tile{aspect-ratio:1/1}
   .h-tile__en{font-size:26px}
 }
-/* 601〜959px：じもとーくの画面画像を少し大きく */
+
 @media(min-width:601px) and (max-width:959px){
   .jt-phone{width:clamp(150px,24vw,200px)}
 }
-/* トップの事業：左右反転した行（02・04）も画像の大きさをそろえる */
+
 @media(min-width:860px){.h-biz__row--rev{grid-template-columns:1fr 1.1fr}}
-/* 相談の流れ：折り返しても最後の1個だけ取り残されないように */
+
 .h-flow li{flex:1 1 auto}
-/* サービスカード上辺の細い線を消す */
+
 .svc article{border:0}
-/* フォーカス枠：明るい背景でも見えるように */
+
 .pagetop:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
 .h-tile:focus-visible{outline-color:var(--navy)}
-/* お問い合わせ見出し：飾り線の分だけ右にずれないように（PC） */
+
 @media(min-width:601px){
   .contact-grid--center .sec-head h2::after{content:"";flex:none;width:28px}
+}
+
+@media(max-width:600px){
+  .h-kv__big{display:none}
+  .home .h-kv + .h-sec{padding-top:56px}
 }

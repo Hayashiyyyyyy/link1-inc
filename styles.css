@@ -1,12 +1,11 @@
-/* ===== LINK ONE / リンクワン株式会社　コーポレートサイト ===== */
 :root{
   --white:#FFFFFF;
-  --tint:#F2F5F8;        /* 面・セクション背景 */
-  --tint-2:#E7EDF3;      /* 補助面 */
-  --navy:#06194F;        /* 主色：見出し・フッター・帯 */
+  --tint:#F2F5F8;
+  --tint-2:#E7EDF3;
+  --navy:#06194F;
   --navy-2:#123A86;
-  --blue:#0B72D8;--blue-bright:#008AF5;        /* リンク・アクセント */
-  --blue-lite:#E8F2FD;   /* 淡いアクセント面 */
+  --blue:#0B72D8;--blue-bright:#008AF5;
+  --blue-lite:#E8F2FD;
   --line:#DCE3EA;
   --line-2:#BFC9D4;
   --fg:#16222E;
@@ -32,14 +31,12 @@ a{color:inherit}
 .wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
 @media(max-width:600px){.wrap{padding-inline:18px}}
 
-/* ---- utility bar ---- */
 .util-bar{background:var(--navy);color:var(--on-navy-dim);font-size:12px;letter-spacing:.04em}
 .util-bar .wrap{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px 22px;padding-block:7px}
 .util-bar a{text-decoration:none}
 .util-bar a:hover{color:var(--white)}
 .util-bar .site-tag{margin-right:auto;color:var(--on-navy);font-family:var(--f-lat);letter-spacing:.16em;font-size:10.5px;font-weight:600}
 
-/* ---- header ---- */
 .site-head{
   position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
   background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
@@ -69,13 +66,11 @@ a{color:inherit}
 .btn-sm.ghost{color:var(--navy);background:var(--white)}
 .btn-sm.ghost:hover{background:var(--blue-lite)}
 
-/* ---- breadcrumb ---- */
 .crumb{border-bottom:1px solid var(--line);background:var(--white)}
 .crumb .wrap{display:flex;flex-wrap:wrap;gap:8px;padding-block:12px;font-size:12.5px;color:var(--fg-dim)}
 .crumb a{text-decoration:none;color:var(--blue)}
 .crumb a:hover{text-decoration:underline}
 
-/* ---- shared type ---- */
 .eyebrow{
   margin:0 0 14px;font-family:var(--f-lat);font-weight:600;font-size:11.5px;
   letter-spacing:.24em;text-transform:uppercase;color:var(--blue);
@@ -91,7 +86,6 @@ section{padding-block:clamp(58px,8vw,96px)}
 .sec-tint{background:var(--tint)}
 .sec-white{background:var(--white)}
 
-/* ---- page head (下層ページ共通) ---- */
 .page-head{background:var(--navy);color:var(--white);padding-block:clamp(44px,6vw,72px);position:relative;overflow:hidden}
 .page-head::after{
   content:"";position:absolute;right:-6%;top:-40%;width:46%;height:180%;
@@ -103,7 +97,6 @@ section{padding-block:clamp(58px,8vw,96px)}
 .page-head h1{margin:0;font-size:clamp(26px,4.4vw,40px);font-weight:700;line-height:1.5;letter-spacing:.02em}
 .page-head .lede{color:var(--on-navy-dim);margin:18px 0 0;font-size:15.5px}
 
-/* ---- hero ---- */
 .hero{background:var(--white);padding-block:clamp(48px,6vw,80px) 0;overflow:hidden}
 .hero-grid{display:grid;gap:36px;align-items:center}
 @media(min-width:900px){.hero-grid{grid-template-columns:1.08fr .92fr;gap:48px}}
@@ -149,7 +142,6 @@ section{padding-block:clamp(58px,8vw,96px)}
 .hero-strip b{display:block;font-family:var(--f-lat);font-size:11px;letter-spacing:.2em;color:var(--blue);font-weight:600;margin-bottom:8px}
 .hero-strip span{font-size:14.5px;line-height:1.8;display:block}
 
-/* ---- business tiles ---- */
 .biz{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
 @media(min-width:680px){.biz{grid-template-columns:1fr 1fr}}
 @media(min-width:1040px){.biz{grid-template-columns:repeat(4,1fr)}}
@@ -164,7 +156,6 @@ section{padding-block:clamp(58px,8vw,96px)}
 .biz .more:hover{text-decoration:underline}
 .biz article:hover{background:var(--blue-lite)}
 
-/* ---- news ---- */
 .news{display:flex;flex-direction:column;border-top:1px solid var(--line)}
 .news a,.news .item{
   display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;
@@ -178,7 +169,6 @@ section{padding-block:clamp(58px,8vw,96px)}
 }
 .news p{margin:0;font-size:14.5px;flex:1 1 260px;line-height:1.75}
 
-/* ---- strength / generic cards ---- */
 .svc{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
 @media(min-width:760px){.svc{grid-template-columns:1fr 1fr}}
 .svc article{background:var(--white);padding:32px 30px}
@@ -189,7 +179,6 @@ section{padding-block:clamp(58px,8vw,96px)}
 .svc li{font-size:13.5px;padding-left:17px;position:relative;line-height:1.8}
 .svc li::before{content:"";position:absolute;left:0;top:.78em;width:7px;height:2px;background:var(--blue)}
 
-/* ---- flow ---- */
 .flow{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:0;padding:0}
 @media(min-width:680px){.flow{grid-template-columns:repeat(5,1fr)}}
 .flow li{list-style:none;background:var(--white);padding:26px 20px}
@@ -197,7 +186,6 @@ section{padding-block:clamp(58px,8vw,96px)}
 .flow h3{margin:0 0 8px;font-size:15.5px;font-weight:700;line-height:1.6;color:var(--navy)}
 .flow p{margin:0;font-size:13px;color:var(--fg-dim);line-height:1.85}
 
-/* ---- table ---- */
 .tbl-wrap{overflow-x:auto}
 table.info{width:100%;border-collapse:collapse;font-size:14.5px;min-width:540px;background:var(--white)}
 table.info th,table.info td{text-align:left;padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -208,7 +196,6 @@ table.info th{
 table.info tr:first-child th,table.info tr:first-child td{border-top:1px solid var(--line)}
 table.info td small{display:block;font-size:12px;color:var(--fg-dim);margin-top:5px}
 
-/* ---- cards ---- */
 .cards{display:grid;gap:24px}
 @media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr)}}
 .card{border:1px solid var(--line);background:var(--white);padding:26px 24px;display:flex;flex-direction:column;gap:11px}
@@ -216,7 +203,6 @@ table.info td small{display:block;font-size:12px;color:var(--fg-dim);margin-top:
 .card h3{margin:0;font-size:17px;line-height:1.6;font-weight:700;color:var(--navy)}
 .card p{margin:0;font-size:13.5px;color:var(--fg-dim);line-height:1.85}
 
-/* ---- placeholder marker ---- */
 .tbd{border-style:dashed;border-color:var(--line-2)}
 .badge-tbd{
   display:inline-block;align-self:flex-start;font-size:10.5px;font-weight:700;
@@ -227,7 +213,6 @@ table.info td small{display:block;font-size:12px;color:var(--fg-dim);margin-top:
   font-size:13px;color:#6B2C23;line-height:1.9;
 }
 
-/* ---- contact ---- */
 .contact-grid{display:grid;gap:36px}
 @media(min-width:860px){.contact-grid{grid-template-columns:1.05fr .95fr;gap:56px}}
 .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
@@ -245,7 +230,6 @@ table.info td small{display:block;font-size:12px;color:var(--fg-dim);margin-top:
 .dl dd a{text-decoration:none;border-bottom:1px solid var(--line-2)}
 .dl dd a:hover{color:var(--blue);border-color:var(--blue)}
 
-/* ---- CTA 2枚 ---- */
 .cta2{display:grid;gap:1px;background:var(--navy-2);border:1px solid var(--navy-2)}
 @media(min-width:760px){.cta2{grid-template-columns:1fr 1fr}}
 .cta2 article{background:var(--navy);color:var(--on-navy);padding:38px 34px;display:flex;flex-direction:column;gap:12px}
@@ -254,7 +238,6 @@ table.info td small{display:block;font-size:12px;color:var(--fg-dim);margin-top:
 .cta2 .btn{align-self:flex-start;margin-top:8px;background:var(--white);color:var(--navy);border-color:var(--white)}
 .cta2 .btn:hover{background:var(--blue);color:var(--white);border-color:var(--blue)}
 
-/* ---- footer ---- */
 .site-foot{background:var(--navy);color:var(--on-navy);padding-block:54px 32px}
 .foot-grid{display:grid;gap:34px}
 @media(min-width:860px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}}
@@ -275,14 +258,10 @@ table.info td small{display:block;font-size:12px;color:var(--fg-dim);margin-top:
   font-family:var(--f-lat);font-size:11px;letter-spacing:.1em;
 }
 
-/* =========================================================
-   モーション・インタラクション
-   ========================================================= */
 html{scroll-behavior:smooth}
 [id]{scroll-margin-top:96px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-/* スクロールに合わせて現れる（JSが動くときだけ有効） */
 .js .reveal{opacity:0;transform:translateY(18px)}
 .js .reveal.is-in{
   opacity:1;transform:none;
@@ -296,11 +275,9 @@ html{scroll-behavior:smooth}
   .js .reveal.is-in{transition:none}
 }
 
-/* ヘッダー：スクロールしたら影を出す */
 .site-head{transition:box-shadow .35s ease,background-color .35s ease}
 .site-head.is-stuck{box-shadow:0 2px 16px rgba(6,25,79,.12)}
 
-/* ボタン・リンクのなめらかな反応 */
 .btn,.btn-sm{transition:background-color .28s ease,color .28s ease,border-color .28s ease,transform .18s ease}
 .btn:active,.btn-sm:active{transform:translateY(1px)}
 .site-nav a,.foot-col a,.foot-addr a,.util-bar a,.news a{transition:color .25s ease,background-color .25s ease}
@@ -309,9 +286,6 @@ html{scroll-behavior:smooth}
 .svc article,.card,.flow li{transition:background-color .3s ease,border-color .3s ease}
 .card:hover{border-color:var(--blue)}
 
-/* =========================================================
-   事業内容（写真つきカード）
-   ========================================================= */
 .biz-cards{display:grid;gap:26px}
 @media(min-width:640px){.biz-cards{grid-template-columns:1fr 1fr}}
 @media(min-width:1060px){.biz-cards{grid-template-columns:repeat(4,1fr)}}
@@ -347,7 +321,6 @@ html{scroll-behavior:smooth}
 }
 .biz-card:hover .more{gap:12px}
 
-/* 事業内容ページ：各事業の帯画像 */
 .sec-photo{position:relative;aspect-ratio:21/6;overflow:hidden;background:var(--navy);margin-bottom:40px}
 .sec-photo svg{width:100%;height:100%;display:block}
 .sec-photo::before{
@@ -369,12 +342,6 @@ html{scroll-behavior:smooth}
 .sec-photo .ph__tag{left:16px;bottom:14px}
 @media(max-width:640px){.sec-photo{aspect-ratio:16/8}}
 
-/* ============================================================
-   大手コーポレート型UI：全面キービジュアル／企業メッセージ／
-   右側固定CTA／ページトップ
-   ============================================================ */
-
-/* ---- 全面キービジュアル ---- */
 .hero-full{
   position:relative;display:flex;align-items:center;overflow:hidden;
   min-height:clamp(440px,72vh,660px);background:var(--navy);
@@ -427,7 +394,6 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){.scroll-ind i::after{animation:none;top:0}}
 @media(max-width:700px){.scroll-ind{display:none}}
 
-/* ---- 企業メッセージ ---- */
 .statement{display:grid;gap:36px;align-items:center}
 @media(min-width:900px){.statement{grid-template-columns:1.02fr .98fr;gap:56px}}
 .statement h2{
@@ -438,7 +404,6 @@ html{scroll-behavior:smooth}
 .statement .ph{height:340px;aspect-ratio:auto}
 @media(max-width:899px){.statement .ph{height:240px}}
 
-/* ---- 右側固定CTA（PCのみ） ---- */
 .side-cta{display:none}
 @media(min-width:1180px){
   .side-cta{
@@ -456,7 +421,6 @@ html{scroll-behavior:smooth}
   .side-cta a.alt:hover{background:var(--navy)}
 }
 
-/* ---- ページトップ ---- */
 .pagetop{
   position:fixed;right:18px;bottom:18px;z-index:60;
   width:48px;height:48px;display:grid;place-items:center;
@@ -472,11 +436,6 @@ html{scroll-behavior:smooth}
 }
 @media(min-width:1180px){.pagetop{right:24px}}
 
-/* ============================================================
-   仕上げ：読み込み演出・リンク記号・特徴リスト・アクセシビリティ
-   ============================================================ */
-
-/* ---- キービジュアルの読み込み演出（ページ内で唯一の自動モーション） ---- */
 .js .kv-seq > *{opacity:0;transform:translateY(14px);animation:kvIn .8s cubic-bezier(.22,.61,.36,1) forwards}
 .js .kv-seq > *:nth-child(1){animation-delay:.12s}
 .js .kv-seq > *:nth-child(2){animation-delay:.24s}
@@ -487,7 +446,6 @@ html{scroll-behavior:smooth}
   .js .kv-seq > *{opacity:1;transform:none;animation:none}
 }
 
-/* ---- リンクの山形記号（文字の「→」は使わない） ---- */
 .more{display:inline-flex;align-items:center;gap:11px}
 .more::after{
   content:"";width:7px;height:7px;flex:none;
@@ -496,14 +454,12 @@ html{scroll-behavior:smooth}
 }
 .biz-card:hover .more::after,.more:hover::after{transform:rotate(45deg) translate(2px,-2px)}
 
-/* ---- 特徴：枠で囲まず、罫線だけで区切る ---- */
 .points{display:grid;gap:40px 56px}
 @media(min-width:760px){.points{grid-template-columns:1fr 1fr}}
 .points > div{border-top:1px solid var(--line);padding-top:24px}
 .points h3{margin:0 0 12px;font-size:18px;line-height:1.6;font-weight:700;color:var(--navy)}
 .points p{margin:0;font-size:14.5px;line-height:1.95;color:var(--fg-dim);max-width:46ch}
 
-/* ---- 本文へスキップ ---- */
 .skip{
   position:absolute;left:12px;top:-60px;z-index:100;
   background:var(--navy);color:#FFFFFF;padding:12px 18px;font-size:13px;font-weight:700;
@@ -511,29 +467,22 @@ html{scroll-behavior:smooth}
 }
 .skip:focus{top:12px}
 
-/* ---- 暗い面でのフォーカス表示 ---- */
 .hero-full :focus-visible,.page-head :focus-visible,.cta2 :focus-visible,
 .site-foot :focus-visible,.util-bar :focus-visible,.side-cta :focus-visible,
 .pagetop:focus-visible{outline-color:#FFFFFF}
 
-/* ---- リスト要素のマーカー除去（意味としてのリストは維持） ---- */
 .news{list-style:none;margin:0}
 .news li{list-style:none}
 
-/* ============================================================
-   スマートフォン（〜600px）の配置調整
-   ============================================================ */
-/* CTAブロックは1枚構成 */
 .cta2{grid-template-columns:1fr}
 @media(min-width:760px){.cta2{grid-template-columns:1fr}}
 
 @media(max-width:600px){
-  /* ユーティリティバー：電話番号だけ残して1行に収める */
+
   .util-bar .wrap{justify-content:space-between;gap:0;padding-block:8px;font-size:11.5px}
   .util-bar .u-hours,.util-bar .u-contact{display:none}
   .util-bar .site-tag{margin-right:0;font-size:9.5px;letter-spacing:.12em}
 
-  /* ヘッダー：ロゴ＋ボタンを1行目、ナビを2列のグリッドに */
   .site-head .wrap{gap:0;padding-block:10px}
   .brand{margin-right:auto}
   .brand__name b{font-size:16px}
@@ -541,8 +490,6 @@ html{scroll-behavior:smooth}
   .head-cta{order:2}
   .btn-sm{padding:10px 14px;font-size:12px}
 
-
-  /* ヒーロー：高さを詰め、ボタンを縦並びで幅を揃える */
   .hero-full{min-height:clamp(380px,58vh,520px)}
   .hero-full__inner{padding-block:52px 64px}
   .hero-full h1{font-size:30px;line-height:1.5}
@@ -552,14 +499,12 @@ html{scroll-behavior:smooth}
   .cta-row .btn{width:100%;justify-content:center;padding:14px 20px}
   .kv-tag{right:16px;bottom:16px;font-size:9.5px;padding:4px 8px}
 
-  /* セクションの余白を詰める */
   section{padding-block:48px}
   .sec-head{margin-bottom:26px}
   .sec-head h2{font-size:22px}
   .sec-head .sub{font-size:13.5px;margin-top:10px}
   .lede{font-size:15px;line-height:2}
 
-  /* 各ブロック */
   .hero-strip div{padding:18px 2px}
   .statement{gap:26px}
   .statement h2{font-size:21px;line-height:1.75}
@@ -580,7 +525,6 @@ html{scroll-behavior:smooth}
   .page-head .lede{font-size:14px;margin-top:14px}
   .post-body{font-size:15px}
 
-  /* フッター：リンク列を2段組みにして縦を短く */
   .site-foot{padding-block:40px 26px}
   .foot-grid{gap:28px;grid-template-columns:1fr 1fr}
   .foot-grid > div:first-child{grid-column:1 / -1}
@@ -588,18 +532,15 @@ html{scroll-behavior:smooth}
   .foot-col a{font-size:13px}
   .copy{margin-top:30px;font-size:10px}
 
-  /* 入力欄：iOSで拡大されないよう16px以上を維持 */
   .field input,.field textarea,.field select{font-size:16px}
 }
 
-/* 狭い端末（〜360px） */
 @media(max-width:360px){
   .site-nav a{font-size:12.5px;padding:11px 4px}
   .hero-full h1{font-size:27px}
   .brand__name b{font-size:15px}
 }
 
-/* スマホでは表を横スクロールさせず、項目を縦に積む */
 @media(max-width:600px){
   .tbl-wrap{overflow-x:visible}
   table.info{min-width:0;display:block;border-top:1px solid var(--line)}
@@ -614,13 +555,6 @@ html{scroll-behavior:smooth}
   table.info td small{margin-top:6px}
 }
 
-
-/* ============================================================
-   ヘッダーとフッターの整理
-   ・最上部の紺帯（ユーティリティバー）を廃止
-   ・PCヘッダーのお問い合わせボタンを廃止し、ナビに統一
-   ・フッターの区切り線を外して余白で見せる
-   ============================================================ */
 .site-head .wrap{padding-block:18px}
 .site-nav{gap:4px}
 .site-nav a{padding:10px 16px;font-size:14.5px}
@@ -641,12 +575,8 @@ html{scroll-behavior:smooth}
   .copy{margin-top:30px}
 }
 
-/* 右端の固定CTAは廃止 */
 .side-cta{display:none !important}
 
-/* ============================================================
-   各ページ下部のCTA：紺色のカードをやめ、地色の上の帯に
-   ============================================================ */
 .cta2{background:transparent;border:0;gap:0;grid-template-columns:1fr}
 .cta2 article{
   background:transparent;color:inherit;padding:0;gap:14px;
@@ -670,18 +600,12 @@ html{scroll-behavior:smooth}
   .cta2 .btn{width:100%;justify-content:center}
 }
 
-
-/* ナビの現在地を示す青い下線は使わない */
 .site-nav a[aria-current="page"]{box-shadow:none;color:var(--navy);font-weight:700}
-/* フッターの電話・メールの青い下線も外す */
+
 .foot-addr a{border-bottom:0}
 .foot-addr a:hover{text-decoration:underline}
 @media (prefers-reduced-motion:reduce){.js .site-nav.is-open{animation:none}}
 
-/* ============================================================
-   フッターのリンク：ホバー／タップの反応
-   右に少し動きながら、下線が左から伸びる
-   ============================================================ */
 .foot-col a,.foot-addr a{
   position:relative;display:inline-block;width:fit-content;
   text-decoration:none;border-bottom:0;
@@ -696,7 +620,7 @@ html{scroll-behavior:smooth}
 .foot-addr a:hover,.foot-addr a:focus-visible{transform:translateX(5px)}
 .foot-col a:hover::after,.foot-col a:focus-visible::after,
 .foot-addr a:hover::after,.foot-addr a:focus-visible::after{transform:scaleX(1)}
-/* 指でタップした瞬間の反応（スマホ） */
+
 .foot-col a:active,.foot-addr a:active{transform:translateX(7px)}
 .foot-col a:active::after,.foot-addr a:active::after{transform:scaleX(1)}
 .foot-addr a:hover{text-decoration:none}
@@ -706,17 +630,14 @@ html{scroll-behavior:smooth}
   .foot-col a:hover,.foot-addr a:hover{transform:none}
 }
 
-/* ============================================================
-   スマホ：三本線タップで全画面メニュー
-   ============================================================ */
 .nav-toggle{display:none}
 .site-nav .en,.nav-foot{display:none}
 
 @media(max-width:600px){
-  /* backdrop-filter があると position:fixed の基準がヘッダーになるため無効化 */
+
   .site-head{z-index:70;backdrop-filter:none;background:var(--white)}
   .head-cta{display:none}
-  /* パネルはヘッダーの子要素なので、ロゴを前面に出す */
+
   .brand{position:relative;z-index:65}
 
   .nav-toggle{
@@ -739,14 +660,12 @@ html{scroll-behavior:smooth}
   .nav-toggle.is-open i::before{transform:translateY(7px) rotate(45deg);background:var(--white)}
   .nav-toggle.is-open i::after{width:24px;transform:translateY(-7px) rotate(-45deg);background:var(--white)}
 
-  /* 開いている間はヘッダーを透過させ、ロゴを白に */
   body.nav-open .site-head{background:transparent;border-bottom-color:transparent;box-shadow:none}
   body.nav-open .site-head .brand__mark{background-image:url("img/logo-mark-white.png")}
   body.nav-open .site-head .brand__name b{color:var(--white)}
   body.nav-open .site-head .brand__name small{color:rgba(255,255,255,.62)}
   body.nav-open{overflow:hidden}
 
-  /* パネル本体 */
   .js .site-nav{
     position:fixed;inset:0;z-index:60;
     display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;
@@ -758,7 +677,6 @@ html{scroll-behavior:smooth}
   }
   .js .site-nav.is-open{opacity:1;visibility:visible;transform:none}
 
-  /* メニュー項目：4つとも同じ扱い */
   .site-nav a{
     display:flex;align-items:baseline;gap:14px;
     padding:20px 2px;color:var(--white);text-align:left;
@@ -787,11 +705,8 @@ html{scroll-behavior:smooth}
   .site-nav a{opacity:1;transform:none}
 }
 
-/* ============================================================
-   スマホ：フッターはロゴと連絡先のみ。文字まわりを整える
-   ============================================================ */
 @media(max-width:600px){
-  /* リンク列（Business / Company / Contact）は非表示 */
+
   .foot-col{display:none}
   .foot-grid{grid-template-columns:1fr;gap:0}
   .site-foot{padding-block:48px 30px}
@@ -804,7 +719,6 @@ html{scroll-behavior:smooth}
   .foot-addr a{font-size:13.5px}
   .copy{margin-top:34px;font-size:9.5px;letter-spacing:.18em;color:#7E9ABF}
 
-  /* 文字組みを少しだけ開いて読みやすく */
   body{letter-spacing:.02em}
   .hero-full h1{letter-spacing:.05em;line-height:1.55}
   .hero-full .lede{line-height:2.05;letter-spacing:.03em}
@@ -818,9 +732,6 @@ html{scroll-behavior:smooth}
   .post-body{line-height:2.15;letter-spacing:.03em}
 }
 
-/* ============================================================
-   実績・開催予定の表示／準備中のラベル
-   ============================================================ */
 .badge-soon{
   display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.1em;
   color:var(--navy);background:var(--tint-2);border:1px solid var(--line-2);
@@ -858,18 +769,9 @@ html{scroll-behavior:smooth}
   .notice{padding:16px 18px;font-size:13.5px}
 }
 
-/* ============================================================
-   リデザイン：枠を外し、余白と罫線で組む
-   ・見出しは左、説明は右（日本の企業サイトの基本形）
-   ・英字ラベルは使わない（下層ページの帯のみ、小文字で小さく）
-   ・番号は実際に順序があるものだけ
-   ============================================================ */
-
-/* ---- 文字 ---- */
 body{font-size:15.5px;line-height:2}
 .lede{font-size:16.5px;line-height:2.05;max-width:40em;letter-spacing:.015em}
 
-/* ---- セクション見出し：左に見出し、右に説明、下に一本の罫線 ---- */
 .sec-head{
   display:grid;gap:12px 56px;
   margin-bottom:clamp(34px,4.5vw,54px);
@@ -885,17 +787,14 @@ body{font-size:15.5px;line-height:2}
   .sec-head .sub{padding-bottom:5px}
 }
 
-/* ---- 下層ページの帯：英字は小文字・控えめに ---- */
 .page-head .eyebrow{
   text-transform:none;letter-spacing:.14em;font-size:11.5px;
   font-weight:600;color:#8FCBF5;margin-bottom:16px;
 }
 
-/* ---- セクションの余白に強弱をつける ---- */
 section{padding-block:clamp(74px,9vw,112px)}
 .sec-white:has(.statement){padding-block:clamp(92px,12vw,152px)}
 
-/* ---- 事業カード：枠をやめ、写真と文字だけで見せる ---- */
 .biz-cards{gap:clamp(30px,3.4vw,44px) clamp(22px,2.6vw,34px)}
 .biz-card{border:0;background:transparent;transition:none}
 .biz-card:hover{transform:none;box-shadow:none;border:0}
@@ -904,7 +803,6 @@ section{padding-block:clamp(74px,9vw,112px)}
 .biz-body p{font-size:13.5px;line-height:1.95}
 .biz-card:hover .ph svg{transform:scale(1.04)}
 
-/* ---- メニュー一覧：箱をやめ、上罫線で区切る ---- */
 .svc{display:grid;gap:0 56px;background:transparent;border:0}
 @media(min-width:760px){.svc{grid-template-columns:1fr 1fr}}
 .svc article{background:transparent;padding:30px 0 34px;border-top:1px solid var(--line)}
@@ -912,34 +810,29 @@ section{padding-block:clamp(74px,9vw,112px)}
 .svc p{font-size:14px;line-height:2}
 .svc li{font-size:13.5px}
 
-/* ---- 導入の流れ：箱をやめる。番号は順序があるので残す ---- */
 .flow{background:transparent;border:0;gap:0 40px}
 .flow li{background:transparent;padding:24px 0 0;border-top:1px solid var(--line-2)}
 .flow .no{color:var(--blue);font-size:11px;letter-spacing:.18em;margin-bottom:12px}
 .flow h3{font-size:16px;margin-bottom:10px}
 .flow p{font-size:13px;line-height:1.95}
 
-/* ---- 実績・開催予定：箱をやめる ---- */
 .rec{background:transparent;border:0;gap:0}
 .rec li{background:transparent;padding:28px 0;border-top:1px solid var(--line)}
 .rec li:last-child{border-bottom:1px solid var(--line)}
 .sub-h{margin:56px 0 0;font-size:15px;letter-spacing:.06em;color:var(--fg-dim);font-weight:700}
 .sub-h::after{display:none}
 
-/* ---- 特徴：見出しを少し大きく ---- */
 .points{gap:44px 64px}
 .points > div{border-top:1px solid var(--line);padding-top:26px}
 .points h3{font-size:18.5px;letter-spacing:.02em;margin-bottom:14px}
 .points p{font-size:14px;line-height:2;max-width:44ch}
 
-/* ---- 3分割ストリップ：罫線だけに ---- */
 .hero-strip{background:transparent;border:0;border-top:1px solid var(--line);gap:0 44px}
 .hero-strip div{background:transparent;padding:26px 0 0;border-top:0}
 @media(min-width:720px){.hero-strip div + div{border-left:1px solid var(--line);padding-left:44px}}
 .hero-strip b{color:var(--blue);letter-spacing:.16em;font-size:10.5px}
 .hero-strip span{font-size:14px;line-height:1.95}
 
-/* ---- お知らせ ---- */
 .news{border-top:1px solid var(--line)}
 .news li > a{padding:24px 0}
 .news time{min-width:104px;font-size:13px}
@@ -955,7 +848,6 @@ section{padding-block:clamp(74px,9vw,112px)}
   .rec li{padding:24px 0}
 }
 
-/* 日本語見出しの折り返しを文節単位にする（単語の途中で割れないように） */
 .sec-head h2,.hero-full h1,.statement h2,.page-head h1,.biz-body h3,.svc h3,.points h3,.rec h4{
   word-break:auto-phrase;line-break:strict;
 }
@@ -963,9 +855,6 @@ section{padding-block:clamp(74px,9vw,112px)}
   .sec-head{grid-template-columns:minmax(330px,1.1fr) 1.55fr}
 }
 
-/* ============================================================
-   事業内容ページ：冒頭の事業一覧（目次）
-   ============================================================ */
 .biz-index{display:flex;flex-direction:column;margin-top:clamp(34px,4vw,48px);border-top:1px solid var(--line)}
 .biz-index a{
   position:relative;display:grid;gap:7px 36px;align-items:baseline;
@@ -995,7 +884,6 @@ section{padding-block:clamp(74px,9vw,112px)}
   .bi-desc{font-size:13px}
 }
 
-/* ==== 2026-11-22 トップ構成変更：事業を主役に ==== */
 .sec-biz .biz-card h3{font-size:19px}
 .flow-title{margin:clamp(56px,7vw,80px) 0 20px;font-size:18px;font-weight:700;color:var(--navy);letter-spacing:.04em}
 .flow-compact li{padding:20px 18px}

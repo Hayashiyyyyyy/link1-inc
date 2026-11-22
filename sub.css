@@ -1,9 +1,3 @@
-/* ============================================================
-   下層ページ（事業内容・会社概要・お問い合わせ・404）
-   トップ（home.css）と同じトーンにそろえる上書き
-   ============================================================ */
-
-/* ---- ページヘッダー：角丸のグラデーションパネル ---- */
 .page-head{
   background:var(--white);color:var(--white);overflow:visible;
   padding-block:clamp(20px,3vw,36px) 0;
@@ -37,12 +31,10 @@
   .page-head .lede{font-size:14px}
 }
 
-/* ---- パンくず ---- */
 .crumb{border:0;background:transparent}
 .crumb .wrap{padding-block:18px 0}
 .crumb a{color:var(--blue)}
 
-/* ---- セクション見出し：大きな英字＋日本語 ---- */
 section{padding-block:clamp(80px,10vw,124px)}
 .sec-head{display:block;border:0;padding:0;margin-bottom:clamp(36px,4.5vw,56px)}
 .sec-en{
@@ -59,7 +51,6 @@ section{padding-block:clamp(80px,10vw,124px)}
 .contact-grid .sec-en{font-size:clamp(34px,4.6vw,52px)}
 .contact-grid .sec-head{margin-bottom:26px}
 
-/* ---- 写真エリア → 色面の帯（写真が少ない前提） ---- */
 .sec-photo{
   aspect-ratio:auto;height:clamp(120px,16vw,200px);margin-bottom:clamp(36px,4.5vw,52px);
   border-radius:clamp(18px,2.4vw,30px);background:var(--grad);
@@ -73,7 +64,6 @@ section{padding-block:clamp(80px,10vw,124px)}
 }
 .sec-photo{background-image:radial-gradient(circle at 12% 120%,#E3BC5C 0 64px,transparent 65px),var(--grad)}
 
-/* ---- ボタン：楕円 ---- */
 .btn{
   border-radius:999px;min-height:48px;padding:12px 30px;justify-content:center;
   font-family:var(--f-lat);letter-spacing:.08em;border-width:1.5px;
@@ -83,7 +73,6 @@ section{padding-block:clamp(80px,10vw,124px)}
 .btn-ghost{background:var(--white);color:var(--navy);border-color:var(--navy)}
 .btn-ghost:hover{background:var(--navy);color:var(--white)}
 
-/* ---- 事業インデックス（事業内容ページ冒頭） ---- */
 .biz-index{display:grid;gap:14px;border:0;margin-top:clamp(34px,4vw,48px)}
 @media(min-width:960px){.biz-index{grid-template-columns:1fr 1fr}}
 .biz-index a{
@@ -97,7 +86,6 @@ section{padding-block:clamp(80px,10vw,124px)}
 }
 .biz-index a:hover::after{right:20px;border:0}
 
-/* ---- サービスカード ---- */
 .svc{background:transparent;border:0;gap:20px}
 @media(min-width:760px){.svc{gap:24px}}
 .svc article{border-radius:22px;background:var(--white);padding:clamp(28px,3vw,38px)}
@@ -106,7 +94,6 @@ section{padding-block:clamp(80px,10vw,124px)}
 .svc h3{font-weight:800}
 .svc li::before{width:7px;height:7px;border-radius:50%;background:var(--gold);top:.72em}
 
-/* ---- 実績・開催予定 ---- */
 .sub-h{display:flex;align-items:center;gap:12px;margin:clamp(48px,6vw,72px) 0 18px;font-size:18px;font-weight:800;color:var(--navy);letter-spacing:.06em}
 .sub-h::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--gold)}
 .rec{gap:14px}
@@ -114,12 +101,10 @@ section{padding-block:clamp(80px,10vw,124px)}
 .sec-white .rec li{background:var(--tint)}
 .rec .rec-when{font-family:var(--f-lat);font-weight:700;color:var(--blue)}
 
-/* ---- お知らせ枠・バッジ ---- */
 .notice{border:0;border-radius:20px;background:#FBF4E2;padding:22px 26px;color:#4A3A10}
 .notice strong{color:#3A2C06}
 .badge-soon{border-radius:999px;background:#F6EBCB;color:#6B5212;border:0}
 
-/* ---- 会社情報テーブル ---- */
 .tbl-wrap{border-radius:22px;overflow:hidden;border:1px solid var(--line)}
 table.info{min-width:0}
 table.info tr:first-child th,table.info tr:first-child td{border-top:0}
@@ -131,31 +116,21 @@ table.info th{background:var(--tint);color:var(--navy)}
   table.info td{padding:4px 18px 16px}
 }
 
-/* ---- フォーム ---- */
 .field input,.field textarea,.field select{border-radius:14px;border-color:var(--line-2);background:var(--white)}
 .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
 .dl{background:transparent;border:0;gap:12px}
 .dl>div{border-radius:18px;background:var(--tint)}
 .dl dt{color:var(--gold);font-weight:700}
 
-/* ---- 未確定の注記（残す） ---- */
 .note-tbd{border-radius:16px;border-left-width:0;box-shadow:inset 4px 0 0 var(--alert)}
 .badge-tbd{border-radius:999px}
 
-/* ---- リンク矢印 ---- */
 .more{color:var(--blue);font-weight:700}
 
-/* ---- フォーカス ---- */
 .page-head :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
 .biz-index a{display:flex;flex-direction:column;gap:6px}
 .biz-index .bi-desc{max-width:none}
 
-/* ============================================================
-   ページごとの色テーマ
-   事業内容：ブルー→水色（活動的・明るい）
-   会社概要：ネイビー＋ゴールド（落ち着き・信頼）
-   お問い合わせ：水色→ミント（相談しやすい・やわらかい）
-   ============================================================ */
 .theme-service{
   --grad:linear-gradient(125deg,#0A2C9E 0%,#0B72D8 55%,#00B8F0 100%);
   --orb:radial-gradient(circle at 35% 35%,#9BE7FF,#00B8F0 60%,#0B72D8);
@@ -178,7 +153,6 @@ table.info th{background:var(--tint);color:var(--navy)}
 .theme-contact .page-head .wrap::after{background:var(--orb)}
 .theme-company .sec-en{display:inline-block}
 
-/* ---- じもとーく：開発中のアプリ画面 ---- */
 .jt-show{
   position:relative;overflow:hidden;display:grid;gap:40px;align-items:center;
   border-radius:clamp(20px,3vw,36px);background:var(--grad);color:#DCE7F7;
@@ -208,19 +182,11 @@ table.info th{background:var(--tint);color:var(--navy)}
   .jt-phone--1,.jt-phone--3{width:34%}
 }
 
-/* ============================================================
-   事業内容ページ：読みやすさの調整
-   ・文字を大きく、濃く
-   ・情報のない帯を外す
-   ・事業ごとに「BUSINESS 01」の番号をつけ、区切りをはっきり
-   ============================================================ */
 .theme-service{--fg-dim:#46566A}
 .theme-service main{counter-reset:biz}
 
-/* 冒頭の説明文 */
 .theme-service main > section:first-of-type .lede{font-size:16px;line-height:2.1;color:var(--fg)}
 
-/* 事業一覧：番号つき、名前を大きく */
 .theme-service .biz-index{counter-reset:bi}
 .theme-service .biz-index a{counter-increment:bi;padding:24px 64px 24px 84px;position:relative}
 .theme-service .biz-index a::before{
@@ -230,7 +196,6 @@ table.info th{background:var(--tint);color:var(--navy)}
 .theme-service .bi-name{font-size:17px}
 .theme-service .bi-desc{font-size:14px;color:var(--fg-dim)}
 
-/* 各事業の見出し：番号ラベル */
 .theme-service section[id]{counter-increment:biz;scroll-margin-top:72px}
 .theme-service section[id] .sec-head::before{
   content:"BUSINESS 0" counter(biz) " / 04";display:inline-block;margin-bottom:18px;
@@ -239,14 +204,11 @@ table.info th{background:var(--tint);color:var(--navy)}
 }
 .theme-service .sec-head .sub{font-size:16px;line-height:2.05;color:var(--fg);max-width:44em}
 
-/* 情報のない色帯は外す（英字見出しと重複するため） */
 .theme-service .sec-photo{display:none}
 
-/* 事業の区切り：上に細い線と余白 */
 .theme-service section[id] + section[id],
 .theme-service section[id] + section:not([id]){border-top:1px solid rgba(6,25,79,.08)}
 
-/* サービスカード：文字を大きく濃く */
 .theme-service .svc article{padding:clamp(28px,3vw,40px)}
 .theme-service .svc h3{font-size:20px;margin-bottom:12px}
 .theme-service .svc p{font-size:15px;line-height:1.95;color:var(--fg-dim);margin-bottom:18px}
@@ -256,20 +218,16 @@ table.info th{background:var(--tint);color:var(--navy)}
   background:#F6EBCB;color:#6B5212;font-size:12px;
 }
 
-/* 実績・開催予定 */
 .theme-service .sub-h{font-size:19px}
 .theme-service .rec h4{font-size:18px}
 .theme-service .rec p{font-size:15px;color:var(--fg-dim)}
 .theme-service .rec dl{font-size:14.5px;gap:8px 18px}
 
-/* お知らせ枠 */
 .theme-service .notice{font-size:15px;line-height:1.9;margin-bottom:24px}
 
-/* じもとーく：説明文を少し大きく */
 .theme-service .jt-show__txt > p:not(.jt-show__label):not(.jt-show__catch){font-size:16px}
 .theme-service .jt-show__list li{font-size:15.5px}
 
-/* 費用：カードにまとめる */
 .theme-service main > section:last-child .lede{
   margin:0;padding:clamp(26px,3vw,36px);border-radius:22px;background:var(--paper-card,#fff);
   font-size:16px;line-height:2.05;color:var(--fg);max-width:none;
@@ -284,7 +242,6 @@ table.info th{background:var(--tint);color:var(--navy)}
   .theme-service .sec-head .sub{font-size:15px}
 }
 
-/* ---- お問い合わせ：フォームを中央に1列で ---- */
 .contact-grid--center{display:block;max-width:720px;margin-inline:auto}
 .contact-grid--center .sec-head{text-align:center}
 .contact-grid--center .sec-head h2{justify-content:center}
@@ -293,3 +250,41 @@ table.info th{background:var(--tint);color:var(--navy)}
   box-shadow:0 18px 48px rgba(6,25,79,.06);
 }
 .contact-grid--center #form-msg{text-align:center}
+
+.co-profile{margin:0;border-top:2px solid var(--navy)}
+.co-profile > div{display:grid;grid-template-columns:11em 1fr;gap:8px 32px;padding:22px 4px;border-bottom:1px solid rgba(6,25,79,.14)}
+.co-profile dt{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--fg-dim);padding-top:3px}
+.co-profile dd{margin:0;font-size:16px;line-height:1.9;color:var(--fg)}
+.co-profile dd a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(6,25,79,.3)}
+.co-profile dd a:hover{color:var(--blue);border-color:var(--blue)}
+.co-biz{margin:0;padding-left:1.4em}
+.co-biz li{padding-left:.2em}
+.co-biz li::marker{font-family:var(--f-lat);font-weight:700;color:var(--gold)}
+
+.co-message{display:grid;gap:32px 64px}
+.co-message__lead{margin:0;font-size:clamp(24px,3vw,34px);font-weight:800;line-height:1.6;color:var(--navy);letter-spacing:.04em}
+.co-message__body p{margin:0 0 1.4em;font-size:16px;line-height:2.1;color:var(--fg)}
+.co-message__body .co-message__sign{margin:40px 0 0;font-size:20px;font-weight:800;color:var(--navy);letter-spacing:.12em}
+.co-message__sign span{display:block;margin-bottom:6px;font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--fg-dim)}
+@media(min-width:900px){.co-message{grid-template-columns:.8fr 1.2fr}.co-message__lead{position:sticky;top:120px;align-self:start}}
+
+.co-history{margin:0;padding:0;list-style:none;border-left:2px solid var(--navy);margin-left:6px}
+.co-history li{position:relative;display:grid;grid-template-columns:7em 1fr;gap:6px 28px;padding:4px 0 32px 28px}
+.co-history li:last-child{padding-bottom:4px}
+.co-history li::before{content:"";position:absolute;left:-7px;top:10px;width:12px;height:12px;border-radius:50%;background:var(--gold)}
+.co-history__when{font-family:var(--f-lat);font-size:16px;font-weight:700;letter-spacing:.06em;color:var(--navy)}
+.co-history p{margin:0;font-size:16px;line-height:1.8;color:var(--fg)}
+.co-history small{display:block;margin-top:6px;font-size:14px;color:var(--fg-dim)}
+
+@media(max-width:600px){
+  .co-profile > div{grid-template-columns:1fr;gap:4px;padding:18px 2px}
+  .co-profile dd{font-size:15px}
+  .co-message__body p{font-size:15px;line-height:2}
+  .co-history li{grid-template-columns:1fr;gap:4px;padding-left:22px}
+  .co-history p{font-size:15px}
+}
+
+.form-submit{width:100%;justify-content:center}
+.form-msg{margin:14px 0 0;font-size:13px;color:var(--fg-dim)}
+.sec-intro{padding-block:clamp(54px,6vw,82px)}
+.sec-intro .lede{max-width:50em}

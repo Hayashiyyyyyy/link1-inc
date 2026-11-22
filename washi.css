@@ -1,0 +1,49 @@
+/* ============================================================
+   和紙風の背景（全ページ共通）
+   ・紙の地色：ほんのり温かい白
+   ・にじみ：ブランドの水色・ブルー・ゴールド・ミント・桜色を薄く
+   ・質感：細かな紙の粒と、長い繊維
+   ============================================================ */
+:root{
+  --paper:#FBFAF6;
+  --paper-veil:rgba(255,255,255,.55);   /* 面を少しだけ明るくする薄い膜 */
+  --paper-card:rgba(255,255,255,.78);   /* カード */
+}
+html{background:var(--paper)}
+body{background:transparent;position:relative;isolation:isolate}
+
+/* にじみ（染め和紙のようなまだらな色。画面に固定） */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(36vmax 28vmax at 4% 6%,rgba(0,184,240,.20),transparent 70%),
+    radial-gradient(28vmax 24vmax at 96% 10%,rgba(227,188,92,.24),transparent 70%),
+    radial-gradient(32vmax 28vmax at 84% 80%,rgba(11,114,216,.15),transparent 70%),
+    radial-gradient(30vmax 24vmax at 8% 88%,rgba(23,179,148,.16),transparent 70%),
+    radial-gradient(22vmax 18vmax at 50% 42%,rgba(240,150,170,.13),transparent 70%),
+    radial-gradient(18vmax 14vmax at 30% 30%,rgba(255,214,120,.10),transparent 70%),
+    radial-gradient(20vmax 16vmax at 66% 62%,rgba(120,200,240,.10),transparent 70%),
+    var(--paper);
+}
+/* 紙の繊維（細くまばらな線）と、ごく細かい粒 */
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    url("img/washi-fiber.svg"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .42  0 0 0 0 .36  0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:640px 640px,200px 200px;
+}
+
+/* ---- 面を透かして紙を見せる ---- */
+.sec-white,.home .h-kv,.home .h-msg,.page-head,.crumb{background:transparent}
+.sec-tint,.h-sec--tint{background:var(--paper-veil)}
+.site-head{background:rgba(251,250,246,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+@media(max-width:900px){.site-head{background:rgba(251,250,246,.94)}}
+
+/* カード類：半透明の白で、うっすら紙が透ける */
+.h-points > div,.h-flow li,.svc article,.rec li,.rec li:last-child,.biz-index a,.dl>div,.tbl-wrap{background:var(--paper-card)}
+.sec-white .svc article,.sec-white .rec li{background:var(--paper-card)}
+.biz-index a:hover{background:rgba(232,242,253,.9)}
+table.info{background:transparent}
+table.info th{background:rgba(242,245,248,.7)}
+.h-news a:hover{background:rgba(232,242,253,.6)}

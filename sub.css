@@ -71,7 +71,7 @@ section{padding-block:clamp(80px,10vw,124px)}
   font-family:var(--f-lat);font-weight:700;line-height:1;letter-spacing:.02em;
   font-size:clamp(56px,11vw,150px);color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.45);text-align:right;
 }
-.sec-photo{background-image:radial-gradient(circle at 12% 120%,rgba(227,188,92,.55) 0 64px,transparent 65px),var(--grad)}
+.sec-photo{background-image:radial-gradient(circle at 12% 120%,#E3BC5C 0 64px,transparent 65px),var(--grad)}
 
 /* ---- ボタン：楕円 ---- */
 .btn{
@@ -177,3 +177,33 @@ table.info th{background:var(--tint);color:var(--navy)}
 .theme-company .page-head .wrap::after,
 .theme-contact .page-head .wrap::after{background:var(--orb)}
 .theme-company .sec-en{display:inline-block}
+
+/* ---- じもとーく：開発中のアプリ画面 ---- */
+.jt-show{
+  position:relative;overflow:hidden;display:grid;gap:40px;align-items:center;
+  border-radius:clamp(20px,3vw,36px);background:var(--grad);color:#DCE7F7;
+  padding:clamp(36px,5vw,64px) clamp(24px,5vw,64px);margin-bottom:clamp(28px,3.5vw,40px);
+}
+.jt-show::before{content:"";position:absolute;width:clamp(220px,30vw,420px);aspect-ratio:1;border-radius:50%;left:-8%;bottom:-40%;background:rgba(255,255,255,.07)}
+@media(min-width:960px){.jt-show{grid-template-columns:.9fr 1.1fr;gap:48px}}
+.jt-show__txt{position:relative;z-index:1}
+.jt-show__label{display:inline-block;margin:0 0 18px;padding:5px 14px;border-radius:999px;background:var(--gold-bright);color:var(--navy);font-size:12px;font-weight:800;letter-spacing:.1em}
+.jt-show__catch{margin:0 0 18px;font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.5;color:var(--white);letter-spacing:.03em}
+.jt-show__txt > p:not(.jt-show__label):not(.jt-show__catch){margin:0 0 20px;font-size:15px;line-height:2}
+.jt-show__list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.jt-show__list li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.8;color:var(--white)}
+.jt-show__list li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--gold-bright)}
+.jt-phones{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;gap:0;min-height:360px}
+.jt-phone{
+  margin:0;width:clamp(130px,17vw,200px);border-radius:26px;padding:7px;background:#0C1224;
+  box-shadow:0 24px 48px rgba(3,10,40,.45);
+}
+.jt-phone img{display:block;width:100%;height:auto;border-radius:20px}
+.jt-phone--1{transform:translateX(18%) rotate(-7deg) scale(.88)}
+.jt-phone--2{position:relative;z-index:2}
+.jt-phone--3{transform:translateX(-18%) rotate(7deg) scale(.88)}
+@media(max-width:600px){
+  .jt-phones{min-height:0}
+  .jt-phone{width:42%}
+  .jt-phone--1,.jt-phone--3{width:34%}
+}

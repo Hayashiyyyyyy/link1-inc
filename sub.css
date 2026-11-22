@@ -149,3 +149,31 @@ table.info th{background:var(--tint);color:var(--navy)}
 .page-head :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
 .biz-index a{display:flex;flex-direction:column;gap:6px}
 .biz-index .bi-desc{max-width:none}
+
+/* ============================================================
+   ページごとの色テーマ
+   事業内容：ブルー→水色（活動的・明るい）
+   会社概要：ネイビー＋ゴールド（落ち着き・信頼）
+   お問い合わせ：水色→ミント（相談しやすい・やわらかい）
+   ============================================================ */
+.theme-service{
+  --grad:linear-gradient(125deg,#0A2C9E 0%,#0B72D8 55%,#00B8F0 100%);
+  --orb:radial-gradient(circle at 35% 35%,#9BE7FF,#00B8F0 60%,#0B72D8);
+}
+.theme-company{
+  --grad:linear-gradient(125deg,#040F33 0%,#06194F 55%,#163A7C 100%);
+  --orb:radial-gradient(circle at 35% 35%,#F6DE9A,#E3BC5C 55%,#B08A2E);
+}
+.theme-company .sec-en{background:linear-gradient(100deg,#06194F 0%,#06194F 45%,#A8822C 100%);-webkit-background-clip:text;background-clip:text}
+.theme-company .sec-photo{background-image:var(--grad)}
+.theme-contact{
+  --grad:linear-gradient(125deg,#0A3FA8 0%,#0A8FC4 55%,#17B394 100%);
+  --orb:radial-gradient(circle at 35% 35%,#B8F5E6,#3FD6B6 55%,#17A88A);
+}
+.theme-contact .sec-head h2::before{background:#17B394}
+.theme-contact .dl dt{color:#0E8A72}
+.theme-contact .field input:focus,.theme-contact .field textarea:focus,.theme-contact .field select:focus{outline-color:#17B394;border-color:#17B394}
+.theme-service .page-head .wrap::after,
+.theme-company .page-head .wrap::after,
+.theme-contact .page-head .wrap::after{background:var(--orb)}
+.theme-company .sec-en{display:inline-block}

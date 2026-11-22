@@ -1,139 +1,141 @@
 <!doctype html>
 <html lang="ja" class="p-sub p-washi">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>お問い合わせ | リンクワン株式会社</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
-<meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="img/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="img/favicon-180.png">
-<link rel="stylesheet" href="site.css?v=202611240400">
-<script>document.documentElement.className += " js";</script>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>お問い合わせ | リンクワン株式会社</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/favicon-180.png">
+  <link rel="stylesheet" href="site.css?v=202611240500">
+  <script>document.documentElement.className += " js";</script>
 </head>
-<body class="theme-contact">
-<a class="skip" href="#main">本文へスキップ</a>
-<header class="site-head">
-  <div class="wrap">
-    <a class="brand" href="index.html">
-      <span class="brand__mark" aria-hidden="true"></span>
-      <span class="brand__name"><b>LINK ONE</b><small>リンクワン株式会社</small></span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><i aria-hidden="true"></i><span>MENU</span></button>
-    <nav class="site-nav" id="gnav" aria-label="メインメニュー">
-      <a href="index.html"><span class="jp">ホーム</span><span class="en">HOME</span></a>
-      <a href="service.html"><span class="jp">事業内容</span><span class="en">BUSINESS</span></a>
-      <a href="company.html"><span class="jp">会社概要</span><span class="en">COMPANY</span></a>
-      <a href="contact.html" aria-current="page"><span class="jp">お問い合わせ</span><span class="en">CONTACT</span></a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-<div class="page-head">
-  <div class="wrap">
-    <p class="eyebrow">Contact</p>
-    <h1>お問い合わせ</h1>
-    <p class="lede">講義・イベントのご依頼や、事業についてのご相談はこちらから。内容が固まっていなくても大丈夫です。通常2営業日以内にご返信します。</p>
-  </div>
-</div>
-<nav class="crumb" aria-label="パンくずリスト">
-  <div class="wrap"><a href="index.html">ホーム</a><span>›</span><span>お問い合わせ</span></div>
-</nav>
-
-  <section class="sec-white">
+<body id="top" class="theme-contact">
+  <a class="skip" href="#main">本文へスキップ</a>
+  <header class="site-head">
     <div class="wrap">
-      <div class="contact-grid contact-grid--center">
-        <div>
-          <form id="contact-form" action="mailto:r.maeda@link1-inc.com" method="post" enctype="text/plain">
-            <div class="field">
-              <label for="f-type">お問い合わせ種別<span class="req">必須</span></label>
-              <select id="f-type" name="type" required>
-                <option>講義・授業のご依頼</option>
-                <option>イベント・大会のご相談</option>
-                <option>じもとーくについて</option>
-                <option>TikTokライバー事務所について</option>
-                <option>取材・協業のご相談</option>
-                <option>その他</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="f-org">学校・団体・企業名（個人の方は空欄で構いません）</label>
-              <input id="f-org" name="org" type="text" placeholder="例：◯◯専門学校">
-            </div>
-            <div class="field">
-              <label for="f-name">お名前<span class="req">必須</span></label>
-              <input id="f-name" name="name" type="text" required placeholder="山田 太郎">
-            </div>
-            <div class="field">
-              <label for="f-mail">メールアドレス<span class="req">必須</span></label>
-              <input id="f-mail" name="email" type="email" required placeholder="example@school.ac.jp">
-            </div>
-            <div class="field">
-              <label for="f-tel">電話番号</label>
-              <input id="f-tel" name="tel" type="tel" placeholder="043-000-0000">
-            </div>
-            <div class="field">
-              <label for="f-when">ご希望の実施時期</label>
-              <input id="f-when" name="when" type="text" placeholder="例：2026年◯月頃／未定">
-            </div>
-            <div class="field">
-              <label for="f-body">ご相談内容<span class="req">必須</span></label>
-              <textarea id="f-body" name="body" required maxlength="1200" placeholder="対象者、想定人数、会場、ご予算など、わかる範囲でお知らせください。"></textarea>
-            </div>
-            <button class="btn btn-main form-submit" type="submit">メールで送信する</button>
-            <p id="form-msg" class="form-msg" aria-live="polite">
-              ボタンを押すと、入力内容が入ったメールが開きます。確認してそのまま送信してください。いただいた内容は、お問い合わせへの回答にのみ使います。
-            </p>
-          </form>
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name"><b>LINK ONE</b><small>リンクワン株式会社</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く"><i aria-hidden="true"></i><span>MENU</span></button>
+      <nav class="site-nav" id="gnav" aria-label="メインメニュー">
+        <a href="index.html"><span class="jp">ホーム</span><span class="en">HOME</span></a>
+        <a href="news.html"><span class="jp">お知らせ</span><span class="en">NEWS</span></a>
+        <a href="service.html"><span class="jp">事業内容</span><span class="en">BUSINESS</span></a>
+        <a href="company.html"><span class="jp">会社概要</span><span class="en">COMPANY</span></a>
+        <a href="contact.html" aria-current="page"><span class="jp">お問い合わせ</span><span class="en">CONTACT</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Contact</p>
+        <h1>お問い合わせ</h1>
+        <p class="lede">講義・イベントのご依頼や、事業についてのご相談はこちらから。内容が固まっていなくても大丈夫です。通常2営業日以内にご返信します。</p>
+      </div>
+    </div>
+    <nav class="crumb" aria-label="パンくずリスト">
+      <div class="wrap"><a href="index.html">ホーム</a><span>›</span><span>お問い合わせ</span></div>
+    </nav>
+
+    <section class="sec-white">
+      <div class="wrap">
+        <div class="contact-grid contact-grid--center">
+          <div>
+            <form id="contact-form" action="mailto:r.maeda@link1-inc.com" method="post" enctype="text/plain">
+              <div class="field">
+                <label for="f-type">お問い合わせ種別<span class="req">必須</span></label>
+                <select id="f-type" name="type" required>
+                  <option>講義・授業のご依頼</option>
+                  <option>イベント・大会のご相談</option>
+                  <option>じもとーくについて</option>
+                  <option>TikTokライバー事務所について</option>
+                  <option>取材・協業のご相談</option>
+                  <option>その他</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-org">学校・団体・企業名（個人の方は空欄で構いません）</label>
+                <input id="f-org" name="org" type="text" placeholder="例：◯◯専門学校">
+              </div>
+              <div class="field">
+                <label for="f-name">お名前<span class="req">必須</span></label>
+                <input id="f-name" name="name" type="text" required placeholder="山田 太郎">
+              </div>
+              <div class="field">
+                <label for="f-mail">メールアドレス<span class="req">必須</span></label>
+                <input id="f-mail" name="email" type="email" required placeholder="example@school.ac.jp">
+              </div>
+              <div class="field">
+                <label for="f-tel">電話番号</label>
+                <input id="f-tel" name="tel" type="tel" placeholder="043-000-0000">
+              </div>
+              <div class="field">
+                <label for="f-when">ご希望の実施時期</label>
+                <input id="f-when" name="when" type="text" placeholder="例：2026年◯月頃／未定">
+              </div>
+              <div class="field">
+                <label for="f-body">ご相談内容<span class="req">必須</span></label>
+                <textarea id="f-body" name="body" required maxlength="1200" placeholder="対象者、想定人数、会場、ご予算など、わかる範囲でお知らせください。"></textarea>
+              </div>
+              <button class="btn btn-main form-submit" type="submit">メールで送信する</button>
+              <p id="form-msg" class="form-msg" aria-live="polite">
+                ボタンを押すと、入力内容が入ったメールが開きます。確認してそのまま送信してください。いただいた内容は、お問い合わせへの回答にのみ使います。
+              </p>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<footer class="site-foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="brand" href="index.html">
-          <span class="brand__mark" aria-hidden="true"></span>
-          <span class="brand__name"><b>LINK ONE</b><small>リンクワン株式会社</small></span>
-        </a>
-        <address class="foot-addr">
-          千葉県千葉市美浜区幸町1丁目1番1-1915号<br>
-          TEL <a href="tel:07089424631">070-8942-4631</a><br>
-          MAIL <a href="mailto:r.maeda@link1-inc.com">r.maeda@link1-inc.com</a>
-        </address>
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name"><b>LINK ONE</b><small>リンクワン株式会社</small></span>
+          </a>
+          <address class="foot-addr">
+            千葉県千葉市美浜区幸町1丁目1番1-1915号<br>
+            TEL <a href="tel:07089424631">070-8942-4631</a><br>
+            MAIL <a href="mailto:r.maeda@link1-inc.com">r.maeda@link1-inc.com</a>
+          </address>
+        </div>
+        <nav class="foot-col" aria-label="事業内容">
+          <h3>Business</h3>
+          <a href="service.html#lecture">eスポーツ講義・教育支援</a>
+          <a href="service.html#event">イベント・大会の企画運営</a>
+          <a href="service.html#jimotalk">じもとーく</a>
+          <a href="service.html#liver">TikTokライバー事務所</a>
+        </nav>
+        <nav class="foot-col" aria-label="会社情報">
+          <h3>Company</h3>
+          <a href="company.html">会社概要</a>
+          <a href="company.html#message">代表メッセージ</a>
+          <a href="news.html">お知らせ</a>
+        </nav>
+        <nav class="foot-col" aria-label="お問い合わせ">
+          <h3>Contact</h3>
+          <a href="contact.html">お問い合わせフォーム</a>
+          <a href="tel:07089424631">お電話でのご相談</a>
+        </nav>
       </div>
-      <nav class="foot-col" aria-label="事業内容">
-        <h3>Business</h3>
-        <a href="service.html#lecture">eスポーツ講義・教育支援</a>
-        <a href="service.html#event">イベント・大会の企画運営</a>
-        <a href="service.html#jimotalk">じもとーく</a>
-        <a href="service.html#liver">TikTokライバー事務所</a>
-      </nav>
-      <nav class="foot-col" aria-label="会社情報">
-        <h3>Company</h3>
-        <a href="company.html">会社概要</a>
-        <a href="company.html#message">代表メッセージ</a>
-      </nav>
-      <nav class="foot-col" aria-label="お問い合わせ">
-        <h3>Contact</h3>
-        <a href="contact.html">お問い合わせフォーム</a>
-        <a href="tel:07089424631">お電話でのご相談</a>
-      </nav>
+      <p class="copy">© 2026 LINK ONE INC. ALL RIGHTS RESERVED.</p>
     </div>
-    <p class="copy">© 2026 LINK ONE INC. ALL RIGHTS RESERVED.</p>
-  </div>
-</footer>
+  </footer>
 
-<a class="pagetop" href="#top" aria-label="ページ上部へ戻る"></a>
+  <a class="pagetop" href="#top" aria-label="ページ上部へ戻る"></a>
 
-<script src="app.js?v=202611232300" defer></script>
+  <script src="app.js?v=202611232300" defer></script>
 </body>
 </html>

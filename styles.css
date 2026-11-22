@@ -780,18 +780,6 @@ html{scroll-behavior:smooth}
     display:block;font-family:var(--f-lat);font-size:10px;font-weight:600;
     letter-spacing:.2em;color:rgba(143,203,245,.75);
   }
-
-  /* パネル下部の連絡先 */
-  .nav-foot{
-    display:flex;flex-direction:column;gap:6px;margin-top:34px;
-    opacity:0;transition:opacity .5s ease .40s;
-  }
-  .site-nav.is-open .nav-foot{opacity:1}
-  .nav-foot a{
-    display:inline-block;padding:0;border:0;color:var(--white);
-    font-family:var(--f-lat);font-size:15px;letter-spacing:.04em;opacity:1;transform:none;
-  }
-  .nav-foot a::after{display:none}
 }
 
 @media (prefers-reduced-motion:reduce){

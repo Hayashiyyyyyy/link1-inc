@@ -62,3 +62,76 @@
   .jt-phone,.jt-phone--1,.jt-phone--2,.jt-phone--3{width:31%}
   .t-cta__arrow{width:40px}
 }
+
+/* ------------------------------------------------------------
+   Splash: ブラウザで最初にトップを開いたときだけ、ロゴを出して消す
+   （2回目以降は index.html の head で .no-splash が付き、表示しない）
+------------------------------------------------------------ */
+.splash{
+  position:fixed;inset:0;z-index:200;display:grid;place-items:center;
+  background:var(--paper);pointer-events:none;
+  animation:splash-out .7s cubic-bezier(.7,0,.2,1) 1.5s forwards;
+}
+.splash__logo{display:grid;justify-items:center;gap:18px;animation:splash-in .9s cubic-bezier(.22,.61,.36,1) .1s both}
+.splash__logo img{width:clamp(120px,22vw,176px);height:auto}
+.splash__logo span{padding-left:.32em;font-family:var(--f-lat);font-size:clamp(14px,1.6vw,18px);font-weight:700;letter-spacing:.32em;color:var(--navy)}
+@keyframes splash-in{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes splash-out{to{opacity:0;visibility:hidden}}
+.no-splash .splash{display:none}
+/* スプラッシュ中はヒーローの演出を待たせる */
+html.js:not(.no-splash) .kv-seq > .h-kv__logo{animation-delay:1.75s}
+html.js:not(.no-splash) .kv-seq > .h-kv__en{animation-delay:2.55s}
+html.js:not(.no-splash) .kv-seq > h1:nth-child(n){animation-delay:2.7s}
+html.js:not(.no-splash) .kv-seq > .h-kv__lede{animation-delay:2.85s}
+html.js:not(.no-splash) .kv-seq > .h-btns{animation-delay:3s}
+@media (prefers-reduced-motion:reduce){.splash{display:none}}
+
+/* ------------------------------------------------------------
+   Service（スマホ）：詳細の読みやすさ
+   文字の段階：h2 24 / h3 18 / 本文 15 / 補足 14、行間 1.75〜1.95
+------------------------------------------------------------ */
+@media(max-width:600px){
+.theme-service{--fg-dim:#3B4859;--rule-sp:rgba(6,25,79,.14)}
+.theme-service .sec-head h2{font-size:24px;line-height:1.5;letter-spacing:.04em}
+.theme-service .sec-head .sub{font-size:15px;line-height:1.95;letter-spacing:.03em;color:var(--fg)}
+.theme-service .biz-more{border:0;margin-top:4px}
+.theme-service .biz-more>summary{min-height:56px;padding:0 18px;background:var(--navy);color:#fff;border:1px solid var(--navy);font-size:15px;font-weight:700;letter-spacing:.06em}
+.theme-service .biz-more[open]>summary{background:transparent;color:var(--navy);margin-bottom:8px}
+.theme-service .biz-more .svc article{padding:28px 0;border-top:0;border-bottom:1px solid var(--rule-sp)}
+.theme-service .svc .en{font-size:11.5px;letter-spacing:.2em;margin-bottom:6px}
+.theme-service .biz-more .svc h3{font-size:18px;font-weight:800;line-height:1.55;letter-spacing:.04em;margin:0 0 12px}
+.theme-service .svc article>p{display:block;font-size:15px;line-height:1.9;letter-spacing:.03em;color:var(--fg-dim);margin:0 0 16px}
+.theme-service .biz-more .svc ul{gap:10px}
+.theme-service .biz-more .svc li{font-size:15px;line-height:1.8;letter-spacing:.03em;color:var(--fg);padding:0 0 0 20px}
+.theme-service .svc li::before{top:.9em;width:9px;height:2px}
+.theme-service .biz-more .svc ul:has(>li>b){gap:0;border-top:1px solid var(--rule-sp)}
+.theme-service .biz-more .svc ul:has(>li>b)>li{padding:14px 0 14px 20px;border-bottom:1px solid var(--rule-sp)}
+.theme-service .biz-more .svc ul:has(>li>b)>li:last-child{border-bottom:0}
+.theme-service .biz-more .svc ul:has(>li>b)>li::before{top:calc(14px + .9em)}
+.theme-service .svc li>b{display:block;font-size:15.5px;font-weight:700;line-height:1.6;letter-spacing:.04em;color:var(--navy)}
+.theme-service .svc li>span{display:block;margin-top:4px;font-size:14px;line-height:1.75;letter-spacing:.03em;color:var(--fg-dim)}
+.theme-service .biz-more .sub-h{margin:48px 0 4px;padding-top:18px;border-top:2px solid var(--navy);font-size:17px;font-weight:800;line-height:1.5;letter-spacing:.05em;color:var(--navy)}
+.theme-service .biz-more .sub-h+dl,.theme-service .biz-more .sub-h+.rec{margin-top:16px}
+.theme-service .svc--program article{margin-top:20px;padding:4px 0 4px 16px;border-bottom:0;border-left:2px solid #A8822C}
+.theme-service .svc--program .en{font-size:13px;letter-spacing:.16em;color:var(--navy)}
+.theme-service .skill-map{border-top:1px solid var(--rule-sp)}
+.theme-service .skill-map>div{grid-template-columns:16px 1fr;gap:4px 8px;padding:14px 0}
+.theme-service .skill-map dt{grid-column:1/-1;font-size:14px;line-height:1.7;color:var(--fg-dim)}
+.theme-service .skill-map>div::after{grid-column:1;grid-row:2;width:7px;height:7px;align-self:center}
+.theme-service .skill-map dd{grid-column:2;grid-row:2;font-size:16px;line-height:1.6}
+.theme-service .skill-note{margin-top:16px;font-size:14px;line-height:1.85;color:var(--fg-dim)}
+.theme-service .biz-more .rec li{padding:20px 0;gap:6px;border-top:0;border-bottom:1px solid var(--rule-sp)}
+.theme-service .rec .rec-when{font-size:12.5px;letter-spacing:.08em}
+.theme-service .rec h4{font-size:16.5px;line-height:1.6;letter-spacing:.03em}
+.theme-service .biz-more .rec p{display:block;font-size:14.5px;line-height:1.85;color:var(--fg-dim)}
+.theme-service .rec dl{grid-template-columns:4.5em 1fr;gap:0;margin-top:8px;border-top:1px solid var(--rule-sp)}
+.theme-service .rec dt,.theme-service .rec dd{margin:0;padding:10px 0;border-bottom:1px solid var(--rule-sp)}
+.theme-service .rec dt{font-size:12.5px;line-height:1.75;color:#8A6A1E}
+.theme-service .rec dd{font-size:14.5px;line-height:1.75;color:var(--fg)}
+.theme-service .rec a.more{min-height:44px;display:inline-flex;align-items:center}
+.theme-service .notice{padding:2px 0 2px 14px;font-size:14px;line-height:1.85;color:var(--fg)}
+.theme-service .notice strong{display:block;margin-bottom:2px;font-size:15px}
+}
+.biz-more__close{display:none}
+.biz-more[open] .biz-more__open{display:none}
+.biz-more[open] .biz-more__close{display:inline}

@@ -2,6 +2,10 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>お問い合わせ | リンクワン株式会社</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
@@ -9,9 +13,9 @@
 <link rel="icon" href="img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/favicon-180.png">
 <link rel="stylesheet" href="styles.css?v=202611222200">
-<link rel="stylesheet" href="home.css?v=202611230200">
-<link rel="stylesheet" href="sub.css?v=202611230430">
-<link rel="stylesheet" href="washi.css?v=202611230600">
+<link rel="stylesheet" href="home.css?v=202611230700">
+<link rel="stylesheet" href="sub.css?v=202611230700">
+<link rel="stylesheet" href="washi.css?v=202611230700">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body class="theme-contact">
@@ -32,6 +36,7 @@
   </div>
 </header>
 
+<main id="main">
 <div class="page-head">
   <div class="wrap">
     <p class="eyebrow">Contact</p>
@@ -43,7 +48,6 @@
   <div class="wrap"><a href="index.html">ホーム</a><span>›</span><span>お問い合わせ</span></div>
 </nav>
 
-<main id="main">
   <section class="sec-white">
     <div class="wrap">
       <div class="contact-grid contact-grid--center">
@@ -52,7 +56,7 @@
             <p class="sec-en">Form</p>
         <h2>フォームからのお問い合わせ</h2>
           </div>
-          <form id="contact-form" novalidate>
+          <form id="contact-form" action="mailto:r.maeda@link1-inc.com" method="post" enctype="text/plain">
             <div class="field">
               <label for="f-type">お問い合わせ種別<span class="req">必須</span></label>
               <select id="f-type" name="type" required>
@@ -88,9 +92,9 @@
               <label for="f-body">ご相談内容<span class="req">必須</span></label>
               <textarea id="f-body" name="body" required placeholder="対象者、想定人数、会場、ご予算など、わかる範囲でお知らせください。"></textarea>
             </div>
-            <button class="btn btn-main" type="submit" style="width:100%;justify-content:center">送信する</button>
+            <button class="btn btn-main" type="submit" style="width:100%;justify-content:center">メールで送信する</button>
             <p id="form-msg" aria-live="polite" style="margin:14px 0 0;font-size:13px;color:var(--fg-dim)">
-              送信いただいた内容は、お問い合わせへの回答のみに利用します。
+              ボタンを押すと、入力内容が入った状態でメールアプリが開きます。内容をご確認のうえ送信してください。送信いただいた内容は、お問い合わせへの回答のみに利用します。
             </p>
           </form>
         </div>
@@ -137,15 +141,6 @@
 
 <a class="pagetop" href="#top" aria-label="ページ上部へ戻る"></a>
 
-<script>
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var msg = document.getElementById('form-msg');
-  msg.textContent = 'これはデザイン確認用のプレビューです。実際の送信機能はSTUDIOのフォーム機能で設定します。';
-  msg.style.color = '#C0392B';
-  msg.style.fontWeight = '700';
-});
-</script>
-<script src="app.js?v=202611221232" defer></script>
+<script src="app.js?v=202611230700" defer></script>
 </body>
 </html>

@@ -76,3 +76,30 @@
     if (window.innerWidth > 600) { setOpen(false); }
   }, { passive: true });
 }());
+
+/* お問い合わせフォーム：サーバーを使わず、入力内容を入れたメールを作成する
+   （内容はURLやサーバーに残らず、利用者の端末のメールアプリに渡るだけ） */
+(function () {
+  var f = document.getElementById('contact-form');
+  if (!f) { return; }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (f.reportValidity && !f.reportValidity()) { return; }
+    var v = function (n) { return f.elements[n] ? (f.elements[n].value || '').trim() : ''; };
+    var subject = '【HPお問い合わせ】' + v('type');
+    var body = [
+      'お問い合わせ種別：' + v('type'),
+      '学校・団体・企業名：' + v('org'),
+      'お名前：' + v('name'),
+      'メールアドレス：' + v('email'),
+      '電話番号：' + v('tel'),
+      'ご希望の実施時期：' + v('when'),
+      '',
+      '【ご相談内容】',
+      v('body')
+    ].join('\r\n');
+    window.location.href = 'mailto:r.maeda@link1-inc.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    var m = document.getElementById('form-msg');
+    if (m) { m.textContent = 'メールアプリを開きました。内容をご確認のうえ、そのまま送信してください。開かない場合は r.maeda@link1-inc.com まで直接お送りください。'; }
+  });
+}());

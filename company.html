@@ -2,6 +2,10 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>会社概要 | リンクワン株式会社</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
@@ -9,9 +13,9 @@
 <link rel="icon" href="img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="img/favicon-180.png">
 <link rel="stylesheet" href="styles.css?v=202611222200">
-<link rel="stylesheet" href="home.css?v=202611230200">
-<link rel="stylesheet" href="sub.css?v=202611230430">
-<link rel="stylesheet" href="washi.css?v=202611230600">
+<link rel="stylesheet" href="home.css?v=202611230700">
+<link rel="stylesheet" href="sub.css?v=202611230700">
+<link rel="stylesheet" href="washi.css?v=202611230700">
 <script>document.documentElement.className += " js";</script>
 </head>
 <body class="theme-company">
@@ -32,6 +36,7 @@
   </div>
 </header>
 
+<main id="main">
 <div class="page-head">
   <div class="wrap">
     <p class="eyebrow">Company</p>
@@ -43,7 +48,6 @@
   <div class="wrap"><a href="index.html">ホーム</a><span>›</span><span>会社概要</span></div>
 </nav>
 
-<main id="main">
   <section class="sec-white">
     <div class="wrap">
       <div class="sec-head">
@@ -55,7 +59,7 @@
           <tbody>
             <tr><th scope="row">商号</th><td>リンクワン株式会社</td></tr>
             <tr><th scope="row">代表者</th><td>代表取締役社長　前田 陸人</td></tr>
-            <tr><th scope="row">所在地</th><td>千葉県千葉市美浜区幸町1丁目1番1-1915号</td></tr>
+            <tr><th scope="row">所在地</th><td>千葉県千葉市美浜区<span class="nowrap">幸町1丁目1番1-1915号</span></td></tr>
             <tr><th scope="row">電話番号</th><td><a href="tel:07089424631" style="color:inherit">070-8942-4631</a></td></tr>
             <tr><th scope="row">メールアドレス</th><td><a href="mailto:r.maeda@link1-inc.com" style="color:inherit">r.maeda@link1-inc.com</a></td></tr>
             <tr><th scope="row">事業内容</th><td>
@@ -149,6 +153,6 @@
 </footer>
 
 <a class="pagetop" href="#top" aria-label="ページ上部へ戻る"></a>
-<script src="app.js?v=202611221232" defer></script>
+<script src="app.js?v=202611230700" defer></script>
 </body>
 </html>

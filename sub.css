@@ -15,7 +15,7 @@
 }
 .page-head .wrap::after{
   content:"";position:absolute;width:clamp(80px,12vw,170px);aspect-ratio:1;border-radius:50%;
-  right:calc(24px + 4%);top:-10%;z-index:0;
+  right:calc(24px + 4%);top:calc(-1 * clamp(12px,2vw,24px));z-index:0;
   background:radial-gradient(circle at 35% 35%,#6FDBFF,#00B8F0 60%,#0B72D8);opacity:.75;
 }
 @media(max-width:600px){.page-head .wrap::before{inset:0 18px}.page-head .wrap::after{right:24px}}
@@ -85,7 +85,7 @@ section{padding-block:clamp(80px,10vw,124px)}
 
 /* ---- 事業インデックス（事業内容ページ冒頭） ---- */
 .biz-index{display:grid;gap:14px;border:0;margin-top:clamp(34px,4vw,48px)}
-@media(min-width:760px){.biz-index{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.biz-index{grid-template-columns:1fr 1fr}}
 .biz-index a{
   border:0;border-radius:22px;background:var(--tint);padding:26px 64px 26px 28px;
   transition:background-color .25s ease;
@@ -167,7 +167,7 @@ table.info th{background:var(--tint);color:var(--navy)}
 .theme-company .sec-en{background:linear-gradient(100deg,#06194F 0%,#06194F 45%,#A8822C 100%);-webkit-background-clip:text;background-clip:text}
 .theme-company .sec-photo{background-image:var(--grad)}
 .theme-contact{
-  --grad:linear-gradient(125deg,#0A3FA8 0%,#0A8FC4 55%,#17B394 100%);
+  --grad:linear-gradient(125deg,#0A3FA8 0%,#0A7FB4 55%,#0F8F76 100%);
   --orb:radial-gradient(circle at 35% 35%,#B8F5E6,#3FD6B6 55%,#17A88A);
 }
 .theme-contact .sec-head h2::before{background:#17B394}
@@ -218,7 +218,7 @@ table.info th{background:var(--tint);color:var(--navy)}
 .theme-service main{counter-reset:biz}
 
 /* 冒頭の説明文 */
-.theme-service main > section:first-child .lede{font-size:16px;line-height:2.1;color:var(--fg)}
+.theme-service main > section:first-of-type .lede{font-size:16px;line-height:2.1;color:var(--fg)}
 
 /* 事業一覧：番号つき、名前を大きく */
 .theme-service .biz-index{counter-reset:bi}

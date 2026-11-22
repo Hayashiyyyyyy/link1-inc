@@ -36,7 +36,7 @@ body::after{
 
 /* ---- 面を透かして紙を見せる ---- */
 .sec-white,.home .h-kv,.home .h-msg,.page-head,.crumb{background:transparent}
-.sec-tint,.h-sec--tint{background:var(--paper-veil)}
+.sec-tint,.h-sec--tint{background:linear-gradient(transparent,var(--paper-veil) 120px,var(--paper-veil) calc(100% - 120px),transparent)}
 .site-head{background:rgba(251,250,246,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 @media(max-width:900px){.site-head{background:rgba(251,250,246,.94)}}
 /* スマホ：すりガラス効果があると全画面メニュー（position:fixed）がヘッダー内に閉じ込められるため外す */
@@ -54,7 +54,7 @@ table.info th{background:rgba(242,245,248,.7)}
    文字組み（全ページ）：日本語を文節で改行し、行末の1文字残りを防ぐ
    ============================================================ */
 body{line-break:strict;overflow-wrap:anywhere}
-h1,h2,h3,h4,p,li,dd,dt,label,.bi-name,.bi-desc,.h-tile__jp,.jt-show__catch{word-break:auto-phrase}
+h1,h2,h3,h4,p,li,dd,dt,label,.notice,.bi-name,.bi-desc,.h-tile__jp,.jt-show__catch{word-break:auto-phrase}
 p,li,dd{text-wrap:pretty}
 h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
 .h-news p,.rec h4{overflow-wrap:anywhere}
@@ -135,4 +135,79 @@ h1,h2,h3,.h-msg__lead,.jt-show__catch,.h-biz__txt h3{text-wrap:balance}
   /* フォーム */
   .contact-grid--center form{padding:24px 18px;border-radius:22px}
   .field input,.field textarea,.field select{font-size:16px}  /* iPhoneで入力時に拡大されないように */
+}
+
+/* ============================================================
+   2026-11-23 点検で見つかった不具合の修正（スマホ・共通）
+   ============================================================ */
+/* 英字見出し：グラデーション文字の g・p などの下が切れないように */
+.h-head__en,.sec-en{padding-bottom:.12em;margin-bottom:-.12em}
+
+/* 会社情報の表：単語の途中で折れないように */
+table.info td,table.info th{word-break:auto-phrase;overflow-wrap:normal}
+.nowrap{display:inline-block}
+
+/* 押しやすさ：小さいリンクの押せる範囲を広げる（見た目は変えない） */
+.crumb a,table.info td a,.foot-addr a,a.more{display:inline-block;padding-block:8px;margin-block:-8px}
+
+/* ページトップボタン：角丸のデザインに合わせて円形に */
+.pagetop{border-radius:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+
+/* 横向きスマホ：ヘッダーを薄く、図版を横長に */
+@media (orientation:landscape) and (max-height:500px){
+  .site-head .wrap{padding-block:8px}
+  .h-biz__vis{aspect-ratio:16/9}
+}
+
+@media(max-width:600px){
+  /* 縦書き英字のタイル：英字が2列に折れないように */
+  .h-tile__en{white-space:nowrap}
+  /* 事業一覧カード（事業内容ページ）：左右の余白を詰めて文字幅を確保 */
+  .theme-service .biz-index a{padding:18px 48px 18px 54px}
+  .theme-service .biz-index a::before{left:16px;font-size:22px}
+  .biz-index a::after{right:12px;width:28px;height:28px}
+  /* お問い合わせ見出し：2行になっても飾り線が左に取り残されないように */
+  .contact-grid--center .sec-head h2{flex-direction:column;gap:10px}
+  /* メッセージ欄の金色の円を小さく */
+  .h-msg__shape::after{width:160px;right:-20%;top:4%}
+}
+@media(max-width:374px){
+  .h-tile{aspect-ratio:16/9}
+}
+
+/* ============================================================
+   2026-11-23 点検で見つかった不具合の修正（PC・タブレット）
+   ============================================================ */
+/* 601〜760px：ナビがロゴの下に回り込まないように詰める */
+@media(min-width:601px) and (max-width:760px){
+  .site-nav a{padding:10px 10px;font-size:13.5px}
+  .site-head .wrap{gap:12px 16px}
+}
+/* 601〜859px：フッターを1列の縦積みにせず3列に／事業の図版を横長に */
+@media(min-width:601px) and (max-width:859px){
+  .foot-grid{grid-template-columns:repeat(3,1fr)}
+  .foot-grid>div:first-child{grid-column:1/-1}
+  .h-biz__vis{aspect-ratio:16/9}
+}
+/* 720〜959px：タイルの縦書き英字と矢印が重ならないように */
+@media(min-width:720px) and (max-width:959px){
+  .h-tile{aspect-ratio:1/1}
+  .h-tile__en{font-size:26px}
+}
+/* 601〜959px：じもとーくの画面画像を少し大きく */
+@media(min-width:601px) and (max-width:959px){
+  .jt-phone{width:clamp(150px,24vw,200px)}
+}
+/* トップの事業：左右反転した行（02・04）も画像の大きさをそろえる */
+@media(min-width:860px){.h-biz__row--rev{grid-template-columns:1fr 1.1fr}}
+/* 相談の流れ：折り返しても最後の1個だけ取り残されないように */
+.h-flow li{flex:1 1 auto}
+/* サービスカード上辺の細い線を消す */
+.svc article{border:0}
+/* フォーカス枠：明るい背景でも見えるように */
+.pagetop:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+.h-tile:focus-visible{outline-color:var(--navy)}
+/* お問い合わせ見出し：飾り線の分だけ右にずれないように（PC） */
+@media(min-width:601px){
+  .contact-grid--center .sec-head h2::after{content:"";flex:none;width:28px}
 }

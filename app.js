@@ -46,18 +46,11 @@
   var nav = document.getElementById('gnav');
   if (!toggle || !nav) { return; }
 
-  var head = document.querySelector(".site-head");
   var setOpen = function (open) {
     nav.classList.toggle("is-open", open);
     toggle.classList.toggle("is-open", open);
-    if (head) { head.classList.toggle("is-nav-open", open); }
-    document.body.classList.toggle("nav-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
-    if (open) {
-      var first = nav.querySelector("a");
-      if (first) { window.setTimeout(function () { first.focus(); }, 340); }
-    }
   };
 
   toggle.addEventListener('click', function () {

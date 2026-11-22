@@ -111,9 +111,9 @@
   var wide = window.matchMedia('(min-width: 601px)');
 
   function sync() {
-    if (!wide.matches) return;
-    blocks.forEach(function (d) { d.open = true; });
+    blocks.forEach(function (d) { d.open = wide.matches; });
   }
   sync();
-  wide.addEventListener('change', sync);
+  if (wide.addEventListener) wide.addEventListener('change', sync);
+  else if (wide.addListener) wide.addListener(sync);
 })();

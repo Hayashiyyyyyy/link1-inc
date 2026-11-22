@@ -1,0 +1,64 @@
+/* 2026-11-23 仕上げ（AIっぽさの除去・バランス） */
+
+/* 見出し：番号を外し、小ラベル＋日本語見出しだけに */
+.t-head__en span{display:none}
+
+/* 丸い点 → 短い線・四角 */
+.sub-h::before{display:none}
+.sub-h{border-top:1px solid var(--rule,rgba(6,25,79,.16));padding-top:20px}
+.svc li::before,.co-ceo__list li::before,.jt-show__list li::before{width:10px;height:1px;border-radius:0;background:#A8822C;top:.95em}
+.t-works li::before,.co-history li::before{width:9px;height:9px;border-radius:0;left:-5.5px}
+
+/* 特徴の番号は脇役に */
+.t-points__no{font-size:14px;font-weight:600;letter-spacing:.12em}
+
+/* 開発中・企画中の表示を統一 */
+.badge-soon,.h-badge{background:none;border:1px solid currentColor;color:#8A6A1E;padding:1px 8px;font-size:11px;border-radius:2px}
+
+/* 「Let's link.」の矢印：丸をやめて線だけ */
+.t-cta__arrow{
+  border-radius:0;background:none;width:clamp(44px,5vw,64px);height:2px;aspect-ratio:auto;position:relative;
+  background:var(--navy);
+}
+.t-cta__arrow::after{content:"";position:absolute;right:0;top:50%;width:14px;height:14px;border-top:2px solid var(--navy);border-right:2px solid var(--navy);transform:translateY(-50%) rotate(45deg)}
+.t-cta__link:hover .t-cta__arrow{background:var(--blue)}
+.t-cta__link:hover .t-cta__arrow::after{border-color:var(--blue)}
+
+/* じもとーく：グラデの面と傾いた端末をやめ、罫線＋まっすぐ並べる */
+.jt-show,.theme-service .jt-show{background:none;color:var(--fg);border-radius:0;border-top:2px solid var(--navy);padding:36px 0 0}
+.jt-show::before{display:none}
+.jt-show__label{border-radius:0;background:none;padding:0;color:#A8822C;font-family:var(--f-lat);font-size:12px;letter-spacing:.2em}
+.jt-show__catch{color:var(--navy)}
+.jt-show__txt > p:not(.jt-show__label):not(.jt-show__catch),.theme-service .jt-show__txt > p:not(.jt-show__label):not(.jt-show__catch){color:var(--fg-dim)}
+.jt-show__list li{color:var(--fg)}
+.jt-phones{gap:16px;min-height:0}
+.jt-phone,.jt-phone--1,.jt-phone--2,.jt-phone--3{transform:none;box-shadow:none;width:clamp(120px,14vw,170px)}
+
+/* 代表の数字：2列・控えめに */
+.co-ceo__stats{grid-template-columns:repeat(2,1fr)}
+.co-ceo__stats dd{font-size:clamp(24px,2.6vw,30px)}
+.co-ceo__stats dt{font-size:12px}
+
+/* ヘッダー：すりガラスをやめる */
+.site-head{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--paper);border-bottom:1px solid rgba(6,25,79,.1)}
+
+/* お問い合わせ：中央のカードをやめ、左揃えで他ページとそろえる */
+.contact-grid--center{margin-inline:0;max-width:720px}
+.contact-grid--center form{border:0;border-radius:0;background:none;box-shadow:none;padding:32px 0 0;border-top:2px solid var(--navy)}
+.contact-grid--center #form-msg{text-align:left}
+
+/* バランス */
+.t-sec{padding-block:clamp(72px,8vw,112px)}
+.t-sec + .t-sec{border-top:1px solid var(--rule,rgba(6,25,79,.16))}
+.t-sec--line{padding-bottom:96px}
+.t-works{border-top:1px solid var(--rule,rgba(6,25,79,.16));padding-top:24px}
+.theme-company #message{padding-bottom:72px}
+
+@media(max-width:600px){
+  .h-news a{padding:20px 0}
+  .skill-map > div{grid-template-columns:1fr 12px 1.15fr;gap:8px}
+  .co-ceo__stats dt{font-size:11.5px}
+  .jt-phones{gap:8px}
+  .jt-phone,.jt-phone--1,.jt-phone--2,.jt-phone--3{width:31%}
+  .t-cta__arrow{width:40px}
+}

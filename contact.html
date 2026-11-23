@@ -2,7 +2,7 @@
 <html lang="ja" class="p-sub p-washi">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-riitXBKGtl5y5ccA7GF6ccqJuwEVP5tm8j0ff/fbw9U='; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
   <meta name="robots" content="noindex,nofollow">
   <link rel="icon" href="img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="img/favicon-180.png">
-  <link rel="stylesheet" href="site.css?v=202611242200">
+  <link rel="stylesheet" href="site.css?v=202611242300">
   <script>document.documentElement.className += " js";</script>
 </head>
 <body id="top" class="theme-contact">
@@ -65,23 +65,23 @@
               </div>
               <div class="field">
                 <label for="f-org">学校・団体・企業名（個人の方は空欄で構いません）</label>
-                <input id="f-org" name="org" type="text" placeholder="例：◯◯専門学校">
+                <input id="f-org" name="org" maxlength="100" type="text" placeholder="例：◯◯専門学校">
               </div>
               <div class="field">
                 <label for="f-name">お名前<span class="req">必須</span></label>
-                <input id="f-name" name="name" type="text" required placeholder="山田 太郎">
+                <input id="f-name" name="name" maxlength="60" type="text" required placeholder="山田 太郎">
               </div>
               <div class="field">
                 <label for="f-mail">メールアドレス<span class="req">必須</span></label>
-                <input id="f-mail" name="email" type="email" required placeholder="example@school.ac.jp">
+                <input id="f-mail" name="email" maxlength="254" type="email" required placeholder="example@school.ac.jp">
               </div>
               <div class="field">
                 <label for="f-tel">電話番号</label>
-                <input id="f-tel" name="tel" type="tel" placeholder="043-000-0000">
+                <input id="f-tel" name="tel" maxlength="20" type="tel" placeholder="043-000-0000">
               </div>
               <div class="field">
                 <label for="f-when">ご希望の実施時期</label>
-                <input id="f-when" name="when" type="text" placeholder="例：2026年◯月頃／未定">
+                <input id="f-when" name="when" maxlength="60" type="text" placeholder="例：2026年◯月頃／未定">
               </div>
               <div class="field">
                 <label for="f-body">ご相談内容<span class="req">必須</span></label>
@@ -137,6 +137,6 @@
 
   <a class="pagetop" href="#top" aria-label="ページ上部へ戻る"></a>
 
-  <script src="app.js?v=202611242200" defer></script>
+  <script src="app.js?v=202611242300" defer></script>
 </body>
 </html>

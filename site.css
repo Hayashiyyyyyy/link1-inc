@@ -6629,21 +6629,22 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 }
 
 /* じもとーくの画面：現れたあと、ゆっくり浮かび続ける */
-.app .jt-phone.is-in img {
+.app .jt-phone.is-in {
   animation: jt-float 6s ease-in-out 1.2s infinite;
 }
 
-.app .jt-phone--2.is-in img {
+.app .jt-phone--2.is-in {
   animation-delay: 2.2s;
 }
 
-.app .jt-phone--3.is-in img {
+.app .jt-phone--3.is-in {
   animation-delay: 3.2s;
 }
 
+/* 枠ごと浮かぶ（登場の動きと重ならないよう translate を使う） */
 @keyframes jt-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6658,7 +6659,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
     transition: none;
   }
 
-  .app .jt-phone.is-in img {
+  .app .jt-phone.is-in {
     animation: none;
   }
 }
@@ -6747,5 +6748,186 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 
   .app .t-cta__link > .t-cta__arrow.is-in {
     animation: none;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   じもとーくの画面：本物のスマホらしい枠
+   枠・画面・ボタンを本体（figure）にまとめ、動くときは本体ごと動く
+---------------------------------------------------------- */
+.theme-service .jt-phone {
+  position: relative;
+  container-type: inline-size;
+  padding: 6px;
+  border-radius: 26px;
+  background: #050608;
+  box-shadow:
+    0 0 0 1.5px #1C1F26,
+    0 0 0 3px #7C828E,
+    0 0 0 3.5px #2A2E36,
+    0 34px 46px -18px rgba(3,10,40,.55),
+    0 12px 22px -8px rgba(3,10,40,.3);
+}
+
+/* 金属のフチに光が当たったような明るい部分 */
+.theme-service .jt-phone::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 3px;
+  background: linear-gradient(150deg,#C9CED6 0%,#5A606B 22%,#2B2F37 50%,#8E949F 78%,#3A3F48 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+/* 画面：上にステータスバーの帯を足し、カメラ部分がそこに収まるようにする */
+.theme-service .jt-phone img {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  padding-top: 12.5cqw;
+  background: #fff;
+  border-radius: 14cqw / 14cqw;
+}
+
+/* 画面のガラスに映る光 */
+.theme-service .jt-phone::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  z-index: 3;
+  border-radius: 14cqw / 14cqw;
+  background: linear-gradient(118deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 28%,rgba(255,255,255,0) 42%);
+  pointer-events: none;
+}
+
+/* 画面上部の黒いカメラ部分 */
+.jt-phone__island {
+  position: absolute;
+  z-index: 4;
+  top: calc(6px + 2.4cqw);
+  left: 50%;
+  width: 30cqw;
+  height: 8.4cqw;
+  translate: -50% 0;
+  border-radius: 999px;
+  background: #000;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+}
+
+/* ステータスバーの時刻と電池 */
+.jt-phone__island::before,
+.jt-phone__island::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.jt-phone__island::before {
+  content: "9:41";
+  white-space: nowrap;
+  overflow-wrap: normal;
+  right: calc(100% + 9cqw);
+  font-family: var(--f-lat);
+  font-size: 5.4cqw;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #111;
+}
+
+.jt-phone__island::after {
+  left: calc(100% + 11cqw);
+  width: 8cqw;
+  height: 3.8cqw;
+  box-sizing: border-box;
+  padding: .5cqw;
+  border: max(1px,.45cqw) solid rgba(17,17,17,.55);
+  border-radius: 1.3cqw;
+  background: linear-gradient(90deg,#111 0 75%,transparent 75%) content-box;
+}
+
+/* 側面のボタン（左に音量2つ、右に電源） */
+.jt-phone__keys {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+
+.jt-phone__keys::before,
+.jt-phone__keys::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background: linear-gradient(90deg,#3A3F48,#9AA0AA 50%,#3A3F48);
+}
+
+.jt-phone__keys::before {
+  left: -5px;
+  top: 19%;
+  height: 19%;
+  border-radius: 2px 0 0 2px;
+  background:
+    linear-gradient(#0000 0 0) padding-box,
+    linear-gradient(90deg,#3A3F48,#9AA0AA 50%,#3A3F48);
+  -webkit-mask: linear-gradient(#000 0 45%, #0000 45% 55%, #000 55% 100%);
+  mask: linear-gradient(#000 0 45%, #0000 45% 55%, #000 55% 100%);
+}
+
+.jt-phone__keys::after {
+  right: -5px;
+  top: 24%;
+  height: 13%;
+  border-radius: 0 2px 2px 0;
+}
+
+@media (max-width: 600px) {
+  .theme-service .jt-phone {
+    padding: 4px;
+    box-shadow:
+      0 0 0 1px #1C1F26,
+      0 0 0 2px #7C828E,
+      0 0 0 2.5px #2A2E36,
+      0 22px 30px -14px rgba(3,10,40,.55),
+      0 8px 14px -6px rgba(3,10,40,.3);
+  }
+
+  .theme-service .jt-phone::before {
+    inset: -2px;
+    padding: 2px;
+  }
+
+  .theme-service .jt-phone::after {
+    inset: 4px;
+  }
+
+  .jt-phone__island {
+    top: calc(4px + 2.4cqw);
+  }
+
+  .jt-phone__keys::before,
+  .jt-phone__keys::after {
+    width: 2px;
+  }
+
+  .jt-phone__keys::before {
+    left: -3.5px;
+  }
+
+  .jt-phone__keys::after {
+    right: -3.5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .theme-service .jt-phone {
+    border-radius: 18px;
   }
 }

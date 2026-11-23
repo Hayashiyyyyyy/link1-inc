@@ -6002,3 +6002,100 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 .theme-service .biz-more .svc ul:has(> li > b) > li:last-child {
   border-bottom: 0;
 }
+
+
+/* ==========================================================
+   縦棒の装飾をやめる
+   （注記・年表・流れ・2日間の例などは、横の罫線と文字組みで区切る）
+   ========================================================== */
+
+/* 注記：左の色棒をやめ、上下の細い罫線で囲む */
+.notice,
+:where(.p-washi) .notice,
+:where(.p-washi) .theme-service .notice,
+.theme-service .notice {
+  border: 0;
+  border-block: 1px solid rgba(6, 25, 79, .14);
+  border-radius: 0;
+  background: none;
+  padding: 18px 0;
+  box-shadow: none;
+}
+
+.notice strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  letter-spacing: .08em;
+  color: #8A6A1E;
+}
+
+/* 年表（トップの実績・代表の経歴）：縦線と四角をやめ、日付と内容の行に */
+:where(.p-top) .t-works,
+:where(.p-sub) .co-history {
+  border-left: 0;
+  margin-left: 0;
+  border-top: 1px solid rgba(6, 25, 79, .16);
+}
+
+:where(.p-top) .t-works li,
+:where(.p-sub) .co-history li {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(6, 25, 79, .16);
+}
+
+:where(.p-top) .t-works li::before,
+:where(.p-sub) .co-history li::before {
+  display: none;
+}
+
+/* 相談の流れ：縦の区切りをやめ、上の罫線と番号だけで並べる */
+:where(.p-top) .t-flow li {
+  border-right: 0;
+}
+
+@media (min-width: 861px) {
+  :where(.p-top) .t-flow {
+    gap: 0 28px;
+  }
+
+  :where(.p-top) .t-flow li,
+  :where(.p-top) .t-flow li:first-child {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  :where(.p-top) .t-flow {
+    border-left: 0;
+    border-top: 1px solid rgba(6, 25, 79, .16);
+  }
+
+  :where(.p-top) .t-flow li,
+  :where(.p-top) .t-flow li:first-child,
+  :where(.p-top) .t-flow li:nth-child(4) {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(6, 25, 79, .16);
+  }
+}
+
+/* 最新ニュースの帯：ラベルの右の縦線をやめる */
+:where(.p-top) .t-newsbar__label {
+  border-right: 0;
+  padding-right: 0;
+}
+
+/* 代表の数字：間の縦線をやめ、余白で区切る */
+:where(.p-sub) .co-ceo__stats > div + div {
+  border-left: 0;
+}
+
+/* 2日間のプログラム例：左の金の線をやめ、上の罫線と DAY ラベルで区切る */
+@media (max-width: 600px) {
+  .theme-service .svc--program article {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid rgba(6, 25, 79, .16);
+    padding-top: 20px;
+  }
+}

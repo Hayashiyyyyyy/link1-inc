@@ -5394,3 +5394,125 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     font-size: 15px;
   }
 }
+
+
+/* ==========================================================
+   流れる帯（事業のキーワード）
+   ========================================================== */
+
+:where(.p-top) .t-ticker {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+  border-bottom: 0;
+}
+
+/* 両端を背景色にぼかし、文字が切れて見えないようにする */
+:where(.p-top) .t-ticker::before,
+:where(.p-top) .t-ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: clamp(40px, 8vw, 120px);
+  pointer-events: none;
+}
+
+:where(.p-top) .t-ticker::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--navy), rgba(6, 25, 79, 0));
+}
+
+:where(.p-top) .t-ticker::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--navy), rgba(6, 25, 79, 0));
+}
+
+:where(.p-top) .t-ticker__track {
+  display: flex;
+  width: max-content;
+  height: auto;
+  animation: tTicker 60s linear infinite;
+}
+
+:where(.p-top) .t-ticker:hover .t-ticker__track {
+  animation-play-state: paused;
+}
+
+:where(.p-top) .t-ticker__group {
+  display: flex;
+  align-items: center;
+}
+
+:where(.p-top) .t-ticker .t-ticker__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 26px clamp(32px, 4vw, 56px);
+  white-space: nowrap;
+  letter-spacing: 0;
+  font-size: inherit;
+}
+
+/* 区切り：金の短い斜線 */
+:where(.p-top) .t-ticker__item::after {
+  content: "";
+  align-self: center;
+  width: 18px;
+  height: 1px;
+  margin-left: clamp(32px, 4vw, 56px);
+  background: var(--gold-bright);
+  transform: rotate(-60deg);
+}
+
+:where(.p-top) .t-ticker__item b {
+  font-family: var(--f-lat);
+  font-size: clamp(26px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .01em;
+  color: #fff;
+}
+
+/* 1つおきに淡い色にして、リズムをつける */
+:where(.p-top) .t-ticker__item--line b {
+  color: rgba(255, 255, 255, .38);
+}
+
+:where(.p-top) .t-ticker__item small {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #8FCBF5;
+}
+
+@media (max-width: 600px) {
+  :where(.p-top) .t-ticker__track {
+    animation-duration: 42s;
+  }
+
+  :where(.p-top) .t-ticker .t-ticker__item {
+    gap: 10px;
+    padding: 16px 22px;
+  }
+
+  :where(.p-top) .t-ticker__item::after {
+    width: 12px;
+    margin-left: 22px;
+  }
+
+  :where(.p-top) .t-ticker__item b {
+    font-size: 22px;
+  }
+
+  :where(.p-top) .t-ticker__item small {
+    font-size: 10.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.p-top) .t-ticker__track {
+    animation: none;
+  }
+}

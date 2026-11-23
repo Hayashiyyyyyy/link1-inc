@@ -5694,29 +5694,23 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   --ease-in: cubic-bezier(.7, 0, .84, 0);
 }
 
-/* ページの切り替え：開くときは静かに現れ、移動するときは紙色の幕が上がる */
-.js body {
-  animation: page-in .9s var(--ease) both;
+/* ページの切り替え：ヘッダーは動かさず、本文だけを入れ替える
+   （離れるときは少し上へ消え、開くときは少し下から現れる。どちらも紙色のまま） */
+.js main,
+.js .site-foot {
+  animation: page-in .6s var(--ease) both;
 }
 
 @keyframes page-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
 }
 
-.page-veil {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  background: var(--navy);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  pointer-events: none;
-}
-
-.is-leaving .page-veil {
-  transform: scaleY(1);
-  transition: transform .55s var(--ease-in);
+.is-leaving main,
+.is-leaving .site-foot {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .24s var(--ease-in), transform .24s var(--ease-in);
 }
 
 /* スクロールで現れる：少し下から、ぼかしが晴れるように */
@@ -5878,8 +5872,10 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js body,
-  .page-veil,
+  .js main,
+  .js .site-foot,
+  .is-leaving main,
+  .is-leaving .site-foot,
   .js .reveal,
   .js .reveal.is-in {
     animation: none;
@@ -5893,5 +5889,13 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   .btn:hover {
     color: #fff;
     border-color: var(--blue);
+  }
+}
+
+/* スマホではぼかしを使わない（スクロールが重くなるのを防ぐ） */
+@media (max-width: 600px) {
+  .js .reveal {
+    filter: none;
+    transform: translateY(16px);
   }
 }

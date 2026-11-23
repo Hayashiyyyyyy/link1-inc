@@ -60,8 +60,17 @@
   toggle.addEventListener('click', function () {
     setOpen(!nav.classList.contains('is-open'));
   });
+  // 「戻る」で戻ってきたときにメニューが開いたまま残らないようにする
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) setOpen(false);
+  });
+
+  // 同じページ内へのリンクのときだけ閉じる（別ページへはメニューを開いたまま移動する）
   nav.addEventListener('click', function (e) {
-    if (e.target.closest('a')) setOpen(false);
+    var a = e.target.closest('a');
+    if (!a) return;
+    var url = new URL(a.href, location.href);
+    if (url.pathname === location.pathname) setOpen(false);
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && nav.classList.contains('is-open')) {
@@ -154,32 +163,52 @@
 })();
 
 (function () {
-  // サイト内のページ移動で、紺の幕を上げてから切り替える
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // サイト内のページ移動：本文を静かに消してから次のページへ
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prefetched = {};
 
-  var veil = document.createElement('div');
-  veil.className = 'page-veil';
-  veil.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(veil);
+  function pageLink(a) {
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return null;
+    var url = new URL(a.href, location.href);
+    if (url.origin !== location.origin) return null;
+    if (url.pathname === location.pathname) return null;
+    if (!/\.html$|\/$/.test(url.pathname)) return null;
+    return url;
+  }
+
+  // 指が触れた時点で次のページを先読みし、切り替えを速くする
+  function prefetch(e) {
+    var url = pageLink(e.target.closest('a[href]'));
+    if (!url || prefetched[url.pathname]) return;
+    prefetched[url.pathname] = true;
+    var l = document.createElement('link');
+    l.rel = 'prefetch';
+    l.href = url.pathname;
+    document.head.appendChild(l);
+  }
+  document.addEventListener('pointerdown', prefetch, { passive: true });
+  document.addEventListener('mouseover', prefetch, { passive: true });
+
+  if (reduce) return;
 
   document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var a = e.target.closest('a[href]');
-    if (!a || e.defaultPrevented || e.button !== 0) return;
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    if (a.target === '_blank' || a.hasAttribute('download')) return;
-
-    var url = new URL(a.href, location.href);
-    if (url.origin !== location.origin) return;
-    if (url.pathname === location.pathname && url.hash) return;
-    if (!/\.html$|\/$/.test(url.pathname)) return;
+    var url = pageLink(a);
+    if (!url) return;
 
     e.preventDefault();
+    // メニューから選んだときは、メニューが画面を覆っているのですぐに移動する
+    if (a.closest('.site-nav.is-open')) {
+      location.href = url.href;
+      return;
+    }
     document.documentElement.classList.add('is-leaving');
-    setTimeout(function () { location.href = url.href; }, 520);
+    setTimeout(function () { location.href = url.href; }, 220);
   });
 
-  // 戻るボタンで戻ってきたときは幕を外す
-  window.addEventListener('pageshow', function () {
+  // 「戻る」でページが復元されたときは元に戻す
+  window.addEventListener('pageshow', function (e) {
     document.documentElement.classList.remove('is-leaving');
   });
 })();

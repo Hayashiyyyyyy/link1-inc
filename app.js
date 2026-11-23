@@ -152,3 +152,34 @@
     if (sec) io.observe(sec);
   });
 })();
+
+(function () {
+  // サイト内のページ移動で、紺の幕を上げてから切り替える
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var veil = document.createElement('div');
+  veil.className = 'page-veil';
+  veil.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(veil);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a || e.defaultPrevented || e.button !== 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (a.target === '_blank' || a.hasAttribute('download')) return;
+
+    var url = new URL(a.href, location.href);
+    if (url.origin !== location.origin) return;
+    if (url.pathname === location.pathname && url.hash) return;
+    if (!/\.html$|\/$/.test(url.pathname)) return;
+
+    e.preventDefault();
+    document.documentElement.classList.add('is-leaving');
+    setTimeout(function () { location.href = url.href; }, 520);
+  });
+
+  // 戻るボタンで戻ってきたときは幕を外す
+  window.addEventListener('pageshow', function () {
+    document.documentElement.classList.remove('is-leaving');
+  });
+})();

@@ -5682,3 +5682,216 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     background: linear-gradient(var(--navy), var(--navy)) center / 14px 2px no-repeat;
   }
 }
+
+
+/* ==========================================================
+   動きの演出（高級感：ゆっくり・控えめ・なめらか）
+   共通のイージング：--ease（素早く動き出し、静かに止まる）
+   ========================================================== */
+
+:root {
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --ease-in: cubic-bezier(.7, 0, .84, 0);
+}
+
+/* ページの切り替え：開くときは静かに現れ、移動するときは紙色の幕が上がる */
+.js body {
+  animation: page-in .9s var(--ease) both;
+}
+
+@keyframes page-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.page-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: var(--navy);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  pointer-events: none;
+}
+
+.is-leaving .page-veil {
+  transform: scaleY(1);
+  transition: transform .55s var(--ease-in);
+}
+
+/* スクロールで現れる：少し下から、ぼかしが晴れるように */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(6px);
+}
+
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity 1.1s var(--ease),
+    transform 1.1s var(--ease),
+    filter 1.1s var(--ease);
+}
+
+/* ボタン：押した瞬間に少し沈み、離すと戻る */
+.btn,
+.h-pill,
+.t-link,
+.form-submit {
+  transition:
+    background-color .4s var(--ease),
+    color .4s var(--ease),
+    border-color .4s var(--ease),
+    transform .25s var(--ease);
+}
+
+.btn:active,
+.h-pill:active,
+.form-submit:active {
+  transform: scale(.97);
+}
+
+/* ボタン：左から色が満ちる */
+.h-pill,
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.h-pill::before,
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .6s var(--ease);
+}
+
+@media (hover: hover) {
+  .h-pill:hover::before,
+  .btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* テキストリンク：下線がすっと伸びる */
+.t-link::after {
+  transition: width .6s var(--ease);
+}
+
+/* 事業一覧の行：タップしたときに紺の帯が走る（スマホ） */
+@media (hover: none) {
+  :where(.p-top) .t-biz a:active::before {
+    transform: none;
+    transition-duration: .35s;
+  }
+
+  :where(.p-top) .t-biz a:active,
+  :where(.p-top) .t-biz a:active .t-biz__en,
+  :where(.p-top) .t-biz a:active .t-biz__desc {
+    color: #fff;
+  }
+
+  :where(.p-top) .t-biz a:active .t-biz__no {
+    color: var(--gold-bright);
+  }
+}
+
+:where(.p-top) .t-biz a::before {
+  transition: transform .7s var(--ease);
+}
+
+:where(.p-top) .t-biz__arrow {
+  transition: transform .5s var(--ease);
+}
+
+/* 開閉：中身がなめらかに開く（対応ブラウザのみ） */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  .biz-more::details-content {
+    height: 0;
+    overflow: clip;
+    transition: height .6s var(--ease), content-visibility .6s allow-discrete;
+  }
+
+  .biz-more[open]::details-content {
+    height: auto;
+  }
+}
+
+.theme-service .biz-more > summary::after {
+  transition: transform .45s var(--ease), background .3s;
+}
+
+.theme-service .biz-more[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+/* タブ・メニュー・お知らせ：タップの手応え */
+.svc-tabs a,
+.site-nav a,
+.news-list a,
+.t-newsbar__item {
+  -webkit-tap-highlight-color: transparent;
+  transition: color .3s var(--ease), background-color .3s var(--ease);
+}
+
+.svc-tabs a:active,
+.news-list a:active,
+.t-newsbar__item:active {
+  background-color: rgba(6, 25, 79, .04);
+}
+
+.svc-tabs a[aria-current="true"]::after {
+  animation: tab-line .45s var(--ease) both;
+}
+
+@keyframes tab-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* スマホメニュー：項目が少しずつ浮かび上がる */
+.site-nav.is-open a {
+  transition:
+    opacity .7s var(--ease),
+    transform .7s var(--ease),
+    color .3s;
+}
+
+/* キーボード操作の枠も上品に */
+:focus-visible {
+  outline: 1px solid var(--blue);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js body,
+  .page-veil,
+  .js .reveal,
+  .js .reveal.is-in {
+    animation: none;
+    transition: none;
+    filter: none;
+  }
+}
+
+@media (hover: hover) {
+  .h-pill:hover,
+  .btn:hover {
+    color: #fff;
+    border-color: var(--blue);
+  }
+}

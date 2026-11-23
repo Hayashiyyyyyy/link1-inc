@@ -6502,3 +6502,39 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
     stroke-opacity: 0;
   }
 }
+
+
+/* ----------------------------------------------------------
+   和紙の背景：常にゆっくり動かす
+   位置と大きさ（transform）だけを動かし、スマホでも重くしない
+---------------------------------------------------------- */
+:where(.p-washi) body::before {
+  inset: -12%;
+  animation: washi-drift 34s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes washi-drift {
+  0%   { transform: translate3d(0,0,0) scale(1) rotate(0deg); }
+  33%  { transform: translate3d(4%,-3%,0) scale(1.06) rotate(2deg); }
+  66%  { transform: translate3d(-3%,4%,0) scale(1.1) rotate(-2deg); }
+  100% { transform: translate3d(3%,2%,0) scale(1.04) rotate(1deg); }
+}
+
+/* 繊維の模様は、ゆっくり斜めに流れ続ける（640px で一周してつなぎ目を出さない） */
+:where(.p-washi) body::after {
+  inset: -640px 0 0 -640px;
+  animation: washi-fiber 140s linear infinite;
+  will-change: transform;
+}
+
+@keyframes washi-fiber {
+  to { transform: translate3d(640px,640px,0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.p-washi) body::before,
+  :where(.p-washi) body::after {
+    animation: none;
+  }
+}

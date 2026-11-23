@@ -6389,3 +6389,16 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
     animation: none;
   }
 }
+
+/* スマホ：会社情報の電話・メールのリンクを押しやすく（見た目は変えず、押せる範囲を上下に広げる） */
+@media (max-width: 600px) {
+  .theme-company .co-profile dd a {
+    position: relative;
+  }
+
+  .theme-company .co-profile dd a::after {
+    content: "";
+    position: absolute;
+    inset: -11px -4px;
+  }
+}

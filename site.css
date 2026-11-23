@@ -6951,29 +6951,6 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   display: block;
 }
 
-/* ロゴの上を、数秒おきに光が走る */
-.h-kv__sym::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  -webkit-mask: url("img/logo-mark-white.png") center / contain no-repeat;
-  mask: url("img/logo-mark-white.png") center / contain no-repeat;
-  background: linear-gradient(110deg,transparent 38%,rgba(120,224,255,.95) 49%,rgba(255,236,180,.9) 53%,transparent 64%);
-  background-size: 260% 100%;
-  background-position: 130% 0;
-  opacity: 0;
-}
-
-.app .h-kv__sym::after {
-  animation: kv-shine 6s cubic-bezier(.65,0,.35,1) calc(var(--kv0) + 2.4s) infinite;
-}
-
-@keyframes kv-shine {
-  0% { background-position: 130% 0; opacity: 1; }
-  28% { background-position: -30% 0; opacity: 1; }
-  29%, 100% { background-position: -30% 0; opacity: 0; }
-}
-
 /* 背景を流れる社名を少し濃く */
 .h-kv .h-kv__panel > .h-kv__mark {
   opacity: .09;
@@ -6986,11 +6963,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .app .h-kv__sym::after {
-    animation: none;
-  }
-}
+@media (prefers-reduced-motion: reduce) {}
 
 
 /* ----------------------------------------------------------

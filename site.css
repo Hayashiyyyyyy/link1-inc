@@ -7,10 +7,10 @@
  *   p-washi … 和紙の背景（404以外）
  * :where() で囲んだクラスは詳細度0なので、記述順どおりに優先される
  */
-
 /* ==========================================================
    変数
    ========================================================== */
+
 :root {
   --white: #FFFFFF;
   --tint: #F2F5F8;
@@ -36,7 +36,6 @@
   --grad: linear-gradient(125deg,#06194F 0%,#0A2C9E 48%,#0B72D8 78%,#00B8F0 100%);
 }
 
-
 /* ==========================================================
    基本（リセット・ヘッダー・フッター・共通部品）
    ========================================================== */
@@ -45,10 +44,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -67,11 +62,6 @@ img {
 
 a {
   color: inherit;
-}
-
-:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -318,12 +308,7 @@ a {
 }
 
 .svc ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
   flex-direction: column;
-  gap: 8px;
 }
 
 .svc li {
@@ -336,10 +321,6 @@ a {
   content: "";
   position: absolute;
   left: 0;
-  top: .78em;
-  width: 7px;
-  height: 2px;
-  background: var(--blue);
 }
 
 .contact-grid {
@@ -400,12 +381,6 @@ a {
   display: grid;
 }
 
-@media(min-width: 860px) {
-  .foot-grid {
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  }
-}
-
 .site-foot .brand__mark {
   background-image: url("img/logo-mark-white.png");
 }
@@ -426,10 +401,6 @@ a {
   font-size: 13px;
 }
 
-.foot-addr a {
-  text-decoration: none;
-}
-
 .foot-col {
   display: flex;
   flex-direction: column;
@@ -447,7 +418,6 @@ a {
 
 .foot-col a {
   color: var(--on-navy-dim);
-  text-decoration: none;
   font-size: 13.5px;
   line-height: 1.7;
 }
@@ -458,6 +428,7 @@ a {
 }
 
 html {
+  -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
 }
 
@@ -471,40 +442,6 @@ html {
   }
 }
 
-.js .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-}
-
-.js .reveal.is-in {
-  opacity: 1;
-  transform: none;
-  transition: opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1);
-}
-
-.js .reveal.d1.is-in {
-  transition-delay: .08s;
-}
-
-.js .reveal.d2.is-in {
-  transition-delay: .16s;
-}
-
-.js .reveal.d3.is-in {
-  transition-delay: .24s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .js .reveal {
-    opacity: 1;
-    transform: none;
-  }
-
-  .js .reveal.is-in {
-    transition: none;
-  }
-}
-
 .site-head {
   transition: box-shadow .35s ease,background-color .35s ease;
 }
@@ -513,37 +450,8 @@ html {
   box-shadow: 0 2px 16px rgba(6,25,79,.12);
 }
 
-.btn {
-  transition: background-color .28s ease,color .28s ease,border-color .28s ease,transform .18s ease;
-}
-
-.btn:active {
-  transform: translateY(1px);
-}
-
-.site-nav a,
-.foot-col a,
-.foot-addr a {
-  transition: color .25s ease,background-color .25s ease;
-}
-
 .svc article {
   transition: background-color .3s ease,border-color .3s ease;
-}
-
-@keyframes kvZoom {
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes scrollLine {
-  0% {
-    transform: translateY(0);
-  }
-  60%,100% {
-    transform: translateY(124px);
-  }
 }
 
 .pagetop {
@@ -699,18 +607,8 @@ html {
     padding: 14px 20px;
   }
 
-  section {
-    padding-block: 48px;
-  }
-
   .sec-head .sub {
-    font-size: 13.5px;
     margin-top: 10px;
-  }
-
-  .lede {
-    font-size: 15px;
-    line-height: 2;
   }
 
   .page-head {
@@ -730,10 +628,6 @@ html {
     grid-column: 1 / -1;
   }
 
-  .foot-col h3 {
-    margin-bottom: 2px;
-  }
-
   .foot-col a {
     font-size: 13px;
   }
@@ -746,11 +640,6 @@ html {
 }
 
 @media(max-width: 360px) {
-  .site-nav a {
-    font-size: 12.5px;
-    padding: 11px 4px;
-  }
-
   .brand__name b {
     font-size: 15px;
   }
@@ -784,6 +673,7 @@ html {
 
 @media(min-width: 860px) {
   .foot-grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
     gap: 48px;
   }
 }
@@ -809,12 +699,8 @@ html {
   font-weight: 700;
 }
 
-.foot-addr a {
-  border-bottom: 0;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .js .site-nav.is-open {
+  .app .site-nav.is-open {
     animation: none;
   }
 }
@@ -896,8 +782,6 @@ html {
 @media(max-width: 600px) {
   .site-head {
     z-index: 70;
-    backdrop-filter: none;
-    background: var(--white);
   }
 
   .brand {
@@ -991,7 +875,7 @@ html {
     overflow: hidden;
   }
 
-  .js .site-nav {
+  .app .site-nav {
     position: fixed;
     inset: 0;
     z-index: 60;
@@ -1011,7 +895,7 @@ html {
     overflow-y: auto;
   }
 
-  .js .site-nav.is-open {
+  .app .site-nav.is-open {
     opacity: 1;
     visibility: visible;
     transform: none;
@@ -1033,7 +917,6 @@ html {
   .site-nav.is-open a {
     opacity: 1;
     transform: none;
-    transition: opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1);
   }
 
   .site-nav.is-open a:nth-child(1) {
@@ -1080,7 +963,7 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js .site-nav,
+  .app .site-nav,
   .site-nav a {
     transition: none !important;
   }
@@ -1138,23 +1021,15 @@ html {
     letter-spacing: .02em;
   }
 
-  .sec-head h2 {
-    letter-spacing: .045em;
-    line-height: 1.6;
-  }
-
   .sec-head .sub {
-    line-height: 2;
     letter-spacing: .03em;
   }
 
   .svc p {
-    line-height: 2;
     letter-spacing: .03em;
   }
 
   .svc h3 {
-    letter-spacing: .04em;
     line-height: 1.65;
   }
 
@@ -1250,25 +1125,14 @@ html {
 
 .notice {
   border-left: 3px solid var(--blue);
-  background: var(--blue-lite);
-  padding: 18px 22px;
   margin: 0 0 28px;
   font-size: 14px;
   line-height: 1.95;
   color: var(--fg);
 }
 
-.notice strong {
-  color: var(--navy);
-}
-
 @media(max-width: 600px) {
-  .sub-h {
-    font-size: 17px;
-  }
-
   .notice {
-    padding: 16px 18px;
     font-size: 13.5px;
   }
 }
@@ -1310,10 +1174,6 @@ body {
 }
 
 @media(min-width: 900px) {
-  .sec-head {
-    align-items: end;
-  }
-
   .sec-head .sub {
     padding-bottom: 5px;
   }
@@ -1431,6 +1291,7 @@ section {
 
 @media(min-width: 900px) {
   .sec-head {
+    align-items: end;
     grid-template-columns: minmax(330px,1.1fr) 1.55fr;
   }
 }
@@ -1523,7 +1384,6 @@ section {
   }
 }
 
-
 /* ==========================================================
    共通の部品（ボタン・見出し・トップの部品）
    ========================================================== */
@@ -1550,7 +1410,6 @@ section {
   font-weight: 700;
   letter-spacing: .12em;
   text-decoration: none;
-  transition: background-color .25s ease,color .25s ease,border-color .25s ease;
 }
 
 .h-pill::after {
@@ -2576,8 +2435,6 @@ section {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-left: 2px solid var(--navy);
-  margin-left: 6px;
 }
 
 :where(.p-sub) .co-history li {
@@ -2585,7 +2442,6 @@ section {
   display: grid;
   grid-template-columns: 7em 1fr;
   gap: 6px 28px;
-  padding: 4px 0 32px 28px;
 }
 
 :where(.p-sub) .co-history li:last-child {
@@ -2711,7 +2567,6 @@ section {
 
 :where(.p-sub) .co-ceo__stats > div + div {
   padding-left: 20px;
-  border-left: 1px solid rgba(6,25,79,.16);
 }
 
 :where(.p-sub) .co-ceo__stats dt {
@@ -2918,7 +2773,8 @@ html:where(.p-washi) {
   inset: 0;
   z-index: -2;
   pointer-events: none;
-  background: radial-gradient(36vmax 28vmax at 4% 6%,rgba(0,184,240,.20),transparent 70%),
+  background:
+    radial-gradient(36vmax 28vmax at 4% 6%,rgba(0,184,240,.20),transparent 70%),
     radial-gradient(28vmax 24vmax at 96% 10%,rgba(227,188,92,.24),transparent 70%),
     radial-gradient(32vmax 28vmax at 84% 80%,rgba(11,114,216,.15),transparent 70%),
     radial-gradient(30vmax 24vmax at 8% 88%,rgba(23,179,148,.16),transparent 70%),
@@ -2934,7 +2790,8 @@ html:where(.p-washi) {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: url("img/washi-fiber.svg"),
+  background-image:
+    url("img/washi-fiber.svg"),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .42  0 0 0 0 .36  0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 640px 640px,200px 200px;
 }
@@ -3048,10 +2905,6 @@ html:where(.p-washi) {
     gap: 10px;
   }
 
-  :where(.p-washi) .page-head .wrap > :last-child {
-    padding-bottom: 44px;
-  }
-
   :where(.p-washi) .page-head .eyebrow {
     font-size: 42px;
   }
@@ -3073,12 +2926,10 @@ html:where(.p-washi) {
   }
 
   :where(.p-washi) .notice {
-    padding: 18px 20px;
     font-size: 14px;
   }
 
   :where(.p-washi) .jt-show {
-    border-radius: 24px;
     gap: 28px;
   }
 
@@ -3097,7 +2948,6 @@ html:where(.p-washi) {
 
   :where(.p-washi) .contact-grid--center form {
     padding: 24px 18px;
-    border-radius: 22px;
   }
 
   :where(.p-washi) .field input,
@@ -3125,7 +2975,6 @@ html:where(.p-washi) {
 }
 
 :where(.p-washi) .pagetop {
-  border-radius: 50%;
   bottom: calc(18px + env(safe-area-inset-bottom,0px));
 }
 
@@ -3147,8 +2996,6 @@ html:where(.p-washi) {
 
   :where(.p-washi) .biz-index a::after {
     right: 12px;
-    width: 28px;
-    height: 28px;
   }
 
   :where(.p-washi) .contact-grid--center .sec-head h2 {
@@ -3307,7 +3154,6 @@ html:where(.p-washi) {
 :where(.p-washi) .sec-en,
 :where(.p-washi) .theme-company .sec-en {
   background: none;
-  color: var(--navy);
   -webkit-text-fill-color: currentColor;
 }
 
@@ -3344,10 +3190,6 @@ html:where(.p-washi) {
   border-left: 3px solid var(--gold);
   font-size: 12px;
   letter-spacing: .2em;
-}
-
-:where(.p-washi) .badge-soon {
-  border-radius: 2px;
 }
 
 :where(.p-washi) .biz-index {
@@ -3408,10 +3250,7 @@ html:where(.p-washi) {
   }
 
   :where(.p-washi) .notice {
-    border-radius: 0;
-    background: transparent;
     border-left: 3px solid var(--gold);
-    padding: 6px 0 6px 20px;
   }
 
   :where(.p-washi) .jt-show + .notice {
@@ -3422,10 +3261,6 @@ html:where(.p-washi) {
 @media(max-width: 600px) {
   :where(.p-washi) .page-head .wrap > * {
     padding-inline: 0;
-  }
-
-  :where(.p-washi) .page-head .wrap > :first-child {
-    padding-top: 40px;
   }
 
   :where(.p-washi) .svc article,
@@ -3457,10 +3292,6 @@ html:where(.p-washi) {
 @media(max-width: 600px) {
   :where(.p-washi) .theme-service section[id] {
     padding-block: 56px;
-  }
-
-  :where(.p-washi) .theme-service .sec-en {
-    font-size: 38px;
   }
 
   :where(.p-washi) .theme-service .sec-head {
@@ -3554,10 +3385,7 @@ html:where(.p-washi) {
   }
 
   :where(.p-washi) .theme-service .notice {
-    background: transparent;
-    border-radius: 0;
     border-left: 3px solid var(--gold);
-    padding: 4px 0 4px 16px;
     font-size: 13.5px;
   }
 
@@ -3579,10 +3407,6 @@ html:where(.p-washi) {
   :where(.p-washi) .h-kv__en {
     font-size: 11.5px;
     margin-bottom: 16px;
-  }
-
-  :where(.p-washi) .h-kv h1 {
-    line-height: 1.3;
   }
 
   :where(.p-washi) .h-btns {
@@ -3669,15 +3493,12 @@ html:where(.p-washi) {
   }
 
   :where(.p-washi) .h-kv h1 {
+    line-height: 1.3;
     font-size: clamp(40px,12vw,50px);
   }
 
   :where(.p-washi) .theme-company section {
     padding-block: 52px;
-  }
-
-  :where(.p-washi) .theme-company .sec-en {
-    font-size: 36px;
   }
 
   :where(.p-washi) .theme-company .sec-head {
@@ -3880,18 +3701,11 @@ html:where(.p-washi) {
 }
 
 :where(.p-top) .t-ticker {
-  overflow: hidden;
-  background: var(--navy);
   color: #fff;
-  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 :where(.p-top) .t-ticker__track {
-  display: flex;
   align-items: center;
-  width: max-content;
-  height: 56px;
-  animation: tTicker 48s linear infinite;
 }
 
 :where(.p-top) .t-ticker span {
@@ -3992,7 +3806,6 @@ html:where(.p-washi) {
   background: var(--navy);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform .5s cubic-bezier(.22,.61,.36,1);
 }
 
 :where(.p-top) .t-biz__no {
@@ -4078,7 +3891,6 @@ html:where(.p-washi) {
   border-top: 2px solid currentColor;
   border-right: 2px solid currentColor;
   transform: rotate(45deg);
-  transition: transform .3s;
 }
 
 @media(hover: hover) and (min-width: 861px) {
@@ -4167,7 +3979,6 @@ html:where(.p-washi) {
   font-size: 15px;
   font-weight: 700;
   color: var(--navy);
-  border-right: 1px solid var(--rule);
 }
 
 :where(.p-top) .t-flow li:first-child {
@@ -4197,7 +4008,6 @@ html:where(.p-washi) {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-left: 2px solid var(--navy);
 }
 
 :where(.p-top) .t-works li {
@@ -4206,7 +4016,6 @@ html:where(.p-washi) {
   grid-template-columns: 200px 1fr;
   gap: 24px;
   align-items: baseline;
-  padding: 4px 0 32px 32px;
 }
 
 :where(.p-top) .t-works li:last-child {
@@ -4395,7 +4204,6 @@ html:where(.p-washi) {
   }
 
   :where(.p-top) .t-ticker__track {
-    height: 44px;
     animation-duration: 36s;
   }
 
@@ -4502,10 +4310,6 @@ html:where(.p-washi) {
     color: var(--gold);
   }
 
-  :where(.p-top) .t-works li {
-    padding: 0 0 24px 22px;
-  }
-
   :where(.p-top) .t-works p {
     font-size: 15px;
   }
@@ -4528,16 +4332,6 @@ html:where(.p-washi) {
 
   :where(.p-top) .t-cta__arrow {
     width: 52px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :where(.p-top) .t-ticker__track {
-    animation: none;
-  }
-
-  :where(.p-top) .t-biz a::before {
-    transition: none;
   }
 }
 
@@ -4621,8 +4415,6 @@ html:where(.p-washi) {
 :where(.p-top) .t-newsbar__label {
   flex: none;
   margin: 0;
-  padding-right: 32px;
-  border-right: 1px solid var(--rule);
   font-family: var(--f-lat);
   font-size: 13px;
   font-weight: 700;
@@ -4750,7 +4542,6 @@ html:where(.p-washi) {
   margin-top: 20px;
 }
 
-
 /* ==========================================================
    仕上げ（最後に適用）
    ========================================================== */
@@ -4803,7 +4594,6 @@ html:where(.p-washi) {
 
 .t-cta__arrow {
   border-radius: 0;
-  background: none;
   width: clamp(44px,5vw,64px);
   height: 2px;
   aspect-ratio: auto;
@@ -4861,10 +4651,6 @@ html:where(.p-washi) {
 .jt-show__txt > p:not(.jt-show__label):not(.jt-show__catch),
 .theme-service .jt-show__txt > p:not(.jt-show__label):not(.jt-show__catch) {
   color: var(--fg-dim);
-}
-
-.jt-show__list li {
-  color: var(--fg);
 }
 
 .jt-phones {
@@ -5111,16 +4897,11 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     margin: 0 0 16px;
   }
 
-  .theme-service .biz-more .svc ul {
-    gap: 10px;
-  }
-
   .theme-service .biz-more .svc li {
     font-size: 15px;
     line-height: 1.8;
     letter-spacing: .03em;
     color: var(--fg);
-    padding: 0 0 0 20px;
   }
 
   .theme-service .svc li::before {
@@ -5137,10 +4918,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   .theme-service .biz-more .svc ul:has(>li>b)>li {
     padding: 14px 0 14px 20px;
     border-bottom: 1px solid var(--rule-sp);
-  }
-
-  .theme-service .biz-more .svc ul:has(>li>b)>li:last-child {
-    border-bottom: 0;
   }
 
   .theme-service .biz-more .svc ul:has(>li>b)>li::before {
@@ -5291,7 +5068,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   }
 
   .theme-service .notice {
-    padding: 2px 0 2px 14px;
     font-size: 14px;
     line-height: 1.85;
     color: var(--fg);
@@ -5315,7 +5091,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 .biz-more[open] .biz-more__close {
   display: inline;
 }
-
 
 /* ==========================================================
    お知らせページ
@@ -5394,7 +5169,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     font-size: 15px;
   }
 }
-
 
 /* ==========================================================
    流れる帯（事業のキーワード）
@@ -5517,7 +5291,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   }
 }
 
-
 /* ==========================================================
    事業内容（スマホ）：ページ内タブと各事業の見出し
    ========================================================== */
@@ -5538,7 +5311,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 
   .svc-tabs {
     display: block;
-    position: sticky;
     top: 68px;
     z-index: 40;
     margin-top: 12px;
@@ -5678,11 +5450,9 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   }
 
   .theme-service .biz-more[open] > summary::after {
-    transform: none;
     background: linear-gradient(var(--navy), var(--navy)) center / 14px 2px no-repeat;
   }
 }
-
 
 /* ==========================================================
    動きの演出（高級感：ゆっくり・控えめ・なめらか）
@@ -5696,14 +5466,20 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 
 /* ページの切り替え：ヘッダーは動かさず、本文だけを入れ替える
    （離れるときは少し上へ消え、開くときは少し下から現れる。どちらも紙色のまま） */
-.js main,
-.js .site-foot {
+.app main,
+.app .site-foot {
   animation: page-in .6s var(--ease) both;
 }
 
 @keyframes page-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .is-leaving main,
@@ -5714,13 +5490,13 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 }
 
 /* スクロールで現れる：少し下から、ぼかしが晴れるように */
-.js .reveal {
+.app .reveal {
   opacity: 0;
   transform: translateY(24px);
   filter: blur(6px);
 }
 
-.js .reveal.is-in {
+.app .reveal.is-in {
   opacity: 1;
   transform: none;
   filter: none;
@@ -5852,8 +5628,12 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 }
 
 @keyframes tab-line {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* スマホメニュー：項目が少しずつ浮かび上がる */
@@ -5872,12 +5652,12 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js main,
-  .js .site-foot,
+  .app main,
+  .app .site-foot,
   .is-leaving main,
   .is-leaving .site-foot,
-  .js .reveal,
-  .js .reveal.is-in {
+  .app .reveal,
+  .app .reveal.is-in {
     animation: none;
     transition: none;
     filter: none;
@@ -5894,12 +5674,11 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 
 /* スマホではぼかしを使わない（スクロールが重くなるのを防ぐ） */
 @media (max-width: 600px) {
-  .js .reveal {
+  .app .reveal {
     filter: none;
     transform: translateY(16px);
   }
 }
-
 
 /* ==========================================================
    箇条書き：行頭の短い線をやめ、細い罫線で区切った行にする
@@ -6003,7 +5782,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   border-bottom: 0;
 }
 
-
 /* ==========================================================
    縦棒の装飾をやめる
    （注記・年表・流れ・2日間の例などは、横の罫線と文字組みで区切る）
@@ -6097,5 +5875,301 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     padding-left: 0;
     border-top: 1px solid rgba(6, 25, 79, .16);
     padding-top: 20px;
+  }
+}
+
+
+/* ==========================================================
+   2026-11-24 点検結果の反映
+   ========================================================== */
+
+/* ページを離れるとき：表示用アニメーションの値に上書きされないよう、アニメーションで消す */
+.is-leaving main,
+.is-leaving .site-foot {
+  animation: page-out .24s var(--ease-in) forwards;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* 事業内容：タブで移動したとき、見出しがヘッダーとタブに隠れないように */
+.theme-service section[id] {
+  scroll-margin-top: 140px;
+}
+
+/* 事業の詳細：最初に閉じる動きはアニメーションさせない */
+@supports (interpolate-size: allow-keywords) {
+  .biz-more:not(.is-ready)::details-content {
+    transition: none;
+  }
+}
+
+/* PC：サービス一覧の「項目名」と「説明」を2段に（スマホと同じ） */
+.theme-service .svc li > b {
+  display: block;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.theme-service .svc li > span {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  color: var(--fg-dim);
+}
+
+
+/* ----------------------------------------------------------
+   AIっぽさを減らす
+---------------------------------------------------------- */
+
+/* 英字ラベル前の金の短い線をやめ、字間の広い英字だけにする */
+.sec-en::before,
+:where(.p-washi) .sec-en::before,
+.t-head__en span::after {
+  display: none;
+}
+
+.sec-en,
+:where(.p-washi) .sec-en {
+  gap: 0;
+  font-size: 12px;
+  letter-spacing: .28em;
+  color: #A8822C;
+}
+
+.t-head__en {
+  font-size: 12px;
+  letter-spacing: .28em;
+  color: #A8822C;
+}
+
+/* ページ見出し：「— 日本語」の短い線をやめ、英字の下に細い罫線を引く */
+:where(.p-sub) .page-head h1::before,
+.page-head h1::before {
+  display: none;
+}
+
+.page-head h1 {
+  display: inline-block;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, .4);
+  letter-spacing: .2em;
+}
+
+/* 開発中・企画中・分類などの小さな枠付きバッジをやめ、文字だけにする */
+.badge-soon,
+.h-badge,
+:where(.p-top) .t-biz__name em,
+:where(.p-top) .t-works em,
+:where(.p-top) .t-newsbar__cat,
+.news-list__cat {
+  border: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #8A6A1E;
+}
+
+:where(.p-top) .t-biz__name em::before,
+:where(.p-top) .t-works em::before,
+.badge-soon::before {
+  content: "｜";
+  margin-right: .4em;
+  color: rgba(6, 25, 79, .25);
+}
+
+:where(.p-top) .t-newsbar__cat,
+.news-list__cat {
+  color: var(--blue);
+}
+
+:where(.p-top) .t-works time {
+  white-space: nowrap;
+}
+
+/* ヒーローの波線を控えめに */
+.h-kv__wave path {
+  stroke-opacity: .18;
+}
+
+
+/* ----------------------------------------------------------
+   大手企業サイト水準の仕上げ
+---------------------------------------------------------- */
+
+/* PCのナビ：今いるページに細い下線 */
+@media (min-width: 601px) {
+  .site-nav a[aria-current="page"] .jp {
+    box-shadow: inset 0 -2px 0 var(--blue);
+    padding-bottom: 2px;
+  }
+}
+
+/* 実績の見出しを上に揃える */
+@media (min-width: 861px) {
+  :where(.p-top) .t-side .t-head {
+    align-self: start;
+    position: sticky;
+    top: 120px;
+  }
+}
+
+/* 事業内容：PCでもページ内タブを使い、トップと重複する目次をやめる */
+.theme-service .sec-intro {
+  display: none;
+}
+
+@media (min-width: 601px) {
+  .svc-tabs {
+    display: block;
+    position: sticky;
+    top: 84px;
+    z-index: 40;
+    background: var(--paper, #FBFAF6);
+    border-block: 1px solid rgba(6, 25, 79, .12);
+  }
+
+  .svc-tabs__inner {
+    display: flex;
+    gap: 8px;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .svc-tabs a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 0 18px;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: var(--fg-dim);
+    text-decoration: none;
+  }
+
+  .svc-tabs a:first-child {
+    padding-left: 0;
+  }
+
+  .svc-tabs a:hover,
+  .svc-tabs a[aria-current="true"] {
+    color: var(--navy);
+  }
+
+  .svc-tabs a[aria-current="true"]::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: -1px;
+    height: 2px;
+    background: var(--navy);
+  }
+
+  .svc-tabs a:first-child[aria-current="true"]::after {
+    left: 0;
+  }
+
+  /* イベント：企画→当日→例→終わったあと を横並びの流れで */
+  .theme-service #event .svc {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 32px;
+  }
+}
+
+/* 下層ページの最後：お問い合わせへの導線 */
+.page-cta {
+  padding-block: 0 clamp(72px, 9vw, 120px);
+}
+
+.page-cta__link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 8px 32px;
+  padding: clamp(36px, 5vw, 56px) 0;
+  border-top: 2px solid var(--navy);
+  border-bottom: 1px solid rgba(6, 25, 79, .16);
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.page-cta__en {
+  grid-column: 1;
+  font-family: var(--f-lat);
+  font-size: clamp(44px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.01em;
+  transition: color .4s var(--ease);
+}
+
+.page-cta__jp {
+  grid-column: 1;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--fg-dim);
+}
+
+.page-cta__arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  position: relative;
+  width: clamp(40px, 5vw, 64px);
+  height: 2px;
+  background: currentColor;
+  transition: transform .5s var(--ease);
+}
+
+.page-cta__arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.page-cta__link:hover,
+.page-cta__link:active {
+  color: var(--blue);
+}
+
+.page-cta__link:hover .page-cta__arrow {
+  transform: translateX(8px);
+}
+
+/* セクションの余白をそろえる */
+@media (max-width: 600px) {
+  .page-cta__jp {
+    font-size: 13.5px;
+  }
+}
+
+:where(.p-top) .t-works__when {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+@media (min-width: 861px) {
+  :where(.p-top) .t-works li {
+    grid-template-columns: 16em 1fr;
   }
 }

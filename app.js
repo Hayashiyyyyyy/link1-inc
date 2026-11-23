@@ -1,3 +1,6 @@
+// app.js が読み込めたときだけ、表示演出やスマホメニューを有効にする（読み込み失敗時は内容をそのまま見せる）
+document.documentElement.classList.add('app');
+
 (function () {
   var head = document.querySelector('.site-head');
   var pagetop = document.querySelector('.pagetop');
@@ -55,6 +58,7 @@
     document.body.classList.toggle('nav-open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    document.querySelectorAll('main, .site-foot, .pagetop').forEach(function (el) { el.inert = open; });
   }
 
   toggle.addEventListener('click', function () {
@@ -111,14 +115,17 @@
       val('body')
     ].join('\r\n');
 
-    location.href = 'mailto:' + to +
+    var href = 'mailto:' + to +
       '?subject=' + encodeURIComponent('【HPお問い合わせ】' + val('type')) +
       '&body=' + encodeURIComponent(body);
 
     var msg = document.getElementById('form-msg');
     if (msg) {
-      msg.textContent = 'メールアプリを開きました。内容を確認して、そのまま送信してください。開かない場合は ' + to + ' まで直接お送りください。';
+      msg.textContent = href.length > 2000
+        ? '内容が長いため、メールアプリが開かない場合があります。その際は ' + to + ' まで直接お送りください。'
+        : 'メールアプリを開きました。内容を確認して、そのまま送信してください。開かない場合は ' + to + ' まで直接お送りください。';
     }
+    location.href = href;
   });
 })();
 
@@ -131,35 +138,63 @@
     blocks.forEach(function (d) { d.open = wide.matches; });
   }
   sync();
-  if (wide.addEventListener) wide.addEventListener('change', sync);
-  else if (wide.addListener) wide.addListener(sync);
+
+  // スマホで #event などに直接来たときは、閉じたあとの位置に合わせ直す
+  if (location.hash && !wide.matches) {
+    var target = document.getElementById(location.hash.slice(1));
+    if (target) requestAnimationFrame(function () { target.scrollIntoView(); });
+  }
+  // 最初に閉じる動きはアニメーションさせない
+  requestAnimationFrame(function () {
+    blocks.forEach(function (d) { d.classList.add('is-ready'); });
+  });
+
+  // PC幅に広がったときだけ開く（スマホの回転などで、開いた内容を勝手に閉じない）
+  function onChange() { if (wide.matches) sync(); }
+  if (wide.addEventListener) wide.addEventListener('change', onChange);
+  else if (wide.addListener) wide.addListener(onChange);
 })();
 
 (function () {
   var tabs = document.querySelectorAll('.svc-tabs a');
-  if (!tabs.length || !('IntersectionObserver' in window)) return;
+  if (!tabs.length) return;
 
   var byId = {};
   tabs.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  var sections = Object.keys(byId)
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  if (!sections.length) return;
+  var current = null;
 
   function setCurrent(id) {
+    if (id === current) return;
+    current = id;
     tabs.forEach(function (a) { a.removeAttribute('aria-current'); });
     var a = byId[id];
-    if (!a) return;
     a.setAttribute('aria-current', 'true');
     var bar = a.parentElement;
-    var left = a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2;
+    if (bar.scrollWidth <= bar.clientWidth) return;
+    var left = Math.max(0, a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2);
     bar.scrollTo({ left: left, behavior: 'smooth' });
   }
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) setCurrent(e.target.id); });
-  }, { rootMargin: '-130px 0px -60% 0px' });
-
-  Object.keys(byId).forEach(function (id) {
-    var sec = document.getElementById(id);
-    if (sec) io.observe(sec);
-  });
+  // ヘッダーとタブの下を越えた最後の事業を「いま読んでいる事業」とする（最初は先頭）
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var id = sections[0].id;
+    sections.forEach(function (s) {
+      if (s.getBoundingClientRect().top <= 140) id = s.id;
+    });
+    setCurrent(id);
+  }
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+  update();
 })();
 
 (function () {

@@ -285,3 +285,65 @@ function samePage(a, b) {
     request();
   }, { passive: true });
 })();
+
+(function () {
+  // 事業内容ページ：見出しや中身をスクロールに合わせて順に出す
+  if (!document.body.classList.contains('theme-service')) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  var targets = document.querySelectorAll(
+    'main section[id] .sec-head > *, main section[id] article, main section[id] li, ' +
+    'main section[id] figure, main section[id] .sub-h, main section[id] summary, ' +
+    'main section[id] .wrap > p, main section[id] .wrap > div:not(.sec-head):not(.svc)'
+  );
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.01 });
+
+  var heads = [];
+  targets.forEach(function (el) {
+    // 兄弟の中での順番で、少しずつ遅らせる
+    var i = Array.prototype.indexOf.call(el.parentElement.children, el);
+    el.style.setProperty('--d', Math.min(i, 6) * 0.08 + 's');
+    el.classList.add('mv');
+    // 見出しまわりは隠した状態だと検知できないので、まとまり（.sec-head）ごと見る
+    if (el.parentElement.classList.contains('sec-head')) {
+      if (heads.indexOf(el.parentElement) < 0) heads.push(el.parentElement);
+    } else {
+      io.observe(el);
+    }
+  });
+  var headIo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      Array.prototype.forEach.call(entry.target.children, function (c) { c.classList.add('is-in'); });
+      headIo.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -6% 0px' });
+  heads.forEach(function (h) { headIo.observe(h); });
+
+  // 番号をスクロールに合わせて少し遅れて動かす
+  var nums = document.querySelectorAll('.theme-service .sec-no');
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight;
+    nums.forEach(function (n) {
+      var r = n.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      var v = (r.top + r.height / 2 - vh / 2) * -0.04;
+      n.style.setProperty('--py', Math.max(-10, Math.min(10, v)).toFixed(1));
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+  update();
+})();

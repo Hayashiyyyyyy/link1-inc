@@ -5516,3 +5516,169 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     animation: none;
   }
 }
+
+
+/* ==========================================================
+   事業内容（スマホ）：ページ内タブと各事業の見出し
+   ========================================================== */
+
+.svc-tabs {
+  display: none;
+}
+
+.sec-no {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  /* 冒頭の説明と縦の目次はタブに置き換える */
+  .theme-service .sec-intro {
+    display: none;
+  }
+
+  .svc-tabs {
+    display: block;
+    position: sticky;
+    top: 68px;
+    z-index: 40;
+    margin-top: 12px;
+    background: var(--paper, #FBFAF6);
+    border-block: 1px solid rgba(6, 25, 79, .12);
+  }
+
+  .svc-tabs__inner {
+    display: flex;
+    overflow-x: auto;
+    padding-inline: 18px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .svc-tabs__inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .svc-tabs a {
+    position: relative;
+    flex: none;
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--fg-dim);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .svc-tabs a:first-child {
+    padding-left: 0;
+  }
+
+  .svc-tabs a[aria-current="true"] {
+    color: var(--navy);
+  }
+
+  .svc-tabs a[aria-current="true"]::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: -1px;
+    height: 3px;
+    background: var(--navy);
+  }
+
+  .svc-tabs a:first-child[aria-current="true"]::after {
+    left: 0;
+  }
+
+  /* 各事業：大きな番号を見出しの上に */
+  .theme-service section[data-no] {
+    scroll-margin-top: 124px;
+    padding-block: 56px 48px;
+  }
+
+  .theme-service #price {
+    scroll-margin-top: 124px;
+  }
+
+  .theme-service section[data-no] .sec-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: center;
+  }
+
+  .theme-service section[data-no] .sec-head > * {
+    grid-column: 1 / -1;
+  }
+
+  .theme-service section[data-no] .sec-head .sec-en {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+  }
+
+  .theme-service section[data-no] .sec-en::before {
+    display: none;
+  }
+
+  .theme-service section[data-no] .sec-head > .sec-no {
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    font-family: var(--f-lat);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    color: #A8822C;
+  }
+
+  .theme-service section[data-no] .sec-head h2 {
+    margin-top: 14px;
+    font-size: 25px;
+    line-height: 1.45;
+  }
+
+  .theme-service section[data-no] .sec-head .sub {
+    margin-top: 14px;
+    font-size: 15.5px;
+    line-height: 1.95;
+    color: var(--fg);
+  }
+
+  /* 開閉バー：塗りをやめ、上下の罫線と＋印で控えめに */
+  .theme-service .biz-more > summary {
+    min-height: 56px;
+    padding: 0 4px;
+    background: transparent;
+    color: var(--navy);
+    border: 0;
+    border-block: 1px solid var(--navy);
+    font-size: 15px;
+  }
+
+  .theme-service .biz-more > summary::after {
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+    border: 0;
+    transform: none;
+    background:
+      linear-gradient(var(--navy), var(--navy)) center / 14px 2px no-repeat,
+      linear-gradient(var(--navy), var(--navy)) center / 2px 14px no-repeat;
+  }
+
+  .theme-service .biz-more[open] > summary {
+    background: transparent;
+    border-bottom-color: rgba(6, 25, 79, .14);
+  }
+
+  .theme-service .biz-more[open] > summary::after {
+    transform: none;
+    background: linear-gradient(var(--navy), var(--navy)) center / 14px 2px no-repeat;
+  }
+}

@@ -6662,3 +6662,90 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
     animation: none;
   }
 }
+
+
+/* ----------------------------------------------------------
+   ホームの動き（事業内容ページと同じ仕組み。app.js が .mv / .is-in を付ける）
+---------------------------------------------------------- */
+
+/* 見出しと「Let's link.」は、線の下からせり上がる */
+.app .t-head__main > h2.mv,
+.app .t-cta__link > .t-cta__en.mv {
+  opacity: 1;
+  transform: translateY(40%);
+  clip-path: inset(0 0 100% 0);
+  transition:
+    transform 1.2s cubic-bezier(.19,1,.22,1) var(--d, 0s),
+    clip-path 1.2s cubic-bezier(.19,1,.22,1) var(--d, 0s);
+}
+
+.app .t-head__main > h2.mv.is-in,
+.app .t-cta__link > .t-cta__en.mv.is-in {
+  transform: none;
+  clip-path: inset(-10% -10% -25% -10%);
+}
+
+/* 英語のラベルは、字間が締まりながら現れる */
+.app .t-head__main > .t-head__en.mv {
+  letter-spacing: .5em;
+  transition:
+    opacity .9s ease var(--d, 0s),
+    transform 1.1s cubic-bezier(.19,1,.22,1) var(--d, 0s),
+    letter-spacing 1.4s cubic-bezier(.19,1,.22,1) var(--d, 0s);
+}
+
+.app .t-head__main > .t-head__en.mv.is-in {
+  letter-spacing: .24em;
+}
+
+/* 事業と特徴の番号は、行が現れたあとにせり上がる */
+.app .t-biz > li.mv .t-biz__no,
+.app .t-points > li.mv .t-points__no {
+  display: inline-block;
+  transform: translateY(60%);
+  clip-path: inset(0 0 100% 0);
+  transition:
+    transform 1.1s cubic-bezier(.19,1,.22,1) calc(var(--d, 0s) + .25s),
+    clip-path 1.1s cubic-bezier(.19,1,.22,1) calc(var(--d, 0s) + .25s);
+}
+
+.app .t-biz > li.mv.is-in .t-biz__no,
+.app .t-points > li.mv.is-in .t-points__no {
+  transform: none;
+  clip-path: inset(-10% -10% -20% -10%);
+}
+
+/* 相談の流れは、左から順に流れるように並ぶ */
+.app .t-flow > li.mv {
+  transform: translateX(-24px);
+}
+
+.app .t-flow > li.mv.is-in {
+  transform: none;
+}
+
+/* 「Let's link.」の矢印は、誘うように動き続ける */
+.app .t-cta__link > .t-cta__arrow.is-in {
+  animation: cta-nudge 2.4s cubic-bezier(.65,0,.35,1) 1.4s infinite;
+}
+
+@keyframes cta-nudge {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 10px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app .t-head__main > h2.mv,
+  .app .t-cta__link > .t-cta__en.mv,
+  .app .t-biz > li.mv .t-biz__no,
+  .app .t-points > li.mv .t-points__no,
+  .app .t-flow > li.mv {
+    transform: none;
+    clip-path: none;
+    transition: none;
+  }
+
+  .app .t-cta__link > .t-cta__arrow.is-in {
+    animation: none;
+  }
+}

@@ -287,15 +287,19 @@ function samePage(a, b) {
 })();
 
 (function () {
-  // 事業内容ページ：見出しや中身をスクロールに合わせて順に出す
-  if (!document.body.classList.contains('theme-service')) return;
+  // 事業内容ページとホーム：見出しや中身をスクロールに合わせて順に出す
+  var isTop = document.documentElement.classList.contains('p-top');
+  if (!isTop && !document.body.classList.contains('theme-service')) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (!('IntersectionObserver' in window)) return;
 
-  var targets = document.querySelectorAll(
-    'main section[id] .sec-head > *, main section[id] article, main section[id] li, ' +
-    'main section[id] figure, main section[id] .sub-h, main section[id] summary, ' +
-    'main section[id] .wrap > p, main section[id] .wrap > div:not(.sec-head):not(.svc)'
+  var targets = document.querySelectorAll(isTop
+    ? '.t-head__main > *, .t-head__aside > *, .t-biz > li, .t-points > li, .t-flow > li, ' +
+      '.t-works > li, .t-sub, .t-more, .t-note, .t-side__body > p, .t-newsbar .wrap > *, ' +
+      '.t-cta__link > *, .t-cta__sub'
+    : 'main section[id] .sec-head > *, main section[id] article, main section[id] li, ' +
+      'main section[id] figure, main section[id] .sub-h, main section[id] summary, ' +
+      'main section[id] .wrap > p, main section[id] .wrap > div:not(.sec-head):not(.svc)'
   );
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -312,7 +316,7 @@ function samePage(a, b) {
     el.style.setProperty('--d', Math.min(i, 6) * 0.08 + 's');
     el.classList.add('mv');
     // 見出しまわりは隠した状態だと検知できないので、まとまり（.sec-head）ごと見る
-    if (el.parentElement.classList.contains('sec-head')) {
+    if (el.parentElement.matches('.sec-head, .t-head__main, .t-cta__link')) {
       if (heads.indexOf(el.parentElement) < 0) heads.push(el.parentElement);
     } else {
       io.observe(el);

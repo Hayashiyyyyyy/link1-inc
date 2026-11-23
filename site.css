@@ -5899,3 +5899,106 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     transform: translateY(16px);
   }
 }
+
+
+/* ==========================================================
+   箇条書き：行頭の短い線をやめ、細い罫線で区切った行にする
+   ========================================================== */
+
+.svc ul,
+.co-ceo__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.svc li,
+.co-ceo__list li,
+.theme-service .biz-more .svc li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(6, 25, 79, .1);
+}
+
+.svc li:last-child,
+.co-ceo__list li:last-child {
+  border-bottom: 1px solid rgba(6, 25, 79, .1);
+}
+
+.svc li::before,
+.co-ceo__list li::before,
+.theme-service .svc li::before,
+.theme-service .biz-more .svc ul:has(> li > b) > li::before {
+  display: none;
+}
+
+.theme-service .biz-more .svc ul:has(> li > b) > li {
+  padding-left: 0;
+}
+
+/* じもとーくの特長：小さな番号つきの行 */
+.jt-show__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: jt;
+  border-top: 1px solid rgba(6, 25, 79, .14);
+}
+
+.jt-show__list li,
+.theme-service .jt-show__list li {
+  counter-increment: jt;
+  display: grid;
+  grid-template-columns: 2.4em 1fr;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(6, 25, 79, .14);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--fg);
+}
+
+.jt-show__list li::before {
+  content: counter(jt, decimal-leading-zero);
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
+  font-family: var(--f-lat);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #A8822C;
+}
+
+/* 事業内容のタブ：右端をぼかして、横にスクロールできることを伝える */
+@media (max-width: 600px) {
+  .svc-tabs {
+    position: sticky;
+  }
+
+  .svc-tabs::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    pointer-events: none;
+    background: linear-gradient(270deg, var(--paper, #FBFAF6), rgba(251, 250, 246, 0));
+  }
+
+  .svc-tabs__inner {
+    padding-right: 40px;
+  }
+}
+
+.svc ul,
+.theme-service .biz-more .svc ul {
+  display: block;
+  gap: 0;
+}
+
+.svc li:last-child,
+.theme-service .biz-more .svc ul:has(> li > b) > li:last-child {
+  border-bottom: 0;
+}

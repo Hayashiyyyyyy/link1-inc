@@ -6199,3 +6199,193 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 .co-ceo__stats dd small:first-child {
   margin: 0 6px 0 0;
 }
+
+
+/* ----------------------------------------------------------
+   トップの最初の画面：インパクトの強化（配置は変えない）
+   --kv0 はスプラッシュの有無による開始の遅れ
+---------------------------------------------------------- */
+:where(.p-top) .h-kv {
+  --kv0: 0s;
+}
+
+html.js:not(.no-splash) :where(.p-top) .h-kv {
+  --kv0: 1.6s;
+}
+
+/* 見出しを大きく */
+:where(.p-top) .home .h-kv h1 {
+  font-size: clamp(44px,12.2vw,52px);
+  line-height: 1.28;
+}
+
+@media (min-width: 601px) {
+  :where(.p-top) .home .h-kv h1 {
+    font-size: clamp(48px,6.2vw,92px);
+    line-height: 1.22;
+  }
+}
+
+/* 「つなぐ。」の下に金の線を引く */
+.h-kv__key {
+  position: relative;
+  display: inline-block;
+}
+
+.h-kv__key::after {
+  content: "";
+  position: absolute;
+  left: .02em;
+  right: .9em;
+  bottom: .02em;
+  height: max(3px,.07em);
+  background: var(--gold-bright);
+  transform-origin: left center;
+}
+
+.app .h-kv__key::after {
+  transform: scaleX(0);
+  animation: kv-line .9s cubic-bezier(.65,0,.35,1) calc(var(--kv0) + 1.75s) forwards;
+}
+
+@keyframes kv-line {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* 背景の大きな社名（ごく薄く、画面からはみ出させる） */
+.h-kv .h-kv__panel > .h-kv__mark {
+  position: absolute;
+  z-index: 0;
+  left: -.04em;
+  bottom: -.2em;
+  font-family: var(--f-lat);
+  font-weight: 800;
+  font-size: clamp(120px,22vw,340px);
+  line-height: 1;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  color: #fff;
+  opacity: .05;
+  pointer-events: none;
+  user-select: none;
+}
+
+.js .kv-seq > .h-kv__mark {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: kv-mark 1.6s cubic-bezier(.22,.61,.36,1) calc(var(--kv0) + .3s) forwards;
+}
+
+@keyframes kv-mark {
+  to {
+    opacity: .05;
+    transform: none;
+  }
+}
+
+/* 線：3本が描かれていく */
+.h-kv__wave {
+  height: 78%;
+}
+
+.h-kv__wave path {
+  stroke-opacity: .32;
+}
+
+.h-kv__wave .h-kv__wave2 {
+  stroke-opacity: .16;
+}
+
+.h-kv__wave .h-kv__wave3 {
+  stroke-opacity: .45;
+}
+
+.app .h-kv__wave path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: kv-draw 2.4s cubic-bezier(.65,0,.35,1) calc(var(--kv0) + .4s) forwards;
+}
+
+.app .h-kv__wave .h-kv__wave2 {
+  animation-delay: calc(var(--kv0) + .7s);
+}
+
+.app .h-kv__wave .h-kv__wave3 {
+  animation-delay: calc(var(--kv0) + 1s);
+}
+
+@keyframes kv-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* スクロールの合図 */
+.h-kv .h-kv__panel > .h-kv__scroll {
+  position: absolute;
+  z-index: 2;
+  right: var(--inset);
+  bottom: 0;
+  padding-bottom: 76px;
+  font-family: var(--f-lat);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  color: rgba(255,255,255,.75);
+}
+
+.h-kv__scroll::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 64px;
+  background: rgba(255,255,255,.75);
+  transform-origin: top center;
+  animation: kv-scroll 2.2s cubic-bezier(.65,0,.35,1) infinite;
+}
+
+@keyframes kv-scroll {
+  0% { transform: scaleY(0); transform-origin: top center; }
+  45% { transform: scaleY(1); transform-origin: top center; }
+  55% { transform: scaleY(1); transform-origin: bottom center; }
+  100% { transform: scaleY(0); transform-origin: bottom center; }
+}
+
+.js .kv-seq > .h-kv__scroll {
+  animation-delay: calc(var(--kv0) + 2s);
+}
+
+@media (max-width: 600px) {
+  .h-kv .h-kv__panel > .h-kv__scroll {
+    right: 22px;
+    padding-bottom: 56px;
+  }
+
+  .h-kv__scroll::after {
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app .h-kv__key::after,
+  .js .kv-seq > .h-kv__mark,
+  .app .h-kv__wave path {
+    animation: none;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+
+  .js .kv-seq > .h-kv__mark {
+    opacity: .05;
+  }
+
+  .h-kv__scroll::after {
+    animation: none;
+  }
+}

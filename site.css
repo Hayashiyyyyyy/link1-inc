@@ -6185,3 +6185,17 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     letter-spacing: .12em;
   }
 }
+
+/* 代表メッセージ：スマホでも全文を見せる（短い文章に整えたため） */
+@media (max-width: 600px) {
+  .co-message__body p,
+  :where(.p-washi) .co-message__body p:nth-child(2),
+  :where(.p-washi) .co-message__body p:nth-child(3) {
+    display: block;
+  }
+}
+
+/* 代表の数字：単位を数字の前に置く場合の余白 */
+.co-ceo__stats dd small:first-child {
+  margin: 0 6px 0 0;
+}

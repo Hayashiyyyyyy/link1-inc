@@ -253,3 +253,35 @@ function samePage(a, b) {
     document.documentElement.classList.remove('is-leaving');
   });
 })();
+
+(function () {
+  // トップの最初の画面：ロゴをマウスとスクロールに合わせて少し動かし、奥行きを出す
+  var panel = document.querySelector('.h-kv__panel');
+  if (!panel || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var mx = 0, my = 0, sy = 0, ticking = false;
+
+  function apply() {
+    ticking = false;
+    panel.style.setProperty('--kx', (mx * -22).toFixed(1));
+    panel.style.setProperty('--ky', (my * -16 + sy * 0.18).toFixed(1));
+  }
+  function request() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(apply);
+  }
+
+  if (window.matchMedia('(hover: hover)').matches) {
+    panel.addEventListener('pointermove', function (e) {
+      var r = panel.getBoundingClientRect();
+      mx = (e.clientX - r.left) / r.width - 0.5;
+      my = (e.clientY - r.top) / r.height - 0.5;
+      request();
+    });
+    panel.addEventListener('pointerleave', function () { mx = 0; my = 0; request(); });
+  }
+  window.addEventListener('scroll', function () {
+    sy = Math.min(window.scrollY, window.innerHeight);
+    request();
+  }, { passive: true });
+})();

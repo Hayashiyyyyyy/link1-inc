@@ -6173,3 +6173,15 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     grid-template-columns: 16em 1fr;
   }
 }
+
+/* 日付のない実績では、区切りの「｜」を出さない */
+:where(.p-top) .t-works__when em:first-child::before {
+  display: none;
+}
+
+/* スマホのページ見出し：日本語の字間を少し詰める */
+@media (max-width: 600px) {
+  .page-head h1 {
+    letter-spacing: .12em;
+  }
+}

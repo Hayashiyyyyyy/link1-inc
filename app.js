@@ -289,11 +289,15 @@ function samePage(a, b) {
 (function () {
   // 事業内容ページとホーム：見出しや中身をスクロールに合わせて順に出す
   var isTop = document.documentElement.classList.contains('p-top');
-  if (!isTop && !document.body.classList.contains('theme-service')) return;
+  var isCompany = document.body.classList.contains('theme-company');
+  if (!isTop && !isCompany && !document.body.classList.contains('theme-service')) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (!('IntersectionObserver' in window)) return;
 
-  var targets = document.querySelectorAll(isTop
+  var targets = document.querySelectorAll(isCompany
+    ? 'main .sec-head > *, .co-profile > div, .co-message > .co-message__lead, .co-message__body > p, ' +
+      '.co-ceo > p, .co-ceo__stats > div, .co-ceo__list > li, .co-history > li, .page-cta__link > *'
+    : isTop
     ? '.t-head__main > *, .t-head__aside > *, .t-biz > li, .t-points > li, .t-flow > li, ' +
       '.t-works > li, .t-sub, .t-more, .t-note, .t-side__body > p, .t-newsbar .wrap > *, ' +
       '.t-cta__link > *, .t-cta__sub'
@@ -316,7 +320,7 @@ function samePage(a, b) {
     el.style.setProperty('--d', Math.min(i, 6) * 0.08 + 's');
     el.classList.add('mv');
     // 見出しまわりは隠した状態だと検知できないので、まとまり（.sec-head）ごと見る
-    if (el.parentElement.matches('.sec-head, .t-head__main, .t-cta__link')) {
+    if (el.parentElement.matches('.sec-head, .t-head__main, .t-cta__link, .co-message, .page-cta__link')) {
       if (heads.indexOf(el.parentElement) < 0) heads.push(el.parentElement);
     } else {
       io.observe(el);
@@ -350,4 +354,37 @@ function samePage(a, b) {
     requestAnimationFrame(update);
   }, { passive: true });
   update();
+})();
+
+(function () {
+  // 会社概要：実績の数字を 0 から数え上げる（画面に入ったとき 1 回だけ）
+  var stats = document.querySelectorAll('.co-ceo__stats dd');
+  if (!stats.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function countUp(dd) {
+    var node = Array.prototype.filter.call(dd.childNodes, function (n) {
+      return n.nodeType === 3 && /d/.test(n.nodeValue);
+    })[0];
+    if (!node) return;
+    var end = parseInt(node.nodeValue, 10);
+    var start = null;
+    node.nodeValue = '0';
+    function step(t) {
+      if (start === null) start = t;
+      var p = Math.min((t - start) / 1400, 1);
+      node.nodeValue = String(Math.round(end * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      countUp(entry.target);
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.6 });
+  stats.forEach(function (dd) { io.observe(dd); });
 })();

@@ -6974,73 +6974,6 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   29%, 100% { background-position: -30% 0; opacity: 0; }
 }
 
-/* 社名：大きな LINK ONE と、日本語の社名 */
-.h-kv__name {
-  margin: 26px 0 0;
-  text-align: center;
-  line-height: 1;
-  color: #fff;
-}
-
-.h-kv__word {
-  display: block;
-  font-family: var(--f-lat);
-  font-size: clamp(30px,3.4vw,50px);
-  font-weight: 800;
-  letter-spacing: .16em;
-  margin-right: -.16em;
-  white-space: nowrap;
-}
-
-.h-kv__word i {
-  display: inline-block;
-  font-style: normal;
-  min-width: .3em;
-}
-
-.h-kv__name small {
-  display: block;
-  margin-top: 12px;
-  font-size: clamp(11px,1vw,13px);
-  font-weight: 700;
-  letter-spacing: .5em;
-  margin-right: -.5em;
-  color: rgba(214,228,250,.9);
-}
-
-/* 1文字ずつ現れる */
-.app .h-kv__word i {
-  opacity: 0;
-  transform: translateY(60%);
-  filter: blur(6px);
-  animation: kv-letter .9s cubic-bezier(.19,1,.22,1) forwards;
-  animation-delay: calc(var(--kv0) + .7s);
-}
-
-.app .h-kv__word i:nth-child(2) { animation-delay: calc(var(--kv0) + .76s); }
-.app .h-kv__word i:nth-child(3) { animation-delay: calc(var(--kv0) + .82s); }
-.app .h-kv__word i:nth-child(4) { animation-delay: calc(var(--kv0) + .88s); }
-.app .h-kv__word i:nth-child(6) { animation-delay: calc(var(--kv0) + 1s); }
-.app .h-kv__word i:nth-child(7) { animation-delay: calc(var(--kv0) + 1.06s); }
-.app .h-kv__word i:nth-child(8) { animation-delay: calc(var(--kv0) + 1.12s); }
-
-@keyframes kv-letter {
-  to {
-    opacity: 1;
-    transform: none;
-    filter: none;
-  }
-}
-
-.app .h-kv__name small {
-  opacity: 0;
-  animation: kv-fade 1s ease calc(var(--kv0) + 1.4s) forwards;
-}
-
-@keyframes kv-fade {
-  to { opacity: 1; }
-}
-
 /* 背景を流れる社名を少し濃く */
 .h-kv .h-kv__panel > .h-kv__mark {
   opacity: .09;
@@ -7053,36 +6986,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-@media (max-width: 900px) {
-  .h-kv__name {
-    margin-top: 16px;
-  }
-
-  .h-kv__word {
-    font-size: clamp(24px,7.4vw,34px);
-  }
-
-  .h-kv__name small {
-    margin-top: 8px;
-    font-size: 10.5px;
-    letter-spacing: .4em;
-    margin-right: -.4em;
-  }
-
-  :where(.p-washi) .h-kv .h-kv__panel > .h-kv__logo {
-    margin-bottom: 36px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .app .h-kv__word i,
-  .app .h-kv__name small {
-    opacity: 1;
-    transform: none;
-    filter: none;
-    animation: none;
-  }
-
   .app .h-kv__sym::after {
     animation: none;
   }

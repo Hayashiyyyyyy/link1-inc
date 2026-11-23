@@ -1,6 +1,12 @@
 // app.js が読み込めたときだけ、表示演出やスマホメニューを有効にする（読み込み失敗時は内容をそのまま見せる）
 document.documentElement.classList.add('app');
 
+// 末尾の index.html を省いて比べる（/ と /index.html を同じページとして扱う）
+function samePage(a, b) {
+  var norm = function (p) { return p.replace(/index.html$/, ''); };
+  return norm(a) === norm(b);
+}
+
 (function () {
   var head = document.querySelector('.site-head');
   var pagetop = document.querySelector('.pagetop');
@@ -74,7 +80,7 @@ document.documentElement.classList.add('app');
     var a = e.target.closest('a');
     if (!a) return;
     var url = new URL(a.href, location.href);
-    if (url.pathname === location.pathname) setOpen(false);
+    if (samePage(url.pathname, location.pathname)) setOpen(false);
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && nav.classList.contains('is-open')) {
@@ -121,7 +127,7 @@ document.documentElement.classList.add('app');
 
     var msg = document.getElementById('form-msg');
     if (msg) {
-      msg.textContent = href.length > 2000
+      msg.textContent = href.length > 8000
         ? '内容が長いため、メールアプリが開かない場合があります。その際は ' + to + ' まで直接お送りください。'
         : 'メールアプリを開きました。内容を確認して、そのまま送信してください。開かない場合は ' + to + ' まで直接お送りください。';
     }
@@ -185,7 +191,7 @@ document.documentElement.classList.add('app');
     ticking = false;
     var id = sections[0].id;
     sections.forEach(function (s) {
-      if (s.getBoundingClientRect().top <= 140) id = s.id;
+      if (s.getBoundingClientRect().top < 150) id = s.id;
     });
     setCurrent(id);
   }
@@ -206,7 +212,7 @@ document.documentElement.classList.add('app');
     if (!a || a.target === '_blank' || a.hasAttribute('download')) return null;
     var url = new URL(a.href, location.href);
     if (url.origin !== location.origin) return null;
-    if (url.pathname === location.pathname) return null;
+    if (samePage(url.pathname, location.pathname)) return null;
     if (!/\.html$|\/$/.test(url.pathname)) return null;
     return url;
   }

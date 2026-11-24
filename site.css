@@ -7017,3 +7017,59 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
     transition: none;
   }
 }
+
+
+
+/* ----------------------------------------------------------
+   背景：繊維の線をやめ、2層のグラデーションが混ざりながら流れる
+   （線が目の中の浮遊物のように見える、という声を受けて変更）
+---------------------------------------------------------- */
+
+/* 奥の層：紙の地色と、大きな色のにじみ（左上→右下へ漂う） */
+:where(.p-washi)::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(42vmax 34vmax at 72% 26%,rgba(0,184,240,.28),transparent 70%),
+    radial-gradient(38vmax 32vmax at 22% 72%,rgba(227,188,92,.30),transparent 70%),
+    radial-gradient(30vmax 26vmax at 84% 82%,rgba(240,150,170,.22),transparent 70%),
+    radial-gradient(28vmax 24vmax at 40% 40%,rgba(23,179,148,.17),transparent 70%),
+    var(--paper);
+  animation: grad-back 30s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes grad-back {
+  0%   { transform: translate3d(0,0,0) rotate(0deg) scale(1); }
+  50%  { transform: translate3d(-5%,4%,0) rotate(8deg) scale(1.08); }
+  100% { transform: translate3d(4%,-3%,0) rotate(-6deg) scale(1.04); }
+}
+
+/* 手前の層：地色を抜き、逆向きに漂わせて色が混ざるようにする */
+:where(.p-washi) body::before {
+  background:
+    radial-gradient(36vmax 28vmax at 4% 6%,rgba(0,184,240,.22),transparent 70%),
+    radial-gradient(28vmax 24vmax at 96% 10%,rgba(227,188,92,.24),transparent 70%),
+    radial-gradient(32vmax 28vmax at 84% 80%,rgba(11,114,216,.16),transparent 70%),
+    radial-gradient(30vmax 24vmax at 8% 88%,rgba(23,179,148,.18),transparent 70%),
+    radial-gradient(22vmax 18vmax at 50% 42%,rgba(240,150,170,.14),transparent 70%);
+  animation-duration: 22s;
+}
+
+/* 紙の質感：細かい粒だけを残す（線は出さない） */
+:where(.p-washi) body::after {
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .42  0 0 0 0 .36  0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  animation: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.p-washi)::before {
+    animation: none;
+  }
+}

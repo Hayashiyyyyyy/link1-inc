@@ -10,7 +10,6 @@
 /* ==========================================================
    変数
    ========================================================== */
-
 :root {
   --white: #FFFFFF;
   --tint: #F2F5F8;
@@ -39,7 +38,6 @@
 /* ==========================================================
    基本（リセット・ヘッダー・フッター・共通部品）
    ========================================================== */
-
 *,
 *::before,
 *::after {
@@ -239,7 +237,6 @@ a {
   font-size: clamp(26px,4.4vw,40px);
   font-weight: 700;
   line-height: 1.5;
-  letter-spacing: .02em;
 }
 
 .page-head .lede {
@@ -1387,7 +1384,6 @@ section {
 /* ==========================================================
    共通の部品（ボタン・見出し・トップの部品）
    ========================================================== */
-
 @media(max-width: 600px) {
   .home .pc {
     display: none;
@@ -1494,7 +1490,6 @@ section {
   position: absolute;
   inset: auto 0 0 0;
   width: 100%;
-  height: 70%;
   z-index: 1;
 }
 
@@ -2770,30 +2765,15 @@ html:where(.p-washi) {
 :where(.p-washi) body::before {
   content: "";
   position: fixed;
-  inset: 0;
   z-index: -2;
   pointer-events: none;
-  background:
-    radial-gradient(36vmax 28vmax at 4% 6%,rgba(0,184,240,.20),transparent 70%),
-    radial-gradient(28vmax 24vmax at 96% 10%,rgba(227,188,92,.24),transparent 70%),
-    radial-gradient(32vmax 28vmax at 84% 80%,rgba(11,114,216,.15),transparent 70%),
-    radial-gradient(30vmax 24vmax at 8% 88%,rgba(23,179,148,.16),transparent 70%),
-    radial-gradient(22vmax 18vmax at 50% 42%,rgba(240,150,170,.13),transparent 70%),
-    radial-gradient(18vmax 14vmax at 30% 30%,rgba(255,214,120,.10),transparent 70%),
-    radial-gradient(20vmax 16vmax at 66% 62%,rgba(120,200,240,.10),transparent 70%),
-    var(--paper);
 }
 
 :where(.p-washi) body::after {
   content: "";
   position: fixed;
-  inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    url("img/washi-fiber.svg"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .42  0 0 0 0 .36  0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 640px 640px,200px 200px;
 }
 
 :where(.p-washi) .sec-white,
@@ -4545,7 +4525,6 @@ html:where(.p-washi) {
 /* ==========================================================
    仕上げ（最後に適用）
    ========================================================== */
-
 .t-head__en span {
   display: none;
 }
@@ -5095,7 +5074,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 /* ==========================================================
    お知らせページ
    ========================================================== */
-
 :where(.p-sub) .theme-news {
   --grad: linear-gradient(125deg, #06194F 0%, #0A2C9E 55%, #0B72D8 100%);
 }
@@ -5173,7 +5151,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 /* ==========================================================
    流れる帯（事業のキーワード）
    ========================================================== */
-
 :where(.p-top) .t-ticker {
   position: relative;
   overflow: hidden;
@@ -5294,7 +5271,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 /* ==========================================================
    事業内容（スマホ）：ページ内タブと各事業の見出し
    ========================================================== */
-
 .svc-tabs {
   display: none;
 }
@@ -5439,8 +5415,7 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
     margin-right: 2px;
     border: 0;
     transform: none;
-    background:
-      linear-gradient(var(--navy), var(--navy)) center / 14px 2px no-repeat,
+    background: linear-gradient(var(--navy), var(--navy)) center / 14px 2px no-repeat,
       linear-gradient(var(--navy), var(--navy)) center / 2px 14px no-repeat;
   }
 
@@ -5458,7 +5433,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
    動きの演出（高級感：ゆっくり・控えめ・なめらか）
    共通のイージング：--ease（素早く動き出し、静かに止まる）
    ========================================================== */
-
 :root {
   --ease: cubic-bezier(.16, 1, .3, 1);
   --ease-in: cubic-bezier(.7, 0, .84, 0);
@@ -5500,8 +5474,7 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   opacity: 1;
   transform: none;
   filter: none;
-  transition:
-    opacity 1.1s var(--ease),
+  transition: opacity 1.1s var(--ease),
     transform 1.1s var(--ease),
     filter 1.1s var(--ease);
 }
@@ -5511,8 +5484,7 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 .h-pill,
 .t-link,
 .form-submit {
-  transition:
-    background-color .4s var(--ease),
+  transition: background-color .4s var(--ease),
     color .4s var(--ease),
     border-color .4s var(--ease),
     transform .25s var(--ease);
@@ -5638,8 +5610,7 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 
 /* スマホメニュー：項目が少しずつ浮かび上がる */
 .site-nav.is-open a {
-  transition:
-    opacity .7s var(--ease),
+  transition: opacity .7s var(--ease),
     transform .7s var(--ease),
     color .3s;
 }
@@ -5683,7 +5654,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 /* ==========================================================
    箇条書き：行頭の短い線をやめ、細い罫線で区切った行にする
    ========================================================== */
-
 .svc ul,
 .co-ceo__list {
   margin: 0;
@@ -5786,7 +5756,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
    縦棒の装飾をやめる
    （注記・年表・流れ・2日間の例などは、横の罫線と文字組みで区切る）
    ========================================================== */
-
 /* 注記：左の色棒をやめ、上下の細い罫線で囲む */
 .notice,
 :where(.p-washi) .notice,
@@ -5878,11 +5847,9 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   }
 }
 
-
 /* ==========================================================
    2026-11-24 点検結果の反映
    ========================================================== */
-
 /* ページを離れるとき：表示用アニメーションの値に上書きされないよう、アニメーションで消す */
 .is-leaving main,
 .is-leaving .site-foot {
@@ -5922,11 +5889,9 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   color: var(--fg-dim);
 }
 
-
 /* ----------------------------------------------------------
    AIっぽさを減らす
----------------------------------------------------------- */
-
+   ---------------------------------------------------------- */
 /* 英字ラベル前の金の短い線をやめ、字間の広い英字だけにする */
 .sec-en::before,
 :where(.p-washi) .sec-en::before,
@@ -5964,7 +5929,6 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 
 /* 開発中・企画中・分類などの小さな枠付きバッジをやめ、文字だけにする */
 .badge-soon,
-.h-badge,
 :where(.p-top) .t-biz__name em,
 :where(.p-top) .t-works em,
 :where(.p-top) .t-newsbar__cat,
@@ -5997,15 +5961,10 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
 }
 
 /* ヒーローの波線を控えめに */
-.h-kv__wave path {
-  stroke-opacity: .18;
-}
-
 
 /* ----------------------------------------------------------
    大手企業サイト水準の仕上げ
----------------------------------------------------------- */
-
+   ---------------------------------------------------------- */
 /* PCのナビ：今いるページに細い下線 */
 @media (min-width: 601px) {
   .site-nav a[aria-current="page"] .jp {
@@ -6200,11 +6159,10 @@ html.js:not(.no-splash) .kv-seq > .h-btns {
   margin: 0 6px 0 0;
 }
 
-
 /* ----------------------------------------------------------
    トップの最初の画面：インパクトの強化（配置は変えない）
    --kv0 はスプラッシュの有無による開始の遅れ
----------------------------------------------------------- */
+   ---------------------------------------------------------- */
 :where(.p-top) .h-kv {
   --kv0: 0s;
 }
@@ -6230,7 +6188,6 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 .h-kv .h-kv__panel > .h-kv__mark {
   position: absolute;
   z-index: 0;
-  left: -.04em;
   bottom: -.2em;
   font-family: var(--f-lat);
   font-weight: 800;
@@ -6239,7 +6196,6 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   letter-spacing: -.02em;
   white-space: nowrap;
   color: #fff;
-  opacity: .07;
   pointer-events: none;
   user-select: none;
 }
@@ -6248,13 +6204,6 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   opacity: 0;
   transform: translateX(-40px);
   animation: kv-mark 1.6s cubic-bezier(.22,.61,.36,1) calc(var(--kv0) + .3s) forwards;
-}
-
-@keyframes kv-mark {
-  to {
-    opacity: .07;
-    transform: none;
-  }
 }
 
 /* 線：3本が描かれていく */
@@ -6323,10 +6272,22 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 }
 
 @keyframes kv-scroll {
-  0% { transform: scaleY(0); transform-origin: top center; }
-  45% { transform: scaleY(1); transform-origin: top center; }
-  55% { transform: scaleY(1); transform-origin: bottom center; }
-  100% { transform: scaleY(0); transform-origin: bottom center; }
+  0% {
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top center;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom center;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom center;
+  }
 }
 
 .js .kv-seq > .h-kv__scroll {
@@ -6375,7 +6336,6 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 }
 
 /* --- トップの最初の画面：動き --- */
-
 /* 見出し：1行ずつ下からせり上がる */
 .h-kv h1 .kv-ln {
   display: block;
@@ -6443,14 +6403,22 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   stroke-opacity: 0;
 }
 
-.h-kv__wave .h-kv__pulse1 { stroke: #5FD6FF; }
-.h-kv__wave .h-kv__pulse2 { stroke: #FFFFFF; stroke-width: 2; }
-.h-kv__wave .h-kv__pulse3 { stroke: var(--gold-bright); }
+.h-kv__wave .h-kv__pulse1 {
+  stroke: #5FD6FF;
+}
+
+.h-kv__wave .h-kv__pulse2 {
+  stroke: #FFFFFF;
+  stroke-width: 2;
+}
+
+.h-kv__wave .h-kv__pulse3 {
+  stroke: var(--gold-bright);
+}
 
 .app .h-kv__wave .h-kv__pulse {
   stroke-dasharray: .07 .93;
-  animation:
-    kv-pulse-in .8s ease calc(var(--kv0) + 2.6s) forwards,
+  animation: kv-pulse-in .8s ease calc(var(--kv0) + 2.6s) forwards,
     kv-flow 7s linear calc(var(--kv0) + 2.6s) infinite;
 }
 
@@ -6503,11 +6471,10 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-
 /* ----------------------------------------------------------
    和紙の背景：常にゆっくり動かす
    位置と大きさ（transform）だけを動かし、スマホでも重くしない
----------------------------------------------------------- */
+   ---------------------------------------------------------- */
 :where(.p-washi) body::before {
   inset: -12%;
   animation: washi-drift 34s ease-in-out infinite alternate;
@@ -6515,22 +6482,21 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 }
 
 @keyframes washi-drift {
-  0%   { transform: translate3d(0,0,0) scale(1) rotate(0deg); }
-  33%  { transform: translate3d(4%,-3%,0) scale(1.06) rotate(2deg); }
-  66%  { transform: translate3d(-3%,4%,0) scale(1.1) rotate(-2deg); }
-  100% { transform: translate3d(3%,2%,0) scale(1.04) rotate(1deg); }
+  0% {
+    transform: translate3d(0,0,0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate3d(4%,-3%,0) scale(1.06) rotate(2deg);
+  }
+  66% {
+    transform: translate3d(-3%,4%,0) scale(1.1) rotate(-2deg);
+  }
+  100% {
+    transform: translate3d(3%,2%,0) scale(1.04) rotate(1deg);
+  }
 }
 
 /* 繊維の模様は、ゆっくり斜めに流れ続ける（640px で一周してつなぎ目を出さない） */
-:where(.p-washi) body::after {
-  inset: -640px 0 0 -640px;
-  animation: washi-fiber 140s linear infinite;
-  will-change: transform;
-}
-
-@keyframes washi-fiber {
-  to { transform: translate3d(640px,640px,0); }
-}
 
 @media (prefers-reduced-motion: reduce) {
   :where(.p-washi) body::before,
@@ -6539,11 +6505,9 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-
 /* ----------------------------------------------------------
    事業内容ページの動き
----------------------------------------------------------- */
-
+   ---------------------------------------------------------- */
 /* ページ上部：トップと同じ光の線を流し、見出しをせり上げる */
 .theme-service .page-head {
   --kv0: -.2s;
@@ -6583,8 +6547,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 .app .mv {
   opacity: 0;
   transform: translateY(26px);
-  transition:
-    opacity .9s cubic-bezier(.22,.61,.36,1) var(--d, 0s),
+  transition: opacity .9s cubic-bezier(.22,.61,.36,1) var(--d, 0s),
     transform 1.1s cubic-bezier(.19,1,.22,1) var(--d, 0s);
 }
 
@@ -6599,8 +6562,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   opacity: 1;
   transform: translateY(40%);
   clip-path: inset(0 0 100% 0);
-  transition:
-    transform 1.2s cubic-bezier(.19,1,.22,1) var(--d, 0s),
+  transition: transform 1.2s cubic-bezier(.19,1,.22,1) var(--d, 0s),
     clip-path 1.2s cubic-bezier(.19,1,.22,1) var(--d, 0s);
 }
 
@@ -6613,8 +6575,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 /* 英語のラベルは、字間が締まりながら現れる */
 .app .sec-head > .sec-en.mv {
   letter-spacing: .5em;
-  transition:
-    opacity .9s ease var(--d, 0s),
+  transition: opacity .9s ease var(--d, 0s),
     transform 1.1s cubic-bezier(.19,1,.22,1) var(--d, 0s),
     letter-spacing 1.4s cubic-bezier(.19,1,.22,1) var(--d, 0s);
 }
@@ -6643,8 +6604,12 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 
 /* 枠ごと浮かぶ（登場の動きと重ならないよう translate を使う） */
 @keyframes jt-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -10px; }
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6664,19 +6629,16 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-
 /* ----------------------------------------------------------
    ホームの動き（事業内容ページと同じ仕組み。app.js が .mv / .is-in を付ける）
----------------------------------------------------------- */
-
+   ---------------------------------------------------------- */
 /* 見出しと「Let's link.」は、線の下からせり上がる */
 .app .t-head__main > h2.mv,
 .app .t-cta__link > .t-cta__en.mv {
   opacity: 1;
   transform: translateY(40%);
   clip-path: inset(0 0 100% 0);
-  transition:
-    transform 1.2s cubic-bezier(.19,1,.22,1) var(--d, 0s),
+  transition: transform 1.2s cubic-bezier(.19,1,.22,1) var(--d, 0s),
     clip-path 1.2s cubic-bezier(.19,1,.22,1) var(--d, 0s);
 }
 
@@ -6689,8 +6651,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 /* 英語のラベルは、字間が締まりながら現れる */
 .app .t-head__main > .t-head__en.mv {
   letter-spacing: .5em;
-  transition:
-    opacity .9s ease var(--d, 0s),
+  transition: opacity .9s ease var(--d, 0s),
     transform 1.1s cubic-bezier(.19,1,.22,1) var(--d, 0s),
     letter-spacing 1.4s cubic-bezier(.19,1,.22,1) var(--d, 0s);
 }
@@ -6705,8 +6666,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   display: inline-block;
   transform: translateY(60%);
   clip-path: inset(0 0 100% 0);
-  transition:
-    transform 1.1s cubic-bezier(.19,1,.22,1) calc(var(--d, 0s) + .25s),
+  transition: transform 1.1s cubic-bezier(.19,1,.22,1) calc(var(--d, 0s) + .25s),
     clip-path 1.1s cubic-bezier(.19,1,.22,1) calc(var(--d, 0s) + .25s);
 }
 
@@ -6731,8 +6691,12 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 }
 
 @keyframes cta-nudge {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 10px 0; }
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 10px 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6751,19 +6715,17 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-
 /* ----------------------------------------------------------
    じもとーくの画面：本物のスマホらしい枠
    枠・画面・ボタンを本体（figure）にまとめ、動くときは本体ごと動く
----------------------------------------------------------- */
+   ---------------------------------------------------------- */
 .theme-service .jt-phone {
   position: relative;
   container-type: inline-size;
   padding: 6px;
   border-radius: 26px;
   background: #050608;
-  box-shadow:
-    0 0 0 1.5px #1C1F26,
+  box-shadow: 0 0 0 1.5px #1C1F26,
     0 0 0 3px #7C828E,
     0 0 0 3.5px #2A2E36,
     0 34px 46px -18px rgba(3,10,40,.55),
@@ -6874,8 +6836,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   top: 19%;
   height: 19%;
   border-radius: 2px 0 0 2px;
-  background:
-    linear-gradient(#0000 0 0) padding-box,
+  background: linear-gradient(#0000 0 0) padding-box,
     linear-gradient(90deg,#3A3F48,#9AA0AA 50%,#3A3F48);
   -webkit-mask: linear-gradient(#000 0 45%, #0000 45% 55%, #000 55% 100%);
   mask: linear-gradient(#000 0 45%, #0000 45% 55%, #000 55% 100%);
@@ -6891,8 +6852,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 @media (max-width: 600px) {
   .theme-service .jt-phone {
     padding: 4px;
-    box-shadow:
-      0 0 0 1px #1C1F26,
+    box-shadow: 0 0 0 1px #1C1F26,
       0 0 0 2px #7C828E,
       0 0 0 2.5px #2A2E36,
       0 22px 30px -14px rgba(3,10,40,.55),
@@ -6932,10 +6892,9 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-
 /* ----------------------------------------------------------
    トップの最初の画面：ロゴと社名をセットで見せる
----------------------------------------------------------- */
+   ---------------------------------------------------------- */
 .h-kv .h-kv__panel > .h-kv__logo {
   height: fit-content;
 }
@@ -6963,12 +6922,9 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {}
-
-
 /* ----------------------------------------------------------
    会社概要ページの動き（会社概要らしく、控えめに）
----------------------------------------------------------- */
+   ---------------------------------------------------------- */
 .app .theme-company .page-head .wrap > * {
   opacity: 0;
   transform: translateY(18px);
@@ -6997,8 +6953,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   opacity: 1;
   transform: translateY(30%);
   clip-path: inset(0 0 100% 0);
-  transition:
-    transform 1.3s cubic-bezier(.19,1,.22,1) var(--d, 0s),
+  transition: transform 1.3s cubic-bezier(.19,1,.22,1) var(--d, 0s),
     clip-path 1.3s cubic-bezier(.19,1,.22,1) var(--d, 0s);
 }
 
@@ -7018,13 +6973,10 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   }
 }
 
-
-
 /* ----------------------------------------------------------
    背景：繊維の線をやめ、2層のグラデーションが混ざりながら流れる
    （線が目の中の浮遊物のように見える、という声を受けて変更）
----------------------------------------------------------- */
-
+   ---------------------------------------------------------- */
 /* 奥の層：紙の地色と、大きな色のにじみ（左上→右下へ漂う） */
 :where(.p-washi)::before {
   content: "";
@@ -7032,8 +6984,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   inset: -20%;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(42vmax 34vmax at 72% 26%,rgba(0,184,240,.28),transparent 70%),
+  background: radial-gradient(42vmax 34vmax at 72% 26%,rgba(0,184,240,.28),transparent 70%),
     radial-gradient(38vmax 32vmax at 22% 72%,rgba(227,188,92,.30),transparent 70%),
     radial-gradient(30vmax 26vmax at 84% 82%,rgba(240,150,170,.22),transparent 70%),
     radial-gradient(28vmax 24vmax at 40% 40%,rgba(23,179,148,.17),transparent 70%),
@@ -7043,15 +6994,20 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 }
 
 @keyframes grad-back {
-  0%   { transform: translate3d(0,0,0) rotate(0deg) scale(1); }
-  50%  { transform: translate3d(-5%,4%,0) rotate(8deg) scale(1.08); }
-  100% { transform: translate3d(4%,-3%,0) rotate(-6deg) scale(1.04); }
+  0% {
+    transform: translate3d(0,0,0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-5%,4%,0) rotate(8deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(4%,-3%,0) rotate(-6deg) scale(1.04);
+  }
 }
 
 /* 手前の層：地色を抜き、逆向きに漂わせて色が混ざるようにする */
 :where(.p-washi) body::before {
-  background:
-    radial-gradient(36vmax 28vmax at 4% 6%,rgba(0,184,240,.22),transparent 70%),
+  background: radial-gradient(36vmax 28vmax at 4% 6%,rgba(0,184,240,.22),transparent 70%),
     radial-gradient(28vmax 24vmax at 96% 10%,rgba(227,188,92,.24),transparent 70%),
     radial-gradient(32vmax 28vmax at 84% 80%,rgba(11,114,216,.16),transparent 70%),
     radial-gradient(30vmax 24vmax at 8% 88%,rgba(23,179,148,.18),transparent 70%),

@@ -6386,7 +6386,7 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
 }
 
 .h-kv__mark > span::after {
-  content: "LINK ONE　LINK ONE　";
+  content: "Link One　Link One　";
 }
 
 @keyframes kv-marquee {
@@ -7028,4 +7028,11 @@ html.js:not(.no-splash) :where(.p-top) .h-kv {
   :where(.p-washi)::before {
     animation: none;
   }
+}
+
+/* トップの最初の画面が画面外にある間は、動きを一時停止する（app.js が .is-off を付ける） */
+.h-kv.is-off *,
+.h-kv.is-off *::before,
+.h-kv.is-off *::after {
+  animation-play-state: paused !important;
 }

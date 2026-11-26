@@ -388,3 +388,13 @@ function samePage(a, b) {
   }, { threshold: 0.6 });
   stats.forEach(function (dd) { io.observe(dd); });
 })();
+
+(function () {
+  // トップの最初の画面が画面外にある間は、流れる文字や光の動きを一時停止して電池と処理を節約する
+  // （画面に戻ると続きから動くので、見た目の動きは変わらない）
+  var hero = document.querySelector('.h-kv');
+  if (!hero || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (entries) {
+    hero.classList.toggle('is-off', !entries[0].isIntersecting);
+  }).observe(hero);
+})();
